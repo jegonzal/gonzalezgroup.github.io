@@ -6,7 +6,7 @@
       image: trevor.jpg
       email: trevordarrell [at] berkeley.edu
 
-- title: Research Scientists
+- title: Postdoctoral Researchers
   people:
     - name: Anna Rohrbach
       website: https://anna-rohrbach.net/
@@ -16,6 +16,11 @@
 
 - title: Postdocs
   people:
+    - name: Roi Herzig
+        website: https://roeiherz.github.io/
+        research_interest: Video Understanding and Compositionality
+        image: roi.jpg
+        email: roeiherz [at] berkeley.edu
 
 - title: PhD Students
   people:
@@ -43,12 +48,6 @@
       image: devin.jpg
       email: dguillory [at] berkeley.edu
 
-    - name: Parsa Mahmoudieh
-      website: https://people.eecs.berkeley.edu/~parsa.m/
-      research_interest: Reinforcement Learning, Computer Vision, Robotics
-      image: parsa.jpg
-      email: parsa.m [at] berkeley.edu
-
     - name: Medhini Narasimhan
       website: https://people.eecs.berkeley.edu/~medhini/
       research_interest: Multimodal Video Understanding
@@ -67,23 +66,11 @@
       image: suziepetryk.jpg
       email: spetryk [at] berkeley.edu
 
-    - name: Colorado Reed
-      website: http://people.eecs.berkeley.edu/~cjrd/
-      research_interest: Multimodal Representation Learning for Earth Sciences
-      image: colorado.jpg
-      email: cjrd [at] berkeley.edu
-
     - name: Sheng Shen
       website: https://sincerass.github.io/
       research_interest: Vision & Language
       image: sheng.jpg
       email: sheng.s [at] berkeley.edu
-
-    - name: Dequan Wang
-      website: https://dequan.wang/
-      research_interest: Computer Vision, Machine Learning, Robotics
-      image: dequan.jpg
-      email: dqwang [at] eecs.berkeley.edu
 
     - name: Olivia Watkins
       website: https://aliengirlliv.github.io/oliviawatkins/
@@ -168,32 +155,3 @@
       research_interest: Image and Video Generation, Vision & Medical Imaging
       image: longlian.jpg
       email: longlian [at] berkeley.edu
-
-- title: Masters Students
-  people:
-    - name: Oscar (Zhiqiu) Xu
-      website: https://www.linkedin.com/in/oscar-xu-1250821a1/
-      research_interest: Computer Vision, Representation Learning
-      image: oscarxu.jpg
-      email: oscar.xzq [at] berkeley.edu
-
-- title: Undergraduate Students
-  people:
-    - name: Maolin Mao
-      research_interest: Computer Vision
-      image: maolinmao.jpg
-      email: maolinm [at] berkeley.edu
-
-- title: Visitors
-  people:
-    - name: Dian Chen
-      website: http://dianch.github.io/
-      research_interest: Few-shot learning
-      image: dian.jpg
-      email: dian [at] berkeley.edu
-
-    - name: Roi Herzig
-      website: https://roeiherz.github.io/
-      research_interest: Video Understanding and Compositionality
-      image: roi.jpg
-      email: roeiherz [at] berkeley.edu
