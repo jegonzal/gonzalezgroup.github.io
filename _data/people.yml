@@ -157,6 +157,18 @@
       image: kumarkagrawal.jpg
       email: kagrawal [at] berkeley.edu
 
+    - name: XuDong Wang
+      website: https://people.eecs.berkeley.edu/~xdwang/
+      research_interest: Self-supervised Learning, Generative Models
+      image: xudong.png
+      email: xdwang [at] berkeley.edu
+
+    - name: Long (Tony) Lian
+      website: https://tonylian.com/
+      research_interest: Image and Video Generation, Vision & Medical Imaging
+      image: longlian.jpg
+      email: longlian [at] berkeley.edu
+
 - title: Masters Students
   people:
     - name: Oscar (Zhiqiu) Xu
