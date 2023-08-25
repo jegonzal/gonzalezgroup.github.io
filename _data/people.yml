@@ -151,6 +151,12 @@
       image: marissaramirezdechanlatte.jpg
       email: mzweig [at] berkeley.edu
 
+    - name: Kumar Krishna Agrawal
+      website: https://people.eecs.berkeley.edu/~kagrawal/
+      research_interest: Representation Learning, Systems for Computer Vision x Medicine
+      image: kumarkagrawal.jpg
+      email: kagrawal [at] berkeley.edu
+
 - title: Masters Students
   people:
     - name: Oscar (Zhiqiu) Xu
