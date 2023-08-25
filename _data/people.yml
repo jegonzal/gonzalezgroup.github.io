@@ -14,6 +14,12 @@
         image: roi.jpg
         email: roeiherz [at] berkeley.edu
 
+  - name: Boyi Li
+        website: https://sites.google.com/site/boyilics/home
+        research_interest: Multimodal Learning, Reasoning
+        image: boyi.jpg
+        email: boyili [at] berkeley.edu
+
 - title: PhD Students
   people:
     - name: Amir Bar
