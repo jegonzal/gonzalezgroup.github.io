@@ -8,14 +8,6 @@
 
 - title: Postdoctoral Researchers
   people:
-    - name: Anna Rohrbach
-      website: https://anna-rohrbach.net/
-      research_interest: Vision & Language
-      image: anja.jpg
-      email: anna.rohrbach [at] berkeley.edu
-
-- title: Postdocs
-  people:
     - name: Roi Herzig
         website: https://roeiherz.github.io/
         research_interest: Video Understanding and Compositionality
