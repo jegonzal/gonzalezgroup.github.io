@@ -157,6 +157,12 @@
       image: xudong.png
       email: xdwang [at] berkeley.edu
 
+    - name: Long (Tony) Lian
+      website: https://tonylian.com/
+      research_interest: Image and Video Generation, Vision & Medical Imaging
+      image: longlian.jpg
+      email: longlian [at] berkeley.edu
+
 - title: Masters Students
   people:
     - name: Oscar (Zhiqiu) Xu
