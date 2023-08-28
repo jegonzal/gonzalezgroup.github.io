@@ -34,23 +34,11 @@
       image: rudy.jpg
       email: rcorona [at] berkeley.edu
 
-    - name: Seth Dong Huk Park
-      website: https://scholar.google.com/citations?user=_kJ-zUYAAAAJ&hl=en
-      research_interest: Vision & Language
-      image: sethpark.png
-      email: seth.dh.park [at] eecs.berkeley.edu
-
     - name: Devin Guillory
       website: http://www.devinguillory.com/
       research_interest: Learning with limited labels
       image: devin.jpg
       email: dguillory [at] berkeley.edu
-
-    - name: Medhini Narasimhan
-      website: https://people.eecs.berkeley.edu/~medhini/
-      research_interest: Multimodal Video Understanding
-      image: medhini.png
-      email: medhini [at] berkeley.edu
 
     - name: Evonne Ng
       website: http://people.eecs.berkeley.edu/~evonne_ng/
@@ -75,12 +63,6 @@
       research_interest: Computer Vision and Robotics
       image: olivia.jpg
       email: oliviawatkins [at] berkeley.edu
-
-    - name: Tete Xiao
-      website: https://tetexiao.com/
-      research_interest: Scalable Representation Learning, Robotics
-      image: tete.jpg
-      email: txiao [at] eecs.berkeley.edu
 
     - name: Shizhan Zhu
       website: https://zhusz.github.io/homepage/
