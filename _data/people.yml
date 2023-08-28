@@ -9,16 +9,16 @@
 - title: Postdoctoral Researchers
   people:
     - name: Roi Herzig
-        website: https://roeiherz.github.io/
-        research_interest: Video Understanding and Compositionality
-        image: roi.jpg
-        email: roeiherz [at] berkeley.edu
+      website: https://roeiherz.github.io/
+      research_interest: Video Understanding and Compositionality
+      image: roi.jpg
+      email: roeiherz [at] berkeley.edu
 
-  - name: Boyi Li
-        website: https://sites.google.com/site/boyilics/home
-        research_interest: Multimodal Learning, Reasoning
-        image: boyi.jpg
-        email: boyili [at] berkeley.edu
+    - name: Boyi Li
+      website: https://sites.google.com/site/boyilics/home
+      research_interest: Multimodal Learning, Reasoning
+      image: boyi.jpeg
+      email: boyili [at] berkeley.edu
 
 - title: PhD Students
   people:
