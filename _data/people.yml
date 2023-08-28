@@ -148,6 +148,12 @@
       image: longlian.jpg
       email: longlian [at] berkeley.edu
 
+    - name: Tsung-Han (Patrick) Wu
+      website: https://tsunghan-wu.github.io/
+      research_interest: Vision and Language, Active Learning
+      image: patrick.jpg
+      email: tsunghan_wu [at] berkeley.edu
+
     - name: Stephanie Fu
       website: https://stephanie-fu.github.io/
       research_interest: Representation learning, perception
