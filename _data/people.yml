@@ -20,6 +20,12 @@
       image: boyi.jpeg
       email: boyili [at] berkeley.edu
 
+    - name: David Chan
+      website: https://dchan.cc
+      research_interest: Vision and Language
+      image: david.png
+      email: davidchan [at] berkeley.edu
+
 - title: PhD Students
   people:
     - name: Amir Bar
