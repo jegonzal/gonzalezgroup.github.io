@@ -147,3 +147,15 @@
       research_interest: Representation learning, perception
       image: stephaniefu.jpg
       email: fus [at] berkeley.edu
+
+    - name: Jiaxin Ge
+      website: https://jiaxin.ge/
+      research_interest: Vision and Language, Agent, Multi-Modality
+      image: jiaxin.jpg
+      email: gejiaxin [at] berkeley.edu
+
+    - name: Junyi Zhang
+      website: https://junyi42.com/
+      research_interest: Representation Learning, 4D
+      image: junyi.jpg
+      email: junyizhang [at] berkeley.edu
