@@ -26,14 +26,14 @@
       image: david.png
       email: davidchan [at] berkeley.edu
 
-- title: PhD Students
-  people:
     - name: Amir Bar
       website: http://amirbar.net/
       research_interest: Video Understanding
       image: amir.jpg
       email: amirb4r [at] gmail.com
 
+- title: PhD Students
+  people:
     - name: Rodolfo Corona
       website: https://rcorona.github.io/
       research_interest: Vision & Language
