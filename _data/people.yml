@@ -46,6 +46,12 @@
       image: devin.jpg
       email: dguillory [at] berkeley.edu
 
+    - name: Jerome Quenum
+      website: https://people.eecs.berkeley.edu/~jquenum/
+      research_interest: Signal Processing, Computer Vision & Artificial Intelligence
+      image: jeromequenum.jpg
+      email: jquenum [at] berkeley.edu
+
     - name: Sheng Shen
       website: https://sincerass.github.io/
       research_interest: Vision & Language
