@@ -20,6 +20,12 @@
       image: boyi.jpeg
       email: boyili [at] berkeley.edu
 
+    - name: David Chan
+      website: https://dchan.cc
+      research_interest: Vision and Language
+      image: david.png
+      email: davidchan [at] berkeley.edu
+
 - title: PhD Students
   people:
     - name: Amir Bar
@@ -40,23 +46,11 @@
       image: devin.jpg
       email: dguillory [at] berkeley.edu
 
-    - name: Evonne Ng
-      website: http://people.eecs.berkeley.edu/~evonne_ng/
-      research_interest: Social and gesture understanding
-      image: evonne.jpg
-      email: evonne_ng [at] berkeley.edu
-
     - name: Jerome Quenum
       website: https://people.eecs.berkeley.edu/~jquenum/
       research_interest: Signal Processing, Computer Vision & Artificial Intelligence
       image: jeromequenum.jpg
       email: jquenum [at] berkeley.edu
-
-    - name: Suzie Petryk
-      website: https://spetryk.github.io/
-      research_interest: Advisable Models
-      image: suziepetryk.jpg
-      email: spetryk [at] berkeley.edu
 
     - name: Sheng Shen
       website: https://sincerass.github.io/
@@ -64,21 +58,9 @@
       image: sheng.jpg
       email: sheng.s [at] berkeley.edu
 
-    - name: Olivia Watkins
-      website: https://aliengirlliv.github.io/oliviawatkins/
-      research_interest: Computer Vision and Robotics
-      image: olivia.jpg
-      email: oliviawatkins [at] berkeley.edu
-
-    - name: Shizhan Zhu
-      website: https://zhusz.github.io/homepage/
-      research_interest: 3D
-      image: shizhan.jpg
-      email: zhshzhutah2 [at] gmail.com
-
     - name: Ritwik Gupta
       website: https://ritwikgupta.me/
-      research_interest: Humanitarian assistance and disaster response
+      research_interest: Large images, chaotic environments, and public policy
       image: ritwik.jpg
       email: ritwikgupta [at] berkeley.edu
 
@@ -118,12 +100,6 @@
       image: sanjay.jpg
       email: sanjayss [at] berkeley.edu
 
-    - name: Marissa Ramirez de Chanlatte
-      website: marissachanlatte.github.io
-      research_interest: 3D Geometry & Vision, Physical Simulation
-      image: marissaramirezdechanlatte.jpg
-      email: mzweig [at] berkeley.edu
-
     - name: Kumar Krishna Agrawal
       website: https://people.eecs.berkeley.edu/~kagrawal/
       research_interest: Representation Learning, Systems for Computer Vision x Medicine
@@ -154,3 +130,14 @@
       image: stephaniefu.jpg
       email: fus [at] berkeley.edu
 
+    - name: Jiaxin Ge
+      website: https://jiaxin.ge/
+      research_interest: Vision and Language, Agent, Multi-Modality
+      image: jiaxin.jpg
+      email: gejiaxin [at] berkeley.edu
+
+    - name: Junyi Zhang
+      website: https://junyi42.com/
+      research_interest: Representation Learning, 4D
+      image: junyi.jpg
+      email: junyizhang [at] berkeley.edu
