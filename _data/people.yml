@@ -46,35 +46,11 @@
       image: devin.jpg
       email: dguillory [at] berkeley.edu
 
-    - name: Evonne Ng
-      website: http://people.eecs.berkeley.edu/~evonne_ng/
-      research_interest: Social and gesture understanding
-      image: evonne.jpg
-      email: evonne_ng [at] berkeley.edu
-
-    - name: Suzie Petryk
-      website: https://spetryk.github.io/
-      research_interest: Advisable Models
-      image: suziepetryk.jpg
-      email: spetryk [at] berkeley.edu
-
     - name: Sheng Shen
       website: https://sincerass.github.io/
       research_interest: Vision & Language
       image: sheng.jpg
       email: sheng.s [at] berkeley.edu
-
-    - name: Olivia Watkins
-      website: https://aliengirlliv.github.io/oliviawatkins/
-      research_interest: Computer Vision and Robotics
-      image: olivia.jpg
-      email: oliviawatkins [at] berkeley.edu
-
-    - name: Shizhan Zhu
-      website: https://zhusz.github.io/homepage/
-      research_interest: 3D
-      image: shizhan.jpg
-      email: zhshzhutah2 [at] gmail.com
 
     - name: Ritwik Gupta
       website: https://ritwikgupta.me/
@@ -117,12 +93,6 @@
       research_interest: Vision and Language
       image: sanjay.jpg
       email: sanjayss [at] berkeley.edu
-
-    - name: Marissa Ramirez de Chanlatte
-      website: marissachanlatte.github.io
-      research_interest: 3D Geometry & Vision, Physical Simulation
-      image: marissaramirezdechanlatte.jpg
-      email: mzweig [at] berkeley.edu
 
     - name: Kumar Krishna Agrawal
       website: https://people.eecs.berkeley.edu/~kagrawal/
