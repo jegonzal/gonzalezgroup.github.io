@@ -318,3 +318,85 @@ a:hover {
     font-size: 2rem;
 }
 
+
+/* Infinite Logo Scroll */
+.infinite-scroll-wrapper {
+  background: #ffffff;
+  padding: 1rem 0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.infinite-scroll-container {
+  margin: auto;
+  width: 100%;
+  position: relative;
+}
+
+/* .infinite-scroll {
+  display: flex;
+  width: calc(200% + 3rem);
+  animation: infiniteScroll 25s linear infinite;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 0 1rem;
+  min-width: calc(100% + 1rem);
+} */
+
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem; /* Reduced from 1rem to 0.5rem */
+  padding: 0 0.25rem; /* Reduced from 0.5rem to 0.25rem */
+  min-width: calc(100% + 0.5rem);
+}
+
+.logos img {
+  height: 60px; /* Even smaller option */
+  width: auto;
+  object-fit: contain;
+}
+
+.infinite-scroll {
+  display: flex;
+  width: calc(100% + 0.75rem); /* Adjusted to account for smaller gap */
+  animation: infiniteScroll 25s linear infinite;
+}
+
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Optional: Add fade edges */
+.infinite-scroll-wrapper::before,
+.infinite-scroll-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+}
+
+.infinite-scroll-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.infinite-scroll-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
