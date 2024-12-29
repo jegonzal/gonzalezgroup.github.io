@@ -83,7 +83,7 @@ a:hover {
 
 /* Hero Section */
 .hero {
-  padding: 4rem 2rem;
+  padding: 1rem 1rem;
   background: linear-gradient(to bottom, #f8fafc, #ffffff);
   margin-top: 0;
 }
@@ -97,7 +97,7 @@ a:hover {
 .group-photo {
   width: 100%;
   height: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   border-radius: 2px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -117,7 +117,7 @@ a:hover {
 
 /* Profile Content */
 .profile-content {
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -129,7 +129,7 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   text-align: left;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 .profile-description .about-image {
@@ -237,8 +237,9 @@ a:hover {
 .publications-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 .publication-card {
@@ -258,6 +259,7 @@ a:hover {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+  margin-top: 0rem;
   line-height: 1.4;
 }
 
@@ -273,7 +275,7 @@ a:hover {
 .publication-authors {
   font-size: 0.9rem;
   color: #4b5563;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0rem;
   line-height: 1.5;
 }
 
@@ -374,6 +376,8 @@ a:hover {
   display: flex;
   width: calc(100% + 0.75rem); /* Adjusted to account for smaller gap */
   animation: infiniteScroll 25s linear infinite;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
 }
 
 @keyframes infiniteScroll {

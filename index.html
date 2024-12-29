@@ -124,8 +124,7 @@
 
       <!-- Add this after the About section -->
       <section class="profile-content" id="publications">
-        <h3 class="menu-category-name">Latest Publications</h3>
-        <p class="publications-subtitle">Most recently added papers to Google Scholar</p>
+        <h3 class="menu-category-name division-title">Latest Publications</h3>
         <div class="publications-grid">
           {% assign publications = site.data.publications.publications | slice: 0, 9 %}
           {% for pub in publications %}
