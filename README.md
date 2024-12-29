@@ -1,7 +1,5 @@
-Darrell Group Website Portal
+Joey Group Website Portal
 =========================
-
-[![Build Status](https://travis-ci.org/CannyLab/cannylab.github.io.svg?branch=master)](https://travis-ci.org/cannylab/cannylab.github.io)
 
 Simple website portal based on https://github.com/square/square.github.io
 
@@ -43,4 +41,5 @@ Here are the steps to add projects, datasets or other content:
   <img src="/repo_images/project_image.png" style="width: 100%;">
 </div>
 ```
+
 3. Add any required images to the `repo_images` folder.

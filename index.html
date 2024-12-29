@@ -100,9 +100,8 @@
       </section>
 
       <!-- Add this after the About section -->
-      <section class="profile-content" id="publications">
+      <!-- <section class="profile-content" id="publications">
         <h3 class="menu-category-name division-title">Latest Publications</h3>
-        <!-- <p class="publications-subtitle">Most recently added papers to Google Scholar</p> -->
         <div class="publications-grid">
           {% assign publications = site.data.publications.publications | slice: 0, 6 %}
           {% for pub in publications %}
@@ -115,9 +114,30 @@
               <span class="publication-venue">{{ pub.venue }}</span>
               <span class="publication-year">{{ pub.year }}</span>
             </div>
-            <!-- <div class="publication-metrics">
-              <span class="citation-count">{{ pub.citations }} citations</span>
-            </div> -->
+          </div>
+          {% endfor %}
+        </div>
+        <div class="view-more-publications">
+          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank">View all publications</a>
+        </div>
+      </section> -->
+
+      <!-- Add this after the About section -->
+      <section class="profile-content" id="publications">
+        <h3 class="menu-category-name">Latest Publications</h3>
+        <p class="publications-subtitle">Most recently added papers to Google Scholar</p>
+        <div class="publications-grid">
+          {% assign publications = site.data.publications.publications | slice: 0, 9 %}
+          {% for pub in publications %}
+          <div class="publication-card">
+            <h4 class="publication-title">
+              <a href="{{ pub.url }}" target="_blank">{{ pub.title }}</a>
+            </h4>
+            <p class="publication-authors">{{ pub.authors }}</p>
+            <div class="publication-meta">
+              <span class="publication-venue">{{ pub.venue }}</span>
+              <!-- <span class="publication-year">{{ pub.year }}</span> -->
+            </div>
           </div>
           {% endfor %}
         </div>
