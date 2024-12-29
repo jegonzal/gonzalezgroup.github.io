@@ -8,11 +8,11 @@
   <title>Gonzalez Group at UC Berkeley</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-  <link href="/assets/base.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/assets/extra.css" media="screen" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="/assets/public/favicon.ico" />
+  <link href="./assets/base.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="./assets/extra.css" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="//assets/public/favicon.ico" />
 
-  <script src="/assets/modernizr.js" type="text/javascript"></script>
+  <script src="./assets/modernizr.js" type="text/javascript"></script>
 </head>
 
 <body onload="setModifiedDate();">
@@ -34,7 +34,7 @@
   <section class="hero">
     <div class="hero-content">
       <!-- Optional group image -->
-      <img class="group-photo" src="/profile_images/jegonzal_border.jpg" alt="Gonzalez Group Photo Collage">
+      <img class="group-photo" src="./profile_images/jegonzal_border.jpg" alt="Gonzalez Group Photo Collage">
       <h1>Joseph E. Gonzalez Group</h1>
       <p>Advancing AI Systems at UC Berkeley</p>
     </div>
@@ -57,7 +57,7 @@
       <!-- About Section -->
       <section class="profile-content" id="about">
         <div class="profile-description">
-          <img src="/profile_images/joey_good_picture.jpg" alt="Joseph E. Gonzalez" class="about-image">
+          <img src="./profile_images/joey_good_picture.jpg" alt="Joseph E. Gonzalez" class="about-image">
           <p>Joseph E. Gonzalez's group conducts research in AI systems ranging from pure systems to applications. The Digital Alchemy Lab has spawned many successful projects such as Gorilla, MemGPT, Chatbot Arena, vLLM, and more.<br> More information on current projects can be found <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">here</a></p>
         </div>
       </section>
@@ -93,7 +93,7 @@
       {% if division.people.size > 0 %}
       <section class="profile-content">
         <div id='{{ division.title | downcase }}' class='menu-category'>
-          <h3 class="menu-category-name">{{ division.title }}</h3>
+          <h3 class="menu-category-name division-title">{{ division.title }}</h3>
           <ol class="menu-category-list has-images">
             {% assign sorted = division.people | sort: 'name' %}
             {% for person in sorted %}
