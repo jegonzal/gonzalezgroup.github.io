@@ -1,149 +1,50 @@
-- title: Faculty
-  people:
-    - name: Trevor Darrell
-      website: https://people.eecs.berkeley.edu/~trevor/
-      research_interest:
-      image: trevor.jpg
-      email: trevordarrell [at] berkeley.edu
-
-- title: Postdoctoral Researchers
-  people:
-    - name: Roi Herzig
-      website: https://roeiherz.github.io/
-      research_interest: Video Understanding and Compositionality
-      image: roi.jpg
-      email: roeiherz [at] berkeley.edu
-
-    - name: Boyi Li
-      website: https://sites.google.com/site/boyilics/home
-      research_interest: Multimodal Learning, Reasoning
-      image: boyi.jpeg
-      email: boyili [at] berkeley.edu
-
-    - name: David Chan
-      website: https://dchan.cc
-      research_interest: Vision and Language
-      image: david.png
-      email: davidchan [at] berkeley.edu
-
-    - name: Amir Bar
-      website: http://amirbar.net/
-      research_interest: Video Understanding
-      image: amir.jpg
-      email: amirb4r [at] gmail.com
-
+# - title: Faculty
+#   people:
+#     - name: Joseph E. Gozalez
+#       website: https://people.eecs.berkeley.edu/~jegonzal/
+#       research_interest:
+#       image: joey_profile.jpg
+#       email: jegonzal [at] berkeley.edu
 - title: PhD Students
   people:
-    - name: Rodolfo Corona
-      website: https://rcorona.github.io/
-      research_interest: Vision & Language
-      image: rudy.jpg
-      email: rcorona [at] berkeley.edu
-
-    - name: Devin Guillory
-      website: http://www.devinguillory.com/
-      research_interest: Learning with limited labels
-      image: devin.jpg
-      email: dguillory [at] berkeley.edu
-
-    - name: Jerome Quenum
-      website: https://people.eecs.berkeley.edu/~jquenum/
-      research_interest: Signal Processing, Computer Vision & Artificial Intelligence
-      image: jeromequenum.jpg
-      email: jquenum [at] berkeley.edu
-
-    - name: Sheng Shen
-      website: https://sincerass.github.io/
-      research_interest: Vision & Language
-      image: sheng.jpg
-      email: sheng.s [at] berkeley.edu
-
-    - name: Ritwik Gupta
-      website: https://ritwikgupta.me/
-      research_interest: Large images, chaotic environments, and public policy
-      image: ritwik.jpg
-      email: ritwikgupta [at] berkeley.edu
-
-    - name: Norman Mu
-      website: http://normanmu.com/
-      research_interest: Self-supervised learning
-      image: norman.jpg
-      email: thenorm [at] berkeley.edu
-
-    - name: Grace Luo
-      website: https://scholar.google.com/citations?user=j88h_roAAAAJ&hl=en&oi=ao
-      research_interest: Vision & Language
-      image: grace.jpg
-      email: graceluo [at] berkeley.edu
-
     - name: Lisa Dunlap
       website: https://www.lisabdunlap.com/
-      research_interest: Advisable models for vision and language
+      research_interest: ML Evaluation & Everything Data
       image: lisa.jpg
       email: lisabdunlap [at] berkeley.edu
 
-    - name: Baifeng Shi
-      website: https://bfshi.github.io/
-      research_interest: Computational foundation of vision
-      image: baifeng.jpg
-      email: baifeng_shi [at] berkeley.edu
+    - name: Simon Mo
+      website: http://github.com/simon-mo 
+      research_interest: Production & open source ml systems
+      image: simon.jpg
+      email: xmo [at] berkeley.edu
 
-    - name: Giscard Biamby
-      website: https://scholar.google.com/citations?user=s0Fof5IAAAAJ&hl=en
-      research_interest: Vision and Language, Speech
-      image: giscardbiamby.jpg
-      email: gbiamby [at] berkeley.edu
-
-    - name: Sanjay Subramanian
-      website: https://people.eecs.berkeley.edu/~sanjayss/
-      research_interest: Vision and Language
-      image: sanjay.jpg
-      email: sanjayss [at] berkeley.edu
-
-    - name: Kumar Krishna Agrawal
-      website: https://people.eecs.berkeley.edu/~kagrawal/
-      research_interest: Representation Learning, Systems for Computer Vision x Medicine
-      image: kumarkagrawal.jpg
-      email: kagrawal [at] berkeley.edu
-
-    - name: XuDong Wang
-      website: https://people.eecs.berkeley.edu/~xdwang/
-      research_interest: Self-supervised Learning, Generative Models
-      image: xudong.png
-      email: xdwang [at] berkeley.edu
-
-    - name: Long (Tony) Lian
-      website: https://tonylian.com/
-      research_interest: Image and Video Generation, Vision & Medical Imaging
-      image: longlian.jpg
-      email: longlian [at] berkeley.edu
+    - name: Dacheng Li
+      website: http://dacheng-li.info/ 
+      research_interest: System Optimization for AI Workloads
+      image: dacheng.jpg
+      email: dacheng177 [at] berkeley.edu
 
     - name: Tsung-Han (Patrick) Wu
       website: https://tsunghan-wu.github.io/
-      research_interest: Vision and Language, Active Learning
+      research_interest: Vision and Language Models
       image: patrick.jpg
       email: tsunghan_wu [at] berkeley.edu
 
-    - name: Stephanie Fu
-      website: https://stephanie-fu.github.io/
-      research_interest: Representation learning, perception
-      image: stephaniefu.jpg
-      email: fus [at] berkeley.edu
+    - name: Yifan Qiao
+      website: http://yifanqiao.com/ 
+      research_interest: ML systems and runtime/OS
+      image: yifan.jpg
+      email: yifanqiao [at] berkeley.edu
 
-    - name: Jiaxin Ge
-      website: https://jiaxin.ge/
-      research_interest: Vision and Language, Agent, Multi-Modality
-      image: jiaxin.jpg
-      email: gejiaxin [at] berkeley.edu
+    - name: Shiyi Cao
+      website: https://shiyicao.com/
+      research_interest: System Optimization for AI Workloads
+      image: shiyi.jpg
+      email: shiyicao314 [at] berkeley.edu
 
-    - name: Junyi Zhang
-      website: https://junyi42.com/
-      research_interest: Representation Learning, 4D
-      image: junyi.jpg
-      email: junyizhang [at] berkeley.edu
-
-    - name: Dantong Niu
-      website: https://scholar.google.com/citations?user=AzlUrvUAAAAJ&hl=en&oi=ao
-      research_interest: Vision and Language, Robotics
-      image: dantong.jpeg
-      email: bias_88 [at] berkeley.edu
+    - name: Yichuan Wang
+      website: https://yichuan520030910320.github.io/
+      research_interest: Machine Learning Systems
+      image: yichuan.jpg
+      email:  yichuan_wang [at] berkeley.edu
