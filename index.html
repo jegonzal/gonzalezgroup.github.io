@@ -20,12 +20,12 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="/" class="logo">Digital Alchemy Lab</a>
+      <a href="/" class="logo">[cool name goes here]</a>
       <ul class="navbar-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#people">People</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <!-- <li><a href="#contact">Contact</a></li> -->
       </ul>
     </div>
   </nav>
@@ -36,7 +36,7 @@
       <!-- Optional group image -->
       <img class="group-photo" src="./profile_images/jegonzal_border.jpg" alt="Gonzalez Group Photo Collage">
       <h1>Joseph E. Gonzalez Group</h1>
-      <p>Advancing AI Systems at UC Berkeley</p>
+      <p>Advancing AI Systems at UC Berkeley [cool name: (DAIS Lab? DATUM?)]</p>
     </div>
   </section>
 
@@ -95,7 +95,7 @@
       <section class="profile-content" id="about">
         <div class="profile-description">
           <img src="./profile_images/joey_good_picture.jpg" alt="Joseph E. Gonzalez" class="about-image">
-          <p><strong>Joseph E. Gonzalez's</strong> group conducts research in AI systems ranging from pure systems to applications. The Digital Alchemy Lab has spawned many successful projects such as Gorilla, MemGPT, Chatbot Arena, vLLM, and more.<br> More information on current projects can be found <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">here</a></p>
+          <p><strong>Joseph E. Gonzalez's</strong> group conducts research in AI systems ranging from pure systems to applications. His lab has spawned many successful projects such as Gorilla, MemGPT, Chatbot Arena, vLLM, and more.<br> More information on current projects can be found <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">here</a></p>
         </div>
       </section>
 
@@ -123,7 +123,7 @@
       </section> -->
 
       <!-- Add this after the About section -->
-      <section class="profile-content" id="publications">
+      <section class="profile-content" id="research">
         <h3 class="menu-category-name division-title">Latest Publications</h3>
         <div class="publications-grid">
           {% assign publications = site.data.publications.publications | slice: 0, 9 %}
@@ -148,7 +148,7 @@
       <!-- People Section -->
       {% for division in site.data.people %}
       {% if division.people.size > 0 %}
-      <section class="profile-content">
+      <section class="profile-content" id="people">
         <div id='{{ division.title | downcase }}' class='menu-category'>
           <h3 class="menu-category-name division-title">{{ division.title }}</h3>
           <ol class="menu-category-list has-images">
@@ -179,7 +179,7 @@
             <a href="#about">About</a> |
             <a href="#research">Research</a> |
             <a href="#people">People</a> |
-            <a href="#contact">Contact</a>
+            <!-- <a href="#contact">Contact</a> -->
           </div>
           <p>© Regents of the University of California. All rights reserved. Last updated at <span id="last-modified"></span>.</p>
         </nav>
