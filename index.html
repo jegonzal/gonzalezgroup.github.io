@@ -95,15 +95,16 @@
       <section class="profile-content" id="about">
         <div class="profile-description">
           <img src="./profile_images/joey_good_picture.jpg" alt="Joseph E. Gonzalez" class="about-image">
-          <p>Joseph E. Gonzalez's group conducts research in AI systems ranging from pure systems to applications. The Digital Alchemy Lab has spawned many successful projects such as Gorilla, MemGPT, Chatbot Arena, vLLM, and more.<br> More information on current projects can be found <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">here</a></p>
+          <p><strong>Joseph E. Gonzalez's</strong> group conducts research in AI systems ranging from pure systems to applications. The Digital Alchemy Lab has spawned many successful projects such as Gorilla, MemGPT, Chatbot Arena, vLLM, and more.<br> More information on current projects can be found <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">here</a></p>
         </div>
       </section>
 
-      <!-- Publications Section
+      <!-- Add this after the About section -->
       <section class="profile-content" id="publications">
-        <h3 class="menu-category-name">Recent Publications</h3>
+        <h3 class="menu-category-name division-title">Latest Publications</h3>
+        <!-- <p class="publications-subtitle">Most recently added papers to Google Scholar</p> -->
         <div class="publications-grid">
-          {% assign publications = site.data.publications.publications | slice: 0, 10 %}
+          {% assign publications = site.data.publications.publications | slice: 0, 6 %}
           {% for pub in publications %}
           <div class="publication-card">
             <h4 class="publication-title">
@@ -114,16 +115,16 @@
               <span class="publication-venue">{{ pub.venue }}</span>
               <span class="publication-year">{{ pub.year }}</span>
             </div>
-            <div class="publication-metrics">
+            <!-- <div class="publication-metrics">
               <span class="citation-count">{{ pub.citations }} citations</span>
-            </div>
+            </div> -->
           </div>
           {% endfor %}
         </div>
         <div class="view-more-publications">
-          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank">View all publications on Google Scholar</a>
+          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank">View all publications</a>
         </div>
-      </section> -->
+      </section>
 
       <!-- People Section -->
       {% for division in site.data.people %}
