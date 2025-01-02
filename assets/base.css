@@ -95,7 +95,7 @@ a:hover {
 }
 
 .group-photo {
-  width: 100%;
+  width: 95%;
   height: auto;
   margin-bottom: 1rem;
   border-radius: 2px;
@@ -352,13 +352,6 @@ a:hover {
   padding: 0rem 0.25rem;
   flex-wrap: nowrap;
 }
-
-/* .logos img {
-  height: 60px; 
-  width: auto;
-  object-fit: contain;
-  padding: 0rem 1.5rem;
-} */
 
 .logos img {
   flex-shrink: 0;  /* Prevent images from shrinking */
