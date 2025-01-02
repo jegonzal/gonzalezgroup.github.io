@@ -55,6 +55,12 @@ def get_author_publications(scholar_id="B96GkdgAAAAJ"):
         
         # srt by year
         publications.sort(key=lambda x: int(x['year']), reverse=True)
+        # randomly shuffle rows with the same year
+        for year in set(pub['year'] for pub in publications):
+            year_pubs = [pub for pub in publications if pub['year'] == year]
+            random.shuffle(year_pubs)
+            publications.remove(year_pubs)
+            publications.extend(year_pubs)
         
         return {
             'stats': stats,
@@ -209,3 +215,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    
