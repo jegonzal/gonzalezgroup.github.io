@@ -329,7 +329,7 @@ a:hover {
 /* Infinite Logo Scroll */
 .infinite-scroll-wrapper {
   background: #ffffff;
-  padding: 1rem 0;
+  padding: 2rem 0;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -348,20 +348,29 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 0.5rem;
-  padding: 0 0.25rem;
-  min-width: calc(100% + 0.5rem);
+  gap: 1rem;
+  padding: 0rem 0.25rem;
+  flex-wrap: nowrap;
 }
 
+/* .logos img {
+  height: 60px; 
+  width: auto;
+  object-fit: contain;
+  padding: 0rem 1.5rem;
+} */
+
 .logos img {
+  flex-shrink: 0;  /* Prevent images from shrinking */
   height: 60px;
   width: auto;
   object-fit: contain;
+  padding: 0rem 1rem;
 }
 
 .infinite-scroll {
   display: flex;
-  width: calc(100% + 0.75rem);
+  width: calc(100% + 1rem); /* Adjusted to account for smaller gap */
   animation: infiniteScroll 25s linear infinite;
   margin-top: 0rem;
   margin-bottom: 1rem;
