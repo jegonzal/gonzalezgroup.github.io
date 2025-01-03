@@ -13,6 +13,7 @@
   <link rel="shortcut icon" href="./assets/public/favicon.ico" />
 
   <script src="./assets/modernizr.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body onload="setModifiedDate();">
@@ -122,12 +123,16 @@
             <li class="menu-item">
               <div class="menu-item-info">
                 <img src="./profile_images/{{ person.image }}" loading="lazy" alt="{{ person.name }}">
-                <h4 class="menu-item-name">{{ person.name }}</h4>
-                <span class="menu-item-price">
-                  <a href="{{ person.website }}" target="_blank">Home Page</a>
-                </span>
-                <p class="menu-item-description">{{ person.research_interest }}</p>
-                <!-- <p class="menu-item-description">{{ person.email }}</p> -->
+                <div class="name-and-social">
+                  <h4 class="menu-item-name">{{ person.name }}</h4>
+                  <div class="social-links">
+                    <a href="{{ person.website }}" target="_blank" class="homepage-icon"><i class="fas fa-home"></i></a>
+                    {% if person.twitter %}
+                    <a href="{{ person.twitter }}" target="_blank" class="twitter-icon"><i class="fab fa-twitter"></i></a>
+                    {% endif %}
+                  </div>
+                </div>
+                <p class="menu-item-description"">{{ person.research_interest }}</p>
               </div>
             </li>
             {% endfor %}

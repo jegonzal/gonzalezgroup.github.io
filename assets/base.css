@@ -398,3 +398,28 @@ a:hover {
   right: 0;
   background: linear-gradient(to left, #ffffff, transparent);
 }
+
+.twitter-icon {
+  color: #1DA1F2;  /* Twitter blue color */
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.twitter-icon:hover {
+  opacity: 0.8;
+}
+
+.name-and-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item-name {
+  margin: 0;
+}
+
+.social-links {
+  display: inline-flex;
+  gap: 10px;
+}

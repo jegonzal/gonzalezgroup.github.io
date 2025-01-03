@@ -12,24 +12,28 @@
       research_interest: ML Evaluation & Everything Data
       image: lisa.jpg
       email: lisabdunlap [at] berkeley.edu
+      twitter: https://twitter.com/lisabdunlap
 
     - name: Simon Mo
       website: http://github.com/simon-mo 
       research_interest: Production & open source ml systems
       image: simon.jpg
       email: xmo [at] berkeley.edu
+      twitter: https://twitter.com/simon_mo_
 
     - name: Dacheng Li
       website: http://dacheng-li.info/ 
       research_interest: Full-stack modeling and systems
       image: dacheng.jpg
       email: dacheng177 [at] berkeley.edu
+      twitter: https://twitter.com/DachengLi177
 
     - name: Tsung-Han (Patrick) Wu
       website: https://tsunghan-wu.github.io/
       research_interest: Vision and Language Models
       image: patrick.jpg
       email: tsunghan_wu [at] berkeley.edu
+      twitter: https://twitter.com/tsunghan_wu
 
     - name: Yifan Qiao
       website: http://yifanqiao.com/ 
@@ -42,12 +46,14 @@
       research_interest: System Optimization for AI Workloads
       image: shiyi.jpg
       email: shiyicao314 [at] berkeley.edu
+      twitter: https://twitter.com/shiyi_c98
 
     - name: Yichuan Wang
       website: https://yichuan520030910320.github.io/
       research_interest: Machine Learning Systems
       image: yichuan.jpg
       email:  yichuan_wang [at] berkeley.edu
+      twitter: https://twitter.com/YichuanM
 
     - name: Alan Zhu
       website: https://az1326.github.io/ 
@@ -60,21 +66,25 @@
       research_interest: LLM DataSystems
       image: asim.jpg
       email: abiswal [at] berkeley.edu
+      twitter: https://twitter.com/_asimbiswal
 
     - name: Peter Schafhalter
       website: https://pschafhalter.com/
       research_interest: Autonomous driving systems
       image: peter.jpg
       email: pschafhalter [at] berkeley.edu
+      twitter: https://twitter.com/pschafhalter
 
     - name: Justin Wong
       website: https://people.eecs.berkeley.edu/~wong.justin/ 
       research_interest: LLM Optimization
       image: justin.jpg
       email: wong.justin [at] berkeley.edu
+      twitter: https://twitter.com/justinywong_
 
     - name: Shu (Lynn) Liu
       website: https://www.linkedin.com/in/slynl/
       research_interest: ML Data Systems
       image: shu.jpg
       email: lshu [at] berkeley.edu
+      twitter: https://x.com/LynnLiu41887950
