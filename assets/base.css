@@ -364,7 +364,7 @@ a:hover {
 .infinite-scroll {
   display: flex;
   width: calc(100% + 1rem); /* Adjusted to account for smaller gap */
-  animation: infiniteScroll 25s linear infinite;
+  animation: infiniteScroll 30s linear infinite;
   margin-top: 0rem;
   margin-bottom: 1rem;
 }
