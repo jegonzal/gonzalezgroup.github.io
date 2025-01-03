@@ -43,3 +43,8 @@ Here are the steps to add projects, datasets or other content:
 ```
 
 3. Add any required images to the `repo_images` folder.
+
+Updating Publications
+-----------
+
+Run `python generate_publications_html.py` to generate a "publications.html" page.
