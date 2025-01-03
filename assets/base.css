@@ -399,6 +399,12 @@ a:hover {
   background: linear-gradient(to left, #ffffff, transparent);
 }
 
+@media (max-width: 768px) {
+  .infinite-scroll {
+    animation-duration: 15s; /* or whatever feels right */
+  }
+}
+
 .twitter-icon {
   color: #1DA1F2;  /* Twitter blue color */
   font-size: 1.2em;
