@@ -53,15 +53,18 @@ def get_author_publications(scholar_id="B96GkdgAAAAJ"):
                 print(f"Error processing publication: {e}")
                 continue
         
-        # srt by year
+        # Sort by year and shuffle publications within same year
         publications.sort(key=lambda x: int(x['year']), reverse=True)
-        # randomly shuffle rows with the same year
-        for year in set(pub['year'] for pub in publications):
+        
+        # Create new list for sorted and shuffled publications
+        sorted_publications = []
+        for year in sorted(set(pub['year'] for pub in publications), reverse=True):
             year_pubs = [pub for pub in publications if pub['year'] == year]
             random.shuffle(year_pubs)
-            publications.remove(year_pubs)
-            publications.extend(year_pubs)
+            sorted_publications.extend(year_pubs)
         
+        publications = sorted_publications
+
         return {
             'stats': stats,
             'publications': publications,
