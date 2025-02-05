@@ -60,6 +60,7 @@
       research_interest: Agentic AI Systems
       image: alan.jpg
       email: aczhu [at] berkeley.edu
+      twitter: https://x.com/aczhu1326
 
     - name: Asim Biswal
       website: https://x.com/_asimbiswal 
@@ -77,7 +78,7 @@
 
     - name: Justin Wong
       website: https://people.eecs.berkeley.edu/~wong.justin/ 
-      research_interest: LLM Optimization
+      research_interest: Diverse Generation for LLM Creativity
       image: justin.jpg
       email: wong.justin [at] berkeley.edu
       twitter: https://twitter.com/justinywong_
