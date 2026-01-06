@@ -6,6 +6,7 @@ import random
 import os
 import yaml
 import argparse
+import re
 from typing import Any, Optional, TypedDict, List, Dict
 
 
@@ -76,6 +77,75 @@ def _parse_year_from_pub_bib(pub: Any) -> Optional[int]:
         return int(year_value)
     except (TypeError, ValueError):
         return None
+
+
+def _normalize_whitespace(text: str) -> str:
+    """
+    Normalize whitespace for stable string comparisons.
+
+    Args:
+        text: Any string.
+
+    Returns:
+        A string with leading/trailing whitespace removed and internal whitespace collapsed.
+    """
+    return " ".join(text.split())
+
+
+def _extract_leading_acronym(title: str) -> Optional[str]:
+    """
+    Extract a leading acronym of the form 'ACRONYM: ...' from a title.
+
+    Examples:
+        - "BARE: Something" -> "bare"
+        - "S*: Test time scaling" -> "s*"
+
+    Args:
+        title: Publication title.
+
+    Returns:
+        The leading acronym lowercased, or None if no leading 'X:' pattern exists.
+    """
+    match = re.match(r"^\s*([A-Za-z0-9\*\-]{2,15})\s*:\s+", title)
+    if match is None:
+        return None
+    return match.group(1).lower()
+
+
+def _dedupe_publications(publications: List[Publication]) -> List[Publication]:
+    """
+    Dedupe publications to avoid near-identical entries showing up twice on the homepage.
+
+    Deduping strategy:
+    - If a title starts with an acronym like 'BARE: ...', we treat publications with the
+      same (year, authors, acronym) as duplicates and keep the first.
+    - Otherwise, we dedupe by (year, normalized_title).
+
+    Args:
+        publications: List of publication dicts.
+
+    Returns:
+        A new list with duplicates removed, preserving the first occurrence.
+    """
+    seen: set[tuple] = set()
+    deduped: List[Publication] = []
+
+    for pub in publications:
+        title_norm = _normalize_whitespace(pub["title"]).lower()
+        authors_norm = _normalize_whitespace(pub["authors"]).lower()
+        acronym = _extract_leading_acronym(pub["title"])
+
+        if acronym is not None:
+            key = ("acronym", int(pub["year"]), authors_norm, acronym)
+        else:
+            key = ("title", int(pub["year"]), title_norm)
+
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(pub)
+
+    return deduped
 
 
 def get_author_publications(
@@ -154,6 +224,8 @@ def get_author_publications(
                 print(f"Error processing publication: {e}")
                 continue
         
+        publications = _dedupe_publications(publications)
+
         # Sort by year and shuffle publications within the same year (more efficiently than O(n^2) filtering).
         year_to_pubs: Dict[int, List[Publication]] = {}
         for pub in publications:

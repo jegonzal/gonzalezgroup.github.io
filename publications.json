@@ -46,16 +46,6 @@
       "bib_id": "B96GkdgAAAAJ:qe6vwMD2xtsC"
     },
     {
-      "title": "Bare: Combining base and instruction-tuned language models for better synthetic data generation",
-      "authors": "Alan Zhu and Parth Asawa and Jared Quincy Davis and Lingjiao Chen and Boris Hanin and Ion Stoica and Joseph E Gonzalez and Matei Zaharia",
-      "venue": "arXiv e-prints",
-      "year": 2025,
-      "citations": 7,
-      "url": "https://scholar.google.com/citations?view_op=view_citation&citation_for_view=B96GkdgAAAAJ:oi2SiIJ9l4AC",
-      "abstract": "As the demand for high-quality data in model training grows, researchers and developers are increasingly generating synthetic data to tune and train LLMs. A common assumption about synthetic data is that sampling from instruct-tuned models is sufficient; however, these models struggle to produce diverse outputs-a key requirement for generalization. Despite various prompting methods, in this work we show that achieving meaningful diversity from instruct-tuned models remains challenging. In contrast, we find base models without post-training exhibit greater diversity, but are less capable at instruction following and hence of lower quality. Leveraging this insight, we propose Base-Refine (BARE), a synthetic data generation method that combines the diversity of base models with the quality of instruct-tuned models through a two-stage process. With minimal few-shot examples and curation, BARE generates …",
-      "bib_id": "B96GkdgAAAAJ:oi2SiIJ9l4AC"
-    },
-    {
       "title": "Adaptive Semantic Prompt Caching with VectorQ",
       "authors": "Luis Gaspar Schroeder and Shu Liu and Alejandro Cuadron and Mark Zhao and Stephan Krusche and Alfons Kemper and Matei Zaharia and Joseph E Gonzalez",
       "venue": "arXiv e-prints",
