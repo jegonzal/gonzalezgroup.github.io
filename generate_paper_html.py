@@ -1,15 +1,100 @@
 from scholarly import scholarly
 import json
 import datetime
-import pandas as pd
 import time
 import random
 import os
 import yaml
+import argparse
+from typing import Any, Optional, TypedDict, List, Dict
 
-def get_author_publications(scholar_id="B96GkdgAAAAJ"):
+
+class Publication(TypedDict):
     """
-    Fetch publications from Google Scholar for a specific author ID
+    A normalized publication record used by the website and preview HTML.
+
+    Keys:
+    - title: Paper title.
+    - authors: Author string as returned by Google Scholar.
+    - venue: Venue/journal/conference/preprint string.
+    - year: Publication year as an int.
+    - citations: Number of citations as an int.
+    - url: Google Scholar citation URL.
+    - abstract: Abstract string (may be empty).
+    - bib_id: Google Scholar author publication id (stable per author).
+    """
+
+    title: str
+    authors: str
+    venue: str
+    year: int
+    citations: int
+    url: str
+    abstract: str
+    bib_id: str
+
+
+class AuthorPublications(TypedDict):
+    """
+    Publications payload written to `publications.json`, `_data/publications.yml`,
+    and used to build `publications_preview.html`.
+
+    Keys:
+    - stats: Dict with citation stats for the author.
+      - citations: int
+      - h_index: int
+      - i10_index: int
+    - publications: List of `Publication`.
+    - last_updated: Timestamp string in '%Y-%m-%d %H:%M:%S' format.
+    """
+
+    stats: Dict[str, int]
+    publications: List[Publication]
+    last_updated: str
+
+
+def _parse_year_from_pub_bib(pub: Any) -> Optional[int]:
+    """
+    Extract a publication year from a Scholar publication object (filled or unfilled).
+
+    Expected input:
+    - pub: A dict-like object from `scholarly`, potentially containing `bib`.
+
+    Returns:
+    - int year if parseable, otherwise None.
+    """
+    if not isinstance(pub, dict):
+        return None
+    bib = pub.get("bib")
+    if not isinstance(bib, dict):
+        return None
+
+    year_value = bib.get("pub_year", bib.get("year"))
+    if year_value is None:
+        return None
+    try:
+        return int(year_value)
+    except (TypeError, ValueError):
+        return None
+
+
+def get_author_publications(
+    scholar_id: str = "B96GkdgAAAAJ",
+    since_year: Optional[int] = None,
+) -> Optional[AuthorPublications]:
+    """
+    Fetch publications from Google Scholar for a specific author ID.
+
+    This function is the slow part of the update pipeline because it calls
+    `scholarly.fill()` for each publication we include.
+
+    Args:
+        scholar_id: Google Scholar author id (e.g. "B96GkdgAAAAJ").
+        since_year: If provided, only include publications with year >= since_year.
+            This speeds up execution by skipping older publications entirely.
+
+    Returns:
+        A dict with keys: `stats`, `publications`, `last_updated`, or None on failure.
     """
     try:
         # Search for author by ID
@@ -29,16 +114,32 @@ def get_author_publications(scholar_id="B96GkdgAAAAJ"):
         publications = []
         
         # Fill publication details
-        for i, pub in enumerate(author['publications']):
-            print(f"Processing publication {i+1} of {len(author['publications'])}")
+        total_pubs = len(author.get("publications", []))
+        for i, pub in enumerate(author.get('publications', [])):
+            print(f"Processing publication {i+1} of {total_pubs}")
+            pub_year_unfilled = _parse_year_from_pub_bib(pub)
+            if since_year is not None:
+                # If year is missing, skip it to keep the pipeline fast and deterministic.
+                if pub_year_unfilled is None:
+                    continue
+                if pub_year_unfilled < since_year:
+                    continue
             try:
                 pub_filled = scholarly.fill(pub)
+
+                pub_year_filled = _parse_year_from_pub_bib(pub_filled)
+                if since_year is not None:
+                    # If year can't be determined even after fill, skip it.
+                    if pub_year_filled is None:
+                        continue
+                    if pub_year_filled < since_year:
+                        continue
                 
                 pub_dict = {
                     'title': pub_filled['bib'].get('title', ''),
                     'authors': pub_filled['bib'].get('author', ''),
                     'venue': pub_filled['bib'].get('journal', pub_filled['bib'].get('conference', '')),
-                    'year': pub_filled['bib'].get('pub_year', 0),
+                    'year': pub_year_filled if pub_year_filled is not None else 0,
                     'citations': pub_filled.get('num_citations', 0),
                     'url': f"https://scholar.google.com/citations?view_op=view_citation&citation_for_view={pub_filled['author_pub_id']}",
                     'abstract': pub_filled['bib'].get('abstract', ''),
@@ -53,16 +154,17 @@ def get_author_publications(scholar_id="B96GkdgAAAAJ"):
                 print(f"Error processing publication: {e}")
                 continue
         
-        # Sort by year and shuffle publications within same year
-        publications.sort(key=lambda x: int(x['year']), reverse=True)
-        
-        # Create new list for sorted and shuffled publications
-        sorted_publications = []
-        for year in sorted(set(pub['year'] for pub in publications), reverse=True):
-            year_pubs = [pub for pub in publications if pub['year'] == year]
+        # Sort by year and shuffle publications within the same year (more efficiently than O(n^2) filtering).
+        year_to_pubs: Dict[int, List[Publication]] = {}
+        for pub in publications:
+            year_to_pubs.setdefault(int(pub["year"]), []).append(pub)
+
+        sorted_publications: List[Publication] = []
+        for year in sorted(year_to_pubs.keys(), reverse=True):
+            year_pubs = year_to_pubs[year]
             random.shuffle(year_pubs)
             sorted_publications.extend(year_pubs)
-        
+
         publications = sorted_publications
 
         return {
@@ -194,8 +296,23 @@ def main():
     """
     Main function to update publications
     """
+    parser = argparse.ArgumentParser(description="Fetch and write recent publications data from Google Scholar.")
+    parser.add_argument(
+        "--scholar-id",
+        type=str,
+        default="B96GkdgAAAAJ",
+        help="Google Scholar author id (default: B96GkdgAAAAJ).",
+    )
+    parser.add_argument(
+        "--since-year",
+        type=int,
+        default=datetime.datetime.now().year - 5,
+        help="Only include publications with year >= this value (default: current_year - 5).",
+    )
+    args = parser.parse_args()
+
     print("Fetching publications from Google Scholar...")
-    data = get_author_publications()
+    data = get_author_publications(scholar_id=args.scholar_id, since_year=args.since_year)
     
     if data:
         # Save JSON (original format)

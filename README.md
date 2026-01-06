@@ -14,8 +14,13 @@ bundle exec jekyll serve
 ```
 
 ### To update the papers page
-1. Run the python script `generate_paper_html.py` in the root folder to generate a "papers.html" page.
-2. Commit the new "papers.html" page to the repository.
+This repo’s homepage shows a small “Recent Publications” section sourced from `_data/publications.yml`.
+
+1. Run the python script `generate_paper_html.py` in the root folder to fetch publications from Google Scholar and write:
+   - `_data/publications.yml` (used by `index.html`)
+   - `publications.json` (same data in JSON form)
+   - `publications_preview.html` (a standalone preview page)
+2. Commit the updated files.
 
 Adding a Person
 -----------
@@ -47,4 +52,7 @@ Here are the steps to add projects, datasets or other content:
 Updating Publications
 -----------
 
-Run `python generate_publications_html.py` to generate a "publications.html" page.
+Run `python generate_paper_html.py --since-year YEAR` to update the publications data files.
+
+Notes:
+- By default, the script only includes publications with year >= (current year - 5). Override with `--since-year`.

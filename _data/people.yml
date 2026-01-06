@@ -9,7 +9,7 @@
   people:
     - name: Lisa Dunlap
       website: https://www.lisabdunlap.com/
-      research_interest: ML Evaluation & Everything Data
+      research_interest: Agentic Evaluation
       image: lisa.jpg
       email: lisabdunlap [at] berkeley.edu
       twitter: https://twitter.com/lisabdunlap
@@ -68,13 +68,6 @@
       image: asim.jpg
       email: abiswal [at] berkeley.edu
       twitter: https://twitter.com/_asimbiswal
-
-    - name: Peter Schafhalter
-      website: https://pschafhalter.com/
-      research_interest: Autonomous driving systems
-      image: peter.jpg
-      email: pschafhalter [at] berkeley.edu
-      twitter: https://twitter.com/pschafhalter
 
     - name: Justin Wong
       website: https://people.eecs.berkeley.edu/~wong.justin/ 

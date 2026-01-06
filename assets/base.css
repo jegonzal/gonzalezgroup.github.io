@@ -178,14 +178,6 @@ a:hover {
   text-align: center;
 }
 
-.group-photo {
-  width: 95%;
-  height: auto;
-  margin-bottom: 1rem;
-  border-radius: 2px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
