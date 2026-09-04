@@ -1,0 +1,48 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "Gonzalez Group at UC Berkeley",
+      "alternateName": "Joey Gonzalez",
+      "publisher": { "@id": "{{ site.url }}/#group" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}/#webpage",
+      "url": "{{ site.url }}/",
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "en",
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "about": [{ "@id": "{{ site.url }}/#joey" }, { "@id": "{{ site.url }}/#group" }]
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#joey",
+      "name": "Joseph E. Gonzalez",
+      "alternateName": "Joey Gonzalez",
+      "url": "{{ site.url }}/",
+      "image": "{{ site.url }}/profile_images/joey.jpg",
+      "jobTitle": "Associate Professor",
+      "worksFor": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley", "url": "https://www.berkeley.edu/" },
+      "affiliation": [
+        { "@type": "Organization", "name": "Berkeley Sky Computing Lab", "url": "https://sky.cs.berkeley.edu/" },
+        { "@type": "Organization", "name": "Berkeley Artificial Intelligence Research (BAIR)", "url": "https://bair.berkeley.edu/" },
+        { "@type": "Organization", "name": "LMSYS", "url": "https://www.lmsys.org/" }
+      ],
+      "sameAs": ["https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#group",
+      "name": "Gonzalez Group",
+      "url": "{{ site.url }}/",
+      "parentOrganization": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley", "url": "https://www.berkeley.edu/" }
+    }
+  ]
+}
+</script>

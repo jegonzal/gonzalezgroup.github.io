@@ -1,117 +1,347 @@
-# - title: Faculty
-#   people:
-#     - name: Joseph E. Gozalez
-#       website: https://people.eecs.berkeley.edu/~jegonzal/
-#       research_interest:
-#       image: joey_profile.jpg
-#       email: jegonzal [at] berkeley.edu
-- title: Current PhD Students
-  people:
-    - name: Lisa Dunlap
-      website: https://www.lisabdunlap.com/
-      research_interest: Agentic Evaluation
-      image: lisa.jpg
-      email: lisabdunlap [at] berkeley.edu
-      twitter: https://twitter.com/lisabdunlap
-
-    - name: Simon Mo
-      website: http://github.com/simon-mo 
-      research_interest: Production & open source ml systems
-      image: simon.jpg
-      email: xmo [at] berkeley.edu
-      twitter: https://twitter.com/simon_mo_
-
-    - name: Dacheng Li
-      website: http://dacheng-li.info/ 
-      research_interest: Full-stack modeling and systems
-      image: dacheng.jpg
-      email: dacheng177 [at] berkeley.edu
-      twitter: https://twitter.com/DachengLi177
-
-    - name: Tsung-Han (Patrick) Wu
-      website: https://tsunghan-wu.github.io/
-      research_interest: Vision and Language Models
-      image: patrick.jpg
-      email: tsunghan_wu [at] berkeley.edu
-      twitter: https://twitter.com/tsunghan_wu
-
-    - name: Yifan Qiao
-      website: http://yifanqiao.com/ 
-      research_interest: ML systems and runtime/OS
-      image: yifan.jpg
-      email: yifanqiao [at] berkeley.edu
-
-    - name: Shiyi Cao
-      website: https://shiyicao.com/
-      research_interest: System Optimization for AI Workloads
-      image: shiyi.jpg
-      email: shiyicao314 [at] berkeley.edu
-      twitter: https://twitter.com/shiyi_c98
-
-    - name: Yichuan Wang
-      website: https://yichuan-w.github.io/
-      research_interest: Machine Learning Systems
-      image: yichuan.jpg
-      email:  yichuan_wang [at] berkeley.edu
-      twitter: https://twitter.com/YichuanM
-
-    - name: Alan Zhu
-      website: https://az1326.github.io/ 
-      research_interest: Agentic AI Systems
-      image: alan.jpg
-      email: aczhu [at] berkeley.edu
-      twitter: https://x.com/aczhu1326
-
-    - name: Asim Biswal
-      website: https://x.com/_asimbiswal 
-      research_interest: LLM DataSystems
-      image: asim.jpg
-      email: abiswal [at] berkeley.edu
-      twitter: https://twitter.com/_asimbiswal
-
-    - name: Justin Wong
-      website: https://people.eecs.berkeley.edu/~wong.justin/ 
-      research_interest: Diverse Generation for LLM Creativity
-      image: justin.jpg
-      email: wong.justin [at] berkeley.edu
-      twitter: https://twitter.com/justinywong_
-
-    - name: Shu (Lynn) Liu
-      website: https://www.linkedin.com/in/slynl/
-      research_interest: ML Data Systems
-      image: shu.jpg
-      email: lshu [at] berkeley.edu
-      twitter: https://x.com/LynnLiu41887950
-
-    - name: Mir Miroyan
-      website: https://mihranmiroyan.github.io/
-      research_interest: AI-Psychology, human-AI interaction
-      image: mihran.jpg
-      email: miroyan.mihran [at] berkeley.edu
-
-    - name: Guangyu Feng
-      website: https://www.linkedin.com/in/guangyu-feng-315667294/
-      research_interest: 
-      image: guangyu.jpg
-      email: guangyu_feng [at] berkeley.edu
-
-    - name: Colin Wang
-      website: https://zwcolin.github.io/
-      research_interest: Multimodal Models, Reasoning and Decision Making
-      image: colin.png
-      email: zwcolin [at] berkeley.edu
-      twitter: https://x.com/zwcolin
-
-    - name: Huanzhi (Hans) Mao
-      website: https://huanzhimao.com/
-      research_interest: Agentic AI Evaluation and Training
-      image: huanzhi.jpeg
-      email: huanzhimao [at] berkeley.edu
-      twitter: https://x.com/HuanzhiMao
-
-    - name: Parth Asawa
-      website: https://pgasawa.github.io/
-      research_interest: Continual Learning
-      image: parth.jpg
-      email: pgasawa [at] berkeley.edu
-      twitter: https://x.com/pgasawa
+# Roster: CV advising section and existing lab membership; reviewed 2026-09-04.
+# Years are advising/postdoc dates, not necessarily full degree enrollment dates.
+# See _maintenance/people-sources.md for verification notes.
+[
+  {
+    "title": "Current PhD Students",
+    "people": [
+      {
+        "name": "Minhyuk Seo",
+        "website": "https://dbd05088.github.io/",
+        "research_interest": "Continual and collaborative learning for human-like AI",
+        "image": "minhyukseo.jpg",
+        "years": "2026–present"
+      },
+      {
+        "name": "Asim Biswal",
+        "website": "https://www.linkedin.com/in/asim-biswal",
+        "research_interest": "LLM-powered query processing and optimization for relational data analytics",
+        "image": "asim.jpg",
+        "email": "abiswal [at] berkeley.edu",
+        "twitter": "https://twitter.com/_asimbiswal",
+        "years": "2023–present"
+      },
+      {
+        "name": "Shiyi Cao",
+        "website": "https://shiyicao.com/",
+        "research_interest": "Efficient LLM inference and serving systems, including speculative decoding and mixture-of-experts optimization",
+        "image": "shiyi.jpg",
+        "email": "shiyicao314 [at] berkeley.edu",
+        "twitter": "https://twitter.com/shiyi_c98",
+        "years": "2023–present"
+      },
+      {
+        "name": "Guangyu Feng",
+        "website": "https://www.linkedin.com/in/guangyu-feng-315667294/",
+        "research_interest": "Asynchronous patterns for agentic tool use",
+        "image": "guangyu.jpg",
+        "email": "guangyu_feng [at] berkeley.edu",
+        "years": "2025–present"
+      },
+      {
+        "name": "Dacheng Li",
+        "website": "https://dachengli1.github.io/",
+        "research_interest": "AI systems for large-scale LLM serving and evaluation, with contributions to the LMSYS ecosystem and world model benchmarking",
+        "image": "dacheng.jpg",
+        "email": "dacheng177 [at] berkeley.edu",
+        "twitter": "https://twitter.com/DachengLi177",
+        "years": "2023–present"
+      },
+      {
+        "name": "Hanchen Li",
+        "website": "https://hanchenli.github.io/",
+        "image": "hanchen.png",
+        "years": "2025–present",
+        "research_interest": "Agent-first data and serving systems, including KV-cache-aware scheduling for multi-turn LLM agents"
+      },
+      {
+        "name": "Colin Wang",
+        "website": "https://zwcolin.github.io/",
+        "research_interest": "Multimodal AI systems and polylithic agent architectures",
+        "image": "colin.png",
+        "email": "zwcolin [at] berkeley.edu",
+        "twitter": "https://x.com/zwcolin",
+        "years": "2025–present"
+      },
+      {
+        "name": "Yichuan Wang",
+        "website": "https://yichuan-w.github.io/",
+        "research_interest": "Storage-efficient vector indexing and RAG systems for personal devices",
+        "image": "yichuan.jpg",
+        "email": "yichuan_wang [at] berkeley.edu",
+        "twitter": "https://twitter.com/YichuanM",
+        "years": "2024–present"
+      },
+      {
+        "name": "Tsung-Han (Patrick) Wu",
+        "website": "https://patrickthwu.com/",
+        "research_interest": "Multimodal models and their evaluation, including hallucination reduction, false-premise correction, and vision-centric benchmarks",
+        "image": "patrick.jpg",
+        "email": "tsunghan_wu [at] berkeley.edu",
+        "twitter": "https://twitter.com/tsunghan_wu",
+        "years": "2023–present"
+      },
+      {
+        "name": "Parth Asawa",
+        "website": "https://pgasawa.github.io/",
+        "research_interest": "Continual learning and sample-efficient model adaptation",
+        "image": "parth.jpg",
+        "email": "pgasawa [at] berkeley.edu",
+        "twitter": "https://x.com/pgasawa",
+        "years": "2024–present"
+      },
+      {
+        "name": "Huanzhi Mao",
+        "website": "https://www.linkedin.com/in/huanzhi-mao-82975a22a",
+        "research_interest": "LLM tool use and function calling; leads the Berkeley Function Calling Leaderboard (BFCL)",
+        "image": "huanzhi.jpeg",
+        "email": "huanzhimao [at] berkeley.edu",
+        "twitter": "https://x.com/HuanzhiMao",
+        "years": "2025–present"
+      },
+      {
+        "name": "Mihran Miroyan",
+        "website": "https://www.mihran-miroyan.com/",
+        "research_interest": "Evaluation and benchmarking of search-augmented large language models",
+        "image": "mihran.jpg",
+        "email": "miroyan.mihran [at] berkeley.edu",
+        "years": "2024–present"
+      },
+      {
+        "name": "Mayank Mishra",
+        "website": "https://www.mayank.site/",
+        "image": "mayank.jpg",
+        "years": "2025–present",
+        "research_interest": "Efficient LLM pretraining and novel model architectures for scalable language modeling"
+      },
+      {
+        "name": "Abby O'Neill",
+        "website": "https://abbykoneill.github.io/",
+        "image": "abby.jpeg",
+        "years": "2025–present",
+        "research_interest": "AI–AI interactions and cooperative multi-agent system design"
+      },
+      {
+        "name": "Alan Zhu",
+        "website": "https://az1326.github.io/",
+        "research_interest": "LLM personalization and agent adaptability in complex multi-agent environments",
+        "image": "alan.jpg",
+        "email": "aczhu [at] berkeley.edu",
+        "twitter": "https://x.com/aczhu1326",
+        "years": "2024–present"
+      },
+      {
+        "name": "Shu (Lynn) Liu",
+        "website": "https://shulynnliu.com/",
+        "research_interest": "ML Data Systems",
+        "image": "shu.jpg",
+        "email": "lshu [at] berkeley.edu",
+        "twitter": "https://x.com/LynnLiu41887950"
+      }
+    ]
+  },
+  {
+    "title": "Former Doctoral Students",
+    "alumni": true,
+    "people": [
+      {
+        "name": "Eyal Sela",
+        "website": "https://dblp.org/pid/185/9249.html",
+        "research_interest": "Algorithmic methods for efficient deep learning inference"
+      },
+      {
+        "name": "Yu Gai",
+        "website": "https://scholar.google.com/citations?user=sSvMwicAAAAJ&hl=en",
+        "research_interest": "Graph neural networks for question answering"
+      },
+      {
+        "name": "Francois Belletti",
+        "website": "https://francoisbelletti.squarespace.com/",
+        "years": "2015–2018"
+      },
+      {
+        "name": "Daniel Crankshaw",
+        "website": "https://dancrankshaw.com/",
+        "years": "2015–2019"
+      },
+      {
+        "name": "Lisa Dunlap",
+        "website": "https://lisabdunlap.com/",
+        "research_interest": "Agentic Evaluation",
+        "image": "lisa.jpg",
+        "email": "lisabdunlap [at] berkeley.edu",
+        "twitter": "https://twitter.com/lisabdunlap",
+        "years": "2021–2026"
+      },
+      {
+        "name": "Vlad Feinberg",
+        "website": "https://vladfeinberg.com/about",
+        "years": "2017–2018"
+      },
+      {
+        "name": "Paras Jain",
+        "website": "https://www.parasjain.com/",
+        "years": "2018–2023"
+      },
+      {
+        "name": "Richard Liaw",
+        "website": "https://github.com/richardliaw",
+        "years": "2017–2020",
+        "research_interest": "The design of systems for hyperparameter search"
+      },
+      {
+        "name": "Charles Lin",
+        "website": "https://dblp.org/pid/219/9688.html",
+        "years": "2019–2020",
+        "research_interest": "Economics of serverless computing"
+      },
+      {
+        "name": "Kevin Lin",
+        "website": "https://kevinlin.io/",
+        "years": "2019–2024"
+      },
+      {
+        "name": "Charles Packer",
+        "website": "https://charlespacker.com/",
+        "years": "2019–2024"
+      },
+      {
+        "name": "Shishir Patil",
+        "website": "https://shishirpatil.github.io/",
+        "years": "2019–2024"
+      },
+      {
+        "name": "Nathan Pemberton",
+        "website": "https://bar.eecs.berkeley.edu/people/pemberton_nathan.html",
+        "years": "2020–2022"
+      },
+      {
+        "name": "Devin Petersohn",
+        "website": "https://www.linkedin.com/in/devinpetersohn/",
+        "years": "2015–2021"
+      },
+      {
+        "name": "Suzanne Petryk",
+        "website": "https://suziepetryk.com/",
+        "years": "2019–2024"
+      },
+      {
+        "name": "Daniel Rothchild",
+        "website": "https://www.linkedin.com/in/daniel-rothchild",
+        "years": "2018–2023"
+      },
+      {
+        "name": "Peter Schafhalter",
+        "website": "https://pschafhalter.com/",
+        "years": "2019–2025"
+      },
+      {
+        "name": "Vikram Sreekanti",
+        "website": "https://www.vikrams.io/",
+        "years": "2016–2020"
+      },
+      {
+        "name": "Brijen Thananjeyan",
+        "website": "https://bthananjeyan.github.io/",
+        "years": "2018–2022"
+      },
+      {
+        "name": "Alvin Wan",
+        "website": "https://alvinwan.com/",
+        "years": "2018–2022"
+      },
+      {
+        "name": "Xin Wang",
+        "website": "https://xinw.ai/",
+        "years": "2016–2020"
+      },
+      {
+        "name": "Justin Wong",
+        "website": "https://people.eecs.berkeley.edu/~wong.justin/",
+        "research_interest": "Diverse Generation for LLM Creativity",
+        "image": "justin.jpg",
+        "email": "wong.justin [at] berkeley.edu",
+        "twitter": "https://twitter.com/justinywong_",
+        "years": "2020–2026"
+      },
+      {
+        "name": "Sarah Wooders",
+        "website": "https://swooders.com/",
+        "years": "2020–2024"
+      },
+      {
+        "name": "Xiangxi (Simon) Mo",
+        "website": "https://github.com/simon-mo",
+        "research_interest": "Production & open source ml systems",
+        "image": "simon.jpg",
+        "email": "xmo [at] berkeley.edu",
+        "twitter": "https://twitter.com/simon_mo_",
+        "years": "2023–2026"
+      },
+      {
+        "name": "Neeraja Yadwadkar",
+        "website": "https://sites.utexas.edu/neeraja/",
+        "years": "2015–2018"
+      },
+      {
+        "name": "Tianjun Zhang",
+        "website": "https://tianjunz.github.io/",
+        "years": "2018–2024"
+      },
+      {
+        "name": "Lianmin Zheng",
+        "website": "https://lmzheng.net/",
+        "years": "2019–2024"
+      }
+    ]
+  },
+  {
+    "title": "Former Postdocs",
+    "alumni": true,
+    "people": [
+      {
+        "name": "Jianfei Chen",
+        "website": "https://ml.cs.tsinghua.edu.cn/~jianfei/",
+        "years": "2019–2021"
+      },
+      {
+        "name": "Aditya Desai",
+        "website": "https://apd10.github.io/",
+        "years": "2024–2026"
+      },
+      {
+        "name": "Ionel Gog",
+        "website": "https://www.ionelgog.org/",
+        "years": "2018–2021"
+      },
+      {
+        "name": "Kirthevasan Kandasamy",
+        "website": "https://pages.cs.wisc.edu/~kandasamy/",
+        "years": "2019–2021"
+      },
+      {
+        "name": "Yifan Qiao",
+        "website": "https://yifanqiao.com/",
+        "research_interest": "ML systems and runtime/OS",
+        "image": "yifan.jpg",
+        "email": "yifanqiao [at] berkeley.edu",
+        "years": "2024–2025"
+      },
+      {
+        "name": "Alexey Tumanov",
+        "website": "https://faculty.cc.gatech.edu/~atumanov/",
+        "years": "2016–2019"
+      },
+      {
+        "name": "Matthew Wright",
+        "website": "https://www.linkedin.com/in/mattawright",
+        "years": "2019–2021"
+      },
+      {
+        "name": "Yaoqing Yang",
+        "website": "https://sites.google.com/site/yangyaoqingcmu/",
+        "years": "2019–2022"
+      }
+    ]
+  }
+]

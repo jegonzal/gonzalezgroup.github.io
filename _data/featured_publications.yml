@@ -1,0 +1,88 @@
+# Curated from ../Berkeley/cv/publications.bib; refreshed 2026-09-04.
+# Separate from the Scholar-generated feed so refreshes preserve selections.
+[
+  {
+    "title": "Autellix: An Efficient Serving Engine for LLM Agents as General Programs",
+    "authors": "Michael Luo, Xiaoxiang Shi, Colin Cai, Tianjun Zhang, Justin Wong, Yichuan Wang, Chi Wang, Yanping Huang, Zhifeng Chen, Joseph E. Gonzalez, Ion Stoica",
+    "venue": "NSDI",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2502.13965"
+  },
+  {
+    "title": "vCache: Verified Semantic Prompt Caching",
+    "authors": "Luis Gaspar Schroeder, Aditya Desai, Alejandro Cuadron, Kyle Chu, Shu Liu, Mark Zhao, Stephan Krusche, Alfons Kemper, Matei Zaharia, Joseph E. Gonzalez",
+    "venue": "ICLR",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2502.03771"
+  },
+  {
+    "title": "Search Arena: Analyzing Search-Augmented LLMs",
+    "authors": "Mihran Miroyan, Tsung-Han Wu, Logan King, Tianle Li, Jiayi Pan, Xinyan Hu, Wei-Lin Chiang, Anastasios N. Angelopoulos, Trevor Darrell, Narges Norouzi, Joseph E. Gonzalez",
+    "venue": "ICLR",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2506.05334"
+  },
+  {
+    "title": "Characterizing Agents in Production",
+    "authors": "Melissa Z. Pan, Negar Arabzadeh, Riccardo Cogo, Yuxuan Zhu, Alexander Xiong, Lakshya A. Agrawal, Huanzhi Mao, Emma Shen, Sid Pallerla, Liana Patel, Shu Liu, Tianneng Shi, Xiaoyuan Liu, Jared Quincy Davis, Emmanuele Lacavalla, Alessandro Basile, Shuyi Yang, Paul Castro, Daniel Kang, Koushik Sen, Dawn Song, Joseph E. Gonzalez, Ion Stoica, Matei Zaharia, Marquita Ellis",
+    "venue": "ICML",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2512.04123"
+  },
+  {
+    "title": "Supporting Our AI Overlords: Redesigning Data Systems to Be Agent-First",
+    "authors": "Shu Liu, Soujanya Ponnapalli, Shreya Shankar, Sepanta Zeighami, Alan Zhu, Shubham Agarwal, Ruiqi Chen, Samion Suwito, Shuo Yuan, Ion Stoica, Matei Zaharia, Alvin Cheung, Natacha Crooks, Joseph E. Gonzalez, Aditya G. Parameswaran",
+    "venue": "CIDR",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2509.00997"
+  },
+  {
+    "title": "vAttention: Verified Sparse Attention via Sampling",
+    "authors": "Aditya Desai, Kunal Kumar Agrawal, Sehoon Yang, Alejandro Cuadron, Luis Gaspar Schroeder, Matei Zaharia, Joseph E. Gonzalez, Ion Stoica",
+    "venue": "ICLR",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2510.05688"
+  },
+  {
+    "title": "FrontierCS: Evolving Challenges for Evolving Intelligence",
+    "authors": "Qiuyang Mang, Wenhao Chai, Zhifei Li, Huanzhi Mao, Shang Zhou, Alexander Du, Hanchen Li, Shu Liu, Edwin Chen, Yichuan Wang, Xieting Chu, Zerui Cheng, Yuan Xu, Tian Xia, Zirui Wang, Tianneng Shi, Jianzhu Yao, Yilong Zhao, Qizheng Zhang, Charlie Ruan, Zeyu Shen, Kaiyuan Liu, Zhaoyang Hong, Alex Gu, Ziyi Zhang, Runyuan He, Dong Xing, Zerui Li, Zirong Zeng, Yige Jiang, Lufeng Cheng, Ziyi Zhao, Youran Sun, Suyang Zhong, Junpeng Wang, Donglin Li, Wenyuan Huang, Jialiang Gu, Wesley Zheng, Wangmeiyu Zhang, Ruyi Ji, Xuechang Tu, Zihan Zheng, Zhaozi Wang, Zexing Chen, Jingbang Chen, Jialu Zhang, Aleksandra Korolova, Peter Henderson, Pramod Viswanath, Vijay Ganesh, Saining Xie, Zhuang Liu, Dawn Song, Sewon Min, Ion Stoica, Joseph E. Gonzalez, Jingbo Shang, Alvin Cheung",
+    "venue": "ICML",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2512.15699"
+  },
+  {
+    "title": "How to Train Your Advisor: Steering Black-Box LLMs with Advisor Models",
+    "authors": "Parth Asawa, Alan Zhu, Abigail O'Neill, Matei Zaharia, Alexandros G. Dimakis, Joseph E. Gonzalez",
+    "venue": "ICML",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2510.02453"
+  },
+  {
+    "title": "Are Large Reasoning Models Interruptible?",
+    "authors": "Tsung-Han Wu, Mihran Miroyan, David M. Chan, Trevor Darrell, Narges Norouzi, Joseph E. Gonzalez",
+    "venue": "ICML",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2510.11713"
+  },
+  {
+    "title": "ConServe: Fine-Grained GPU Harvesting for LLM Online and Offline Co-Serving",
+    "authors": "Yifan Qiao, Shan Yu, Shu Anzai, Haoran Ma, Shuo Yang, Yang Wang, Miryung Kim, Yongji Wu, Yang Zhou, Jiarong Xing, Joseph E. Gonzalez, Ion Stoica, Harry Xu",
+    "venue": "ICML",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2410.01228"
+  },
+  {
+    "title": "MFCL Audio: An Audio Function Calling Evaluation for Large Language Models",
+    "authors": "Huanzhi Mao, Aditya Ghai, Imra Dawoodani, Tony Ginart, Shishir G. Patil, John Emmons, Joseph E. Gonzalez",
+    "venue": "ICML",
+    "year": 2026,
+    "url": "https://icml.cc/virtual/2026/poster/61489"
+  },
+  {
+    "title": "SLA: Beyond Sparsity in Diffusion Transformers via Fine-Tunable Sparse-Linear Attention",
+    "authors": "Jintao Zhang, Haoxu Wang, Kai Jiang, Shuo Yang, Kaiwen Zheng, Haocheng Xi, Ziteng Wang, Hongzhou Zhu, Min Zhao, Ion Stoica, Joseph E. Gonzalez, Jianfei Chen, Jun Zhu",
+    "venue": "ICLR",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2509.24006"
+  }
+]
