@@ -1,12 +1,32 @@
 ---
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Gonzalez Group at UC Berkeley</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <title>{{ site.title | escape }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{ site.url }}/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Gonzalez Group at UC Berkeley">
+  <meta property="og:title" content="{{ site.title | escape }}">
+  <meta property="og:description" content="{{ site.description | escape }}">
+  <meta property="og:url" content="{{ site.url }}/">
+  <meta property="og:image" content="{{ site.url }}/profile_images/joey.jpg">
+  <meta property="og:image:alt" content="Joseph E. (Joey) Gonzalez">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ site.title | escape }}">
+  <meta name="twitter:description" content="{{ site.description | escape }}">
+  <meta name="twitter:image" content="{{ site.url }}/profile_images/joey.jpg">
+  <meta name="twitter:image:alt" content="Joseph E. (Joey) Gonzalez">
+  {% if site.google_site_verification != empty and site.google_site_verification %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">
+  {% endif %}
+  {% include structured-data.html %}
 
   <link href="./assets/base.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="./assets/extra.css" media="screen" rel="stylesheet" type="text/css" />
@@ -16,7 +36,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body onload="setModifiedDate();">
+<body>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -24,8 +44,10 @@
       <a href="/" class="logo">Gonzalez Group</a>
       <ul class="navbar-menu">
         <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
         <li><a href="#people">People</a></li>
+        <li><a href="#alumni">Alumni</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#activities">Activities</a></li>
         <!-- <li><a href="#contact">Contact</a></li> -->
       </ul>
     </div>
@@ -39,94 +61,23 @@
     </div>
   </section>
 
-   <!-- Add this new section right here -->
-   <div class="infinite-scroll-wrapper">
-    <div class="infinite-scroll-container">
-      <div class="infinite-scroll">
-        <div class="logos">
-          <a href="https://gorilla.cs.berkeley.edu/" target="_blank">
-            <img src="./logo_pictures/gorilla_logo.jpg" alt="Gorilla">
-          </a>
-          <a href="https://memgpt.ai" target="_blank">
-            <img src="./logo_pictures/memgpt_long_logo.png" alt="MemGPT">
-          </a>
-          <a href="https://blog.lmarena.ai/blog/" target="_blank">
-            <img src="./logo_pictures/chatbot_arena_logo.jpg" alt="Chatbot Arena">
-          </a>
-          <a href="https://docs.vllm.ai/" target="_blank">
-            <img src="./logo_pictures/vllm_logo.png" alt="vLLM">
-          </a>
-          <a href="https://understanding-visual-datasets.github.io/VisDiff-website/" target="_blank">
-            <img src="./logo_pictures/visdiff_logo.jpg" alt="VisDiff">
-          </a>
-          <a href="https://skyplane.org/" target="_blank">
-            <img src="./logo_pictures/skyplane_logo.jpg" alt="Skyplane">
-          </a>
-          <a href="https://sgl-project.github.io/" target="_blank">
-            <img src="./logo_pictures/sglang_logo.jpg" alt="SGLang">
-          </a>
-          <a href="https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/pydoc/" target="_blank">
-            <img src="./logo_pictures/erdos.jpg" alt="ERDOS">
-          </a>
-          <!-- Add all your logos here -->
-        </div>
-        <div class="logos">
-          <a href="https://gorilla.cs.berkeley.edu/" target="_blank">
-            <img src="./logo_pictures/gorilla_logo.jpg" alt="Gorilla">
-          </a>
-          <a href="https://memgpt.ai" target="_blank">
-            <img src="./logo_pictures/memgpt_long_logo.png" alt="MemGPT">
-          </a>
-          <a href="https://blog.lmarena.ai/blog/" target="_blank">
-            <img src="./logo_pictures/chatbot_arena_logo.jpg" alt="Chatbot Arena">
-          </a>
-          <a href="https://docs.vllm.ai/" target="_blank">
-            <img src="./logo_pictures/vllm_logo.png" alt="vLLM">
-          </a>
-          <a href="https://understanding-visual-datasets.github.io/VisDiff-website/" target="_blank">
-            <img src="./logo_pictures/visdiff_logo.jpg" alt="VisDiff">
-          </a>
-          <a href="https://skyplane.org/" target="_blank">
-            <img src="./logo_pictures/skyplane_logo.jpg" alt="Skyplane">
-          </a>
-          <a href="https://sgl-project.github.io/" target="_blank">
-            <img src="./logo_pictures/sglang_logo.jpg" alt="SGLang">
-          </a>
-          <a href="https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/pydoc/" target="_blank">
-            <img src="./logo_pictures/erdos.jpg" alt="ERDOS">
-          </a>
-          <!-- Add all your logos here -->
-        </div>
-        <div class="logos">
-          <a href="https://gorilla.cs.berkeley.edu/" target="_blank">
-            <img src="./logo_pictures/gorilla_logo.jpg" alt="Gorilla">
-          </a>
-          <a href="https://memgpt.ai" target="_blank">
-            <img src="./logo_pictures/memgpt_long_logo.png" alt="MemGPT">
-          </a>
-          <a href="https://blog.lmarena.ai/blog/" target="_blank">
-            <img src="./logo_pictures/chatbot_arena_logo.jpg" alt="Chatbot Arena">
-          </a>
-          <a href="https://docs.vllm.ai/" target="_blank">
-            <img src="./logo_pictures/vllm_logo.png" alt="vLLM">
-          </a>
-          <a href="https://understanding-visual-datasets.github.io/VisDiff-website/" target="_blank">
-            <img src="./logo_pictures/visdiff_logo.jpg" alt="VisDiff">
-          </a>
-          <a href="https://skyplane.org/" target="_blank">
-            <img src="./logo_pictures/skyplane_logo.jpg" alt="Skyplane">
-          </a>
-          <a href="https://sgl-project.github.io/" target="_blank">
-            <img src="./logo_pictures/sglang_logo.jpg" alt="SGLang">
-          </a>
-          <a href="https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/pydoc/" target="_blank">
-            <img src="./logo_pictures/erdos.jpg" alt="ERDOS">
-          </a>
-          <!-- Add all your logos here -->
-        </div>
-      </div>
+  <!-- Project carousel: maintain entries in _data/projects.yml. -->
+  <div class="project-carousel">
+    <div class="project-scroll" role="region" aria-label="Research projects; scroll or drag to explore" tabindex="0">
+          <div class="logos">
+            {% for project in site.data.projects %}
+            <a href="{{ project.url }}" target="_blank" rel="noopener" aria-label="{{ project.name | escape }}" draggable="false">
+              {% if project.image %}
+              <img src="./logo_pictures/{{ project.image }}" alt="{{ project.name | escape }}" decoding="async" draggable="false">
+              {% else %}
+              <span class="project-wordmark">{{ project.name | escape }}</span>
+              {% endif %}
+            </a>
+            {% endfor %}
+          </div>
     </div>
   </div>
+  <script src="./assets/carousel.js" defer></script>
 
   <div class="wrapper">
     <div class="profile">
@@ -134,56 +85,47 @@
       <!-- About Section -->
       <section class="profile-content" id="about">
         <div class="profile-description">
-          <img src="./profile_images/joey_good_picture.jpg" alt="Joseph E. Gonzalez" class="about-image">
-          <p style="text-align: justify;"><a href="https://people.eecs.berkeley.edu/~jegonzal/" style="text-decoration: none; color: inherit;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Joey Gonzalez's</a> group at UC Berkeley focuses on advancing <strong>AI systems, including LLM Agents, data systems, efficent ML training and inference, and generative model evaluation.</strong> His group has spawned many successful projects such as <a href="https://gorilla.cs.berkeley.edu/">Gorilla</a>, <a href="https://blog.lmarena.ai/blog/">Chatbot Arena</a>, <a href="https://docs.vllm.ai/en/latest/">vLLM</a>, <a href="https://www.letta.com/">MemGPT (now Letta)</a>, <a href="https://sgl-project.github.io/">SGLang</a> and more.<br> Visit the <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ" style="text-decoration: none; color: inherit;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Google Scholar page</a> for more our current publications. His students also have a podcast on PhD life <a href="https://www.youtube.com/@tatacpodcast">here</a>.</p>
-        </div>
-      </section>
-
-      <!-- Add this after the About section -->
-      <section class="profile-content" id="research">
-        <h3 class="menu-category-name division-title">Recent Publications</h3>
-        <div class="publications-grid">
-          {% assign publications = site.data.publications.publications | slice: 0, 9 %}
-          {% for pub in publications %}
-          <div class="publication-card">
-            <h4 class="publication-title">
-              <a href="{{ pub.url }}" target="_blank">{{ pub.title }}</a>
-            </h4>
-            <p class="publication-authors">{{ pub.authors }}</p>
-            <div class="publication-meta">
-              <span class="publication-venue">{{ pub.venue }}</span>
-              <!-- <span class="publication-year">{{ pub.year }}</span> -->
-            </div>
+          <img src="./profile_images/joey.jpg" alt="Joseph E. Gonzalez" class="about-image">
+          <div class="about-copy">
+          <p>Joseph E. Gonzalez is an Associate Professor at UC Berkeley, co-director of the <a href="https://sky.cs.berkeley.edu/">Berkeley Sky Computing Lab</a>, and a member of <a href="https://bair.berkeley.edu/">BAIR</a> and <a href="https://www.lmsys.org/">LMSYS</a>. His group advances <strong>AI systems, including LLM agents, data systems, efficient ML training and inference, and generative model evaluation.</strong></p>
+          <p>See his <a href="./assets/joseph_gonzalez_cv.pdf">CV</a> and <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">Google Scholar page</a>. His students also host a <a href="https://www.youtube.com/@tatacpodcast">podcast on PhD life</a>.</p>
           </div>
-          {% endfor %}
-        </div>
-        <div class="view-more-publications">
-          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank">View all publications</a>
         </div>
       </section>
 
       <!-- People Section -->
+      <div id="people">
       {% for division in site.data.people %}
       {% if division.people.size > 0 %}
-      <section class="profile-content" id="people">
-        <div id='{{ division.title | downcase }}' class='menu-category'>
+      {% if division.alumni and alumni_heading_shown != true %}
+      <h2 id="alumni" class="profile-content division-title">Alumni</h2>
+      {% assign alumni_heading_shown = true %}
+      {% endif %}
+      <section class="profile-content">
+        <div id='{{ division.title | slugify }}' class='menu-category'>
           <h3 class="menu-category-name division-title">{{ division.title }}</h3>
-          <ol class="menu-category-list has-images">
+          <ol class="menu-category-list {% if division.alumni %}alumni-list{% else %}has-images{% endif %}">
             {% assign sorted = division.people | sort: 'name' %}
             {% for person in sorted %}
             <li class="menu-item">
               <div class="menu-item-info">
-                <img src="./profile_images/{{ person.image }}" loading="lazy" alt="{{ person.name }}">
+                {% unless division.alumni %}
+                {% if person.image %}
+                <img src="./profile_images/{{ person.image }}" loading="lazy" alt="{{ person.name | escape }}">
+                {% else %}
+                <div class="person-initial" aria-hidden="true">{{ person.name | slice: 0 }}</div>
+                {% endif %}
+                {% endunless %}
                 <div class="name-and-social">
-                  <h4 class="menu-item-name">{{ person.name }}</h4>
+                  <h4 class="menu-item-name">{% if person.website %}<a href="{{ person.website }}">{{ person.name | escape }}</a>{% else %}{{ person.name | escape }}{% endif %}</h4>
                   <div class="social-links">
-                    <a href="{{ person.website }}" target="_blank" class="homepage-icon"><i class="fas fa-home"></i></a>
                     {% if person.twitter %}
-                    <a href="{{ person.twitter }}" target="_blank" class="twitter-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ person.twitter }}" target="_blank" rel="noopener" aria-label="{{ person.name | escape }} on X" class="twitter-icon"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                     {% endif %}
                   </div>
                 </div>
-                <p class="menu-item-description"">{{ person.research_interest }}</p>
+                {% if person.years %}<p class="person-years">{{ person.years }}</p>{% endif %}
+                {% if person.research_interest and division.alumni != true %}<p class="menu-item-description">{{ person.research_interest | escape }}</p>{% endif %}
               </div>
             </li>
             {% endfor %}
@@ -192,6 +134,48 @@
       </section>
       {% endif %}
       {% endfor %}
+      </div>
+
+      <!-- Research Section -->
+      <section class="profile-content" id="research">
+        <h3 class="menu-category-name division-title">Selected Publications · 2026</h3>
+        <div class="publications-grid">
+          {% assign publications = site.data.featured_publications %}
+          {% for pub in publications %}
+          <div class="publication-card">
+            <h4 class="publication-title">
+              <a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title | escape }}</a>
+            </h4>
+            <details class="publication-authors"><summary>Authors</summary>{{ pub.authors | escape }}</details>
+            <div class="publication-meta">
+              <span class="publication-venue">{{ pub.venue }}</span>
+              <span class="publication-year">{{ pub.year }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <h4>Recent Preprints · 2026</h4>
+        <ul class="activities-list">
+          <li><a href="https://arxiv.org/abs/2604.25088">Cooperate to Compete: Strategic Coordination in Multi-Agent Conquest</a></li>
+          <li><a href="https://arxiv.org/abs/2603.14360">MRNN: Non-Linear RNNs with Matrix-Valued States for Scalable Language Modeling</a></li>
+          <li><a href="https://arxiv.org/abs/2602.19128">K-Search: LLM Kernel Generation via Co-Evolving Intrinsic World Model</a></li>
+        </ul>
+        <div class="view-more-publications">
+          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank">View all publications</a>
+        </div>
+      </section>
+
+      <section class="profile-content" id="activities">
+        <h3 class="menu-category-name division-title">Recent Activities</h3>
+        <ul class="activities-list">
+          <li><strong>2027 · Upcoming:</strong> General Chair, Conference on Machine Learning and Systems (MLSys).</li>
+          <li><strong>May 2026:</strong> Invited talk at the Samsung Research America AI Summit, “Finding a New North Star for AI Research in the Post AGI Era.”</li>
+          <li><strong>April 2026:</strong> Invited faculty talk at the Amazon AI PhD Fellowship Summit, “An Algorithm for Innovation.”</li>
+          <li><strong>2025–2026:</strong> CS Division Vice Chair for Graduate Matters, co-chair of the EECS Graduate Matters Committee, and elected member of Berkeley's Academic Senate Divisional Council.</li>
+          <li><strong>Fall 2025:</strong> Co-taught <a href="https://eecs189.org">CS 189/289A: Introduction to Machine Learning</a> with Narges Norouzi. Taught <a href="https://ds100.org">Data 100: Principles and Techniques of Data Science</a> in Spring and Fall 2025.</li>
+          <li><strong>September 2025:</strong> Invited keynote at the Samsung AI Forum.</li>
+        </ul>
+      </section>
 
       <!-- Footer -->
       <footer class="footer">
@@ -199,10 +183,12 @@
           <div class="footer-links">
             <a href="#about">About</a> |
             <a href="#research">Research</a> |
+            <a href="#activities">Activities</a> |
             <a href="#people">People</a> |
+            <a href="#alumni">Alumni</a>
             <!-- <a href="#contact">Contact</a> -->
           </div>
-          <p>© Regents of the University of California. All rights reserved. Last updated at <span id="last-modified"></span>.</p>
+          <p>© Regents of the University of California. All rights reserved. Content updated September 4, 2026.</p>
         </nav>
       </footer>
 
@@ -235,22 +221,8 @@
         includeHTML();
       </script>
 
-      <script>
-        function setModifiedDate() {
-          if (document.getElementById('last-modified')) {
-            fetch("https://api.github.com/repos/lisadunlap/gonzalezgroup.github.io/commits")
-              .then((response) => {
-                return response.json();
-              })
-              .then((commits) => {
-                var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                if (modified != "{{ page.date | date: '%Y-%m-%d' }}") {
-                  document.getElementById('last-modified').textContent = modified;
-                }
-              });
-          }
-        }
-      </script>
+    </div>
+  </div>
 </body>
 
 </html>

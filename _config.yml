@@ -1,1 +1,16 @@
-auto: true
+url: "https://joeygonzalez.com"
+baseurl: ""
+title: "Joseph E. Gonzalez (Joey) | Gonzalez Group at UC Berkeley"
+description: "Joseph E. (Joey) Gonzalez and his UC Berkeley research group advance AI systems, LLM agents, efficient training and inference, and data systems."
+# Optional: paste the token from Google Search Console's HTML verification method.
+google_site_verification: ""
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - requirements.txt
+  - generate_paper_html.py
+  - publications_preview.html
+  - papers.html
+  - publications.json

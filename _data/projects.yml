@@ -1,0 +1,107 @@
+# Existing projects plus screened additions; star counts are a dated snapshot.
+[
+  {
+    "name": "Continual Learning Bench",
+    "url": "https://continual-learning-bench.com/",
+    "image": "continual-learning-bench.png",
+    "repository": "pgasawa/continual-learning-bench",
+    "stars": 216,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "LEANN",
+    "url": "https://github.com/StarTrail-org/LEANN",
+    "image": "leann.png",
+    "repository": "StarTrail-org/LEANN",
+    "stars": 12889,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "SkyRL",
+    "url": "https://docs.skyrl.ai/docs",
+    "wordmark": true,
+    "repository": "NovaSky-AI/SkyRL",
+    "stars": 2248,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "TurboDiffusion",
+    "url": "https://github.com/thu-ml/TurboDiffusion",
+    "image": "turbodiffusion.png",
+    "repository": "thu-ml/TurboDiffusion",
+    "stars": 3635,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "FrontierCS",
+    "url": "https://frontier-cs.org",
+    "image": "frontiercs.png",
+    "repository": "FrontierCS/Frontier-CS",
+    "stars": 312,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "vCache",
+    "url": "https://github.com/vcache-project/vCache",
+    "image": "vcache.png",
+    "repository": "vcache-project/vCache",
+    "stars": 78,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "MAST",
+    "url": "https://sites.google.com/berkeley.edu/mast/home",
+    "image": "mast.png",
+    "repository": "multi-agent-systems-failure-taxonomy/MAST",
+    "stars": 415,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "Search Arena",
+    "url": "https://arena.ai/blog/search-arena",
+    "image": "search-arena.png",
+    "repository": "lmarena/search-arena",
+    "stars": 59,
+    "checked": "2026-09-04"
+  },
+  {
+    "name": "Gorilla",
+    "url": "https://gorilla.cs.berkeley.edu/",
+    "image": "gorilla_logo.jpg"
+  },
+  {
+    "name": "MemGPT",
+    "url": "https://memgpt.ai",
+    "image": "memgpt_long_logo.png"
+  },
+  {
+    "name": "Chatbot Arena",
+    "url": "https://blog.lmarena.ai/blog/",
+    "image": "chatbot_arena_logo.jpg"
+  },
+  {
+    "name": "vLLM",
+    "url": "https://docs.vllm.ai/",
+    "image": "vllm_logo.png"
+  },
+  {
+    "name": "VisDiff",
+    "url": "https://understanding-visual-datasets.github.io/VisDiff-website/",
+    "image": "visdiff_logo.jpg"
+  },
+  {
+    "name": "Skyplane",
+    "url": "https://skyplane.org/",
+    "image": "skyplane_logo.jpg"
+  },
+  {
+    "name": "SGLang",
+    "url": "https://sgl-project.github.io/",
+    "image": "sglang_logo.jpg"
+  },
+  {
+    "name": "ERDOS",
+    "url": "https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/pydoc/",
+    "image": "erdos.jpg"
+  }
+]
