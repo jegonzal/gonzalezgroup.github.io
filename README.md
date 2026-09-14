@@ -84,6 +84,38 @@ Before publishing, run `bundle exec jekyll build` and review the local site with
 pushing or merging changes there updates the live site. Keep `CNAME` set to
 `joeygonzalez.com`.
 
+Deploy to the Berkeley server
+-----------
+
+The new `deploy.sh` uses the old website's SSH destination:
+`watson.millennium.berkeley.edu:~/public_html/`, served at
+`https://people.eecs.berkeley.edu/~jegonzal/`. It uses your SSH configuration
+and credentials, just like the old script; Berkeley network/VPN access may be required.
+
+```bash
+./deploy.sh --build-only  # Build locally; no server connection
+./deploy.sh --dry-run     # Build and preview transfers over SSH; no remote writes
+./deploy.sh               # Build and upload the new site
+```
+
+The script can be invoked from any directory. It uses this Mac's existing
+Homebrew Ruby 3.2/local Bundler setup when available, otherwise `bundle` from
+your Ruby environment (run `bundle install` first).
+
+Builds go to `_site_berkeley/`, with `/~jegonzal` as the path prefix, leaving
+the regular `_site/` preview untouched. The canonical search URL remains
+`https://joeygonzalez.com/` so the Berkeley copy does not compete with it.
+The GitHub Pages `CNAME` file and deployment script are not uploaded.
+
+Uploads overwrite matching files but **do not delete** old files on the server,
+preserving historical papers, course pages, and other content. Replaced files
+are automatically backed up outside the public website in a unique directory
+under `/home/eecs/jegonzal/website-backups/`; the script prints that location
+after upload. File permissions and timestamps are preserved without attempting
+to change server ownership or groups. Dry runs do not create backups or write
+remote files. This command does not commit or push to GitHub; GitHub Pages
+deployment remains separate.
+
 Search indexing and sharing
 -----------
 

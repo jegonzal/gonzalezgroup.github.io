@@ -5,6 +5,7 @@ description: "Joseph E. (Joey) Gonzalez and his UC Berkeley research group advan
 # Optional: paste the token from Google Search Console's HTML verification method.
 google_site_verification: ""
 exclude:
+  - deploy.sh
   - vendor
   - Gemfile
   - Gemfile.lock
