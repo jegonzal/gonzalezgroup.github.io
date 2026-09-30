@@ -1,99 +1,73 @@
 ---
+layout: default
 ---
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>{{ site.title | escape }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description | escape }}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="{{ site.url }}/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="Gonzalez Group at UC Berkeley">
-  <meta property="og:title" content="{{ site.title | escape }}">
-  <meta property="og:description" content="{{ site.description | escape }}">
-  <meta property="og:url" content="{{ site.url }}/">
-  <meta property="og:image" content="{{ site.url }}/profile_images/joey.jpg">
-  <meta property="og:image:alt" content="Joseph E. (Joey) Gonzalez">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{{ site.title | escape }}">
-  <meta name="twitter:description" content="{{ site.description | escape }}">
-  <meta name="twitter:image" content="{{ site.url }}/profile_images/joey.jpg">
-  <meta name="twitter:image:alt" content="Joseph E. (Joey) Gonzalez">
-  {% if site.google_site_verification != empty and site.google_site_verification %}
-  <meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">
-  {% endif %}
-  {% include structured-data.html %}
-
-  <link href="./assets/base.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="./assets/extra.css" media="screen" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="./assets/public/favicon.ico" />
-
-  <script src="./assets/modernizr.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-
-<body>
-
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="{{ '/' | relative_url }}" class="logo">Gonzalez Group</a>
-      <ul class="navbar-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#people">People</a></li>
-        <li><a href="#alumni">Alumni</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#activities">Activities</a></li>
-        <!-- <li><a href="#contact">Contact</a></li> -->
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section with Group Image -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Gonzalez Group</h1>
-      <p>Enthusiastically Advancing AI Systems at UC Berkeley</p>
+      <h1>Joseph E. Gonzalez</h1>
+      <p>Machine Learning + Computer Systems · UC Berkeley</p>
     </div>
   </section>
 
-  <!-- Project carousel: maintain entries in _data/projects.yml. -->
-  <div class="project-carousel">
-    <div class="project-scroll" role="region" aria-label="Research projects; scroll or drag to explore" tabindex="0">
+  <div class="wrapper">
+    <div class="profile">
+
+      <!-- About Section: the research identity, stated first. -->
+      <section class="profile-content" id="about">
+        <div class="profile-description">
+          <img src="{{ '/profile_images/joey.jpg' | relative_url }}" alt="Joseph E. Gonzalez" class="about-image">
+          <div class="about-copy">
+          <h2 class="visually-hidden">About Joseph E. Gonzalez</h2>
+          <p>I am a professor in EECS at <strong>UC Berkeley</strong>, working at the intersection of <strong>machine learning and computer systems</strong>. My research asks how new systems abstractions can enable new forms of machine learning and AI.</p>
+          <p>Over the past fifteen years, my students and collaborators have built systems spanning large-scale graph learning, distributed machine learning, model serving and tuning, LLM inference and evaluation, and AI agents. This work includes <a href="{{ '/research/#graphlab' | relative_url }}">GraphLab</a>, <a href="{{ '/research/#powergraph' | relative_url }}">PowerGraph</a>, <a href="{{ '/research/#graphx' | relative_url }}">GraphX</a>, <a href="{{ '/research/#clipper' | relative_url }}">Clipper</a>, <a href="{{ '/research/#ray-serve' | relative_url }}">Ray Serve</a>, <a href="{{ '/research/#ray-tune' | relative_url }}">Ray Tune</a>, <a href="{{ '/research/#alpa' | relative_url }}">Alpa</a>, <a href="{{ '/research/#vllm' | relative_url }}">vLLM</a>, <a href="{{ '/research/#sglang' | relative_url }}">SGLang</a>, <a href="{{ '/research/#chatbot-arena' | relative_url }}">Chatbot Arena</a>, <a href="{{ '/research/#chatbot-arena' | relative_url }}">LLM-as-a-Judge</a>, <a href="{{ '/research/#gorilla' | relative_url }}">Gorilla</a>, <a href="{{ '/research/#gorilla' | relative_url }}">the Berkeley Function Calling Leaderboard (BFCL)</a>, <a href="{{ '/research/#memgpt' | relative_url }}">MemGPT</a>, <a href="{{ '/research/#skyrl' | relative_url }}">SkyRL</a> and <a href="{{ '/research/#agent-data-systems' | relative_url }}">LEANN</a>, among other projects.</p>
+          <p>A recurring theme is building not only new algorithms but also the systems and research communities that make new ideas practical and widely used. Many of these systems were led by <a href="#people">PhD students I advised</a>, who have gone on to <a href="#alumni">academic positions, AI research labs, and companies they founded</a>.</p>
+          <p>One question has shaped my agenda: <em>If we solve today's hot problems, what new problems will those solutions create?</em> In 2008, when most of the field was developing new models, I bet that scaling learning to much larger datasets and more parallel compute would become the challenge, and began working on ML systems. In 2015, as the field focused on scaling training, I bet that serving large models and adapting them to new contexts would come next, and began working on inference systems.</p>
+          <p>Today I am betting that many of the hard problems in <a href="{{ '/research/#agents' | relative_url }}"><strong>AI agents</strong></a> will be solved. My group asks how systems must change for thousands of highly capable agents, how people can steer and negotiate through them, and how models can move from learning from data to <a href="{{ '/research/#post-training' | relative_url }}"><strong>learning from teachers</strong></a>. We also work on post-training and <a href="{{ '/research/#architectures' | relative_url }}"><strong>new neural architectures</strong></a>. <a href="{{ '/research/#guiding-question' | relative_url }}">More on these bets →</a></p>
+          <p class="about-meta">Founding member of the <a href="https://sky.cs.berkeley.edu/">Sky Computing Lab</a>, <a href="https://lmsys.org/">LMSYS</a> and <a href="https://rise.cs.berkeley.edu/">RISELab</a>; member of <a href="https://bair.berkeley.edu/">BAIR</a>.<br>
+          <a href="{{ '/research/' | relative_url }}">Research story</a> · <a href="{{ '/bio/' | relative_url }}">Bio</a> · <a href="{{ '/assets/joseph_gonzalez_cv.pdf' | relative_url }}">CV</a> · <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">Google Scholar</a> · <a href="https://www.youtube.com/@tatacpodcast">Students' podcast on PhD life</a></p>
+          <p id="office" class="about-meta"><strong>Office:</strong> 4165 Gateway.<br>
+          <span id="office-hours"><strong>Office hours:</strong> Mondays, 3:00–4:45 PM PST, in Gateway B1013.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Through the Years: the intellectual framework before the project brands. -->
+      <section class="profile-content" id="research" aria-labelledby="research-heading">
+        <h2 id="research-heading" class="division-title">Research Through the Years</h2>
+        <p class="section-lede">A single line of inquiry: each era asks what systems a new kind of machine learning needs, and each builds on the ideas and people of the one before.</p>
+        <ol class="era-strip">
+          {% for era in site.data.research.eras %}
+          <li class="era-card">
+            <a class="era-link" href="{{ '/research/#' | append: era.id | relative_url }}">
+              <span class="era-years">{{ era.years }}</span>
+              <h3 class="era-title">{{ era.title }}</h3>
+              <p class="era-idea">{{ era.idea }}</p>
+              <p class="era-projects">{{ era.home_line }}</p>
+            </a>
+          </li>
+          {% endfor %}
+        </ol>
+        <p class="section-more"><a href="{{ '/research/' | relative_url }}">Read the full research story, including the people behind each project →</a></p>
+      </section>
+
+      <!-- Project carousel: maintain entries in _data/projects.yml. -->
+      <section class="project-carousel" aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="carousel-label">Projects from the group and its collaborations</h2>
+        <div class="project-scroll" role="region" aria-label="Research projects; scroll or drag to explore" tabindex="0">
           <div class="logos">
             {% for project in site.data.projects %}
             <a href="{{ project.url }}" target="_blank" rel="noopener" aria-label="{{ project.name | escape }}" draggable="false">
               {% if project.image %}
-              <img src="./logo_pictures/{{ project.image }}" alt="{{ project.name | escape }}" decoding="async" draggable="false">
+              <img src="{{ '/logo_pictures/' | append: project.image | relative_url }}" alt="{{ project.name | escape }}" decoding="async" draggable="false">
               {% else %}
               <span class="project-wordmark">{{ project.name | escape }}</span>
               {% endif %}
             </a>
             {% endfor %}
           </div>
-    </div>
-  </div>
-  <script src="./assets/carousel.js" defer></script>
-
-  <div class="wrapper">
-    <div class="profile">
-
-      <!-- About Section -->
-      <section class="profile-content" id="about">
-        <div class="profile-description">
-          <img src="./profile_images/joey.jpg" alt="Joseph E. Gonzalez" class="about-image">
-          <div class="about-copy">
-          <p>Joseph E. Gonzalez is an Associate Professor at UC Berkeley, co-director of the <a href="https://sky.cs.berkeley.edu/">Berkeley Sky Computing Lab</a>, and a member of <a href="https://bair.berkeley.edu/">BAIR</a> and <a href="https://www.lmsys.org/">LMSYS</a>. His group advances <strong>AI systems, including LLM agents, data systems, efficient ML training and inference, and generative model evaluation.</strong></p>
-          <p>See his <a href="./assets/joseph_gonzalez_cv.pdf">CV</a> and <a href="https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ">Google Scholar page</a>. His students also host a <a href="https://www.youtube.com/@tatacpodcast">podcast on PhD life</a>.</p>
-          <p id="office"><strong>Office:</strong> 4165 Gateway.<br>
-          <span id="office-hours"><strong>Office hours:</strong> Mondays, 3:00–4:45 PM PST, in Gateway B1013.</span></p>
-          </div>
         </div>
       </section>
+      <script src="{{ '/assets/carousel.js' | relative_url }}" defer></script>
 
       <!-- People Section -->
       <div id="people">
@@ -101,19 +75,27 @@
       {% if division.people.size > 0 %}
       {% if division.alumni and alumni_heading_shown != true %}
       <h2 id="alumni" class="profile-content division-title">Alumni</h2>
+      <p class="profile-content section-lede">Former students and postdocs, with the thesis and projects from their time in the group and selected subsequent roles, as listed in my CV. Dates indicate advising periods, not necessarily full degree enrollment or completion.</p>
       {% assign alumni_heading_shown = true %}
       {% endif %}
       <section class="profile-content">
         <div id='{{ division.title | slugify }}' class='menu-category'>
+          {% if division.alumni %}
           <h3 class="menu-category-name division-title">{{ division.title }}</h3>
+          {% else %}
+          <h2 class="menu-category-name division-title">{{ division.title }}</h2>
+          <p class="section-lede">The group includes PhD students I advise and collaborating doctoral students.</p>
+          {% endif %}
           <ol class="menu-category-list {% if division.alumni %}alumni-list{% else %}has-images{% endif %}">
             {% assign sorted = division.people | sort: 'name' %}
             {% for person in sorted %}
-            <li class="menu-item">
+            {% assign person_slug = person.name | slugify %}
+            {% if person.id %}{% assign person_slug = person.id %}{% endif %}
+            <li class="menu-item" id="person-{{ person_slug }}">
               <div class="menu-item-info">
                 {% unless division.alumni %}
                 {% if person.image %}
-                <img src="./profile_images/{{ person.image }}" loading="lazy" alt="{{ person.name | escape }}">
+                <img src="{{ '/profile_images/' | append: person.image | relative_url }}" loading="lazy" alt="{{ person.name | escape }}">
                 {% else %}
                 <div class="person-initial" aria-hidden="true">{{ person.name | slice: 0 }}</div>
                 {% endif %}
@@ -127,7 +109,16 @@
                   </div>
                 </div>
                 {% if person.years %}<p class="person-years">{{ person.years }}</p>{% endif %}
-                {% if person.research_interest and division.alumni != true %}<p class="menu-item-description">{{ person.research_interest | escape }}</p>{% endif %}
+                {% if division.alumni %}
+                  {% if person.thesis %}<p class="person-detail"><span class="person-label">Thesis:</span> <cite>{{ person.thesis | escape }}</cite></p>
+                  {% elsif person.research_interest %}<p class="person-detail"><span class="person-label">Research:</span> {{ person.research_interest | escape }}</p>{% endif %}
+                {% elsif person.research_interest %}<p class="menu-item-description">{{ person.research_interest | escape }}</p>{% endif %}
+                {% if person.projects %}
+                <p class="person-detail person-projects"><span class="person-label">Projects:</span>
+                  {% for pid in person.projects %}{% for era in site.data.research.eras %}{% for proj in era.projects %}{% if proj.id == pid %}<a href="{{ '/research/#' | append: pid | relative_url }}">{{ proj.name }}</a>{% endif %}{% endfor %}{% endfor %}{% unless forloop.last %} · {% endunless %}{% endfor %}
+                </p>
+                {% endif %}
+                {% if person.next %}<p class="person-detail"><span class="person-label">After Berkeley:</span> {{ person.next | escape }}</p>{% endif %}
               </div>
             </li>
             {% endfor %}
@@ -138,16 +129,17 @@
       {% endfor %}
       </div>
 
-      <!-- Research Section -->
-      <section class="profile-content" id="research">
-        <h3 class="menu-category-name division-title">Selected Publications · 2026</h3>
+      <!-- Publications Section -->
+      <section class="profile-content" id="publications">
+        <h2 class="menu-category-name division-title">Selected Publications · 2026</h2>
+        <p class="section-lede">Recent papers from the group. Foundational papers for each project are linked from the <a href="{{ '/research/' | relative_url }}">research story</a>, and the full list is on <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ">Google Scholar</a> and in the <a href="{{ '/assets/joseph_gonzalez_cv.pdf' | relative_url }}">CV</a>.</p>
         <div class="publications-grid">
           {% assign publications = site.data.featured_publications %}
           {% for pub in publications %}
           <div class="publication-card">
-            <h4 class="publication-title">
+            <h3 class="publication-title">
               <a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title | escape }}</a>
-            </h4>
+            </h3>
             <details class="publication-authors"><summary>Authors</summary>{{ pub.authors | escape }}</details>
             <div class="publication-meta">
               <span class="publication-venue">{{ pub.venue }}</span>
@@ -156,19 +148,19 @@
           </div>
           {% endfor %}
         </div>
-        <h4>Recent Preprints · 2026</h4>
+        <h3 class="subsection-title">Recent Preprints · 2026</h3>
         <ul class="activities-list">
           <li><a href="https://arxiv.org/abs/2604.25088">Cooperate to Compete: Strategic Coordination in Multi-Agent Conquest</a></li>
           <li><a href="https://arxiv.org/abs/2603.14360">MRNN: Non-Linear RNNs with Matrix-Valued States for Scalable Language Modeling</a></li>
           <li><a href="https://arxiv.org/abs/2602.19128">K-Search: LLM Kernel Generation via Co-Evolving Intrinsic World Model</a></li>
         </ul>
         <div class="view-more-publications">
-          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank">View all publications</a>
+          <a href="https://scholar.google.com/citations?user=B96GkdgAAAAJ" target="_blank" rel="noopener">View all publications</a>
         </div>
       </section>
 
       <section class="profile-content" id="activities">
-        <h3 class="menu-category-name division-title">Recent Activities</h3>
+        <h2 class="menu-category-name division-title">Recent Activities</h2>
         <ul class="activities-list">
           <li><strong>2027 · Upcoming:</strong> General Chair, Conference on Machine Learning and Systems (MLSys).</li>
           <li><strong>May 2026:</strong> Invited talk at the Samsung Research America AI Summit, “Finding a New North Star for AI Research in the Post AGI Era.”</li>
@@ -179,52 +171,5 @@
         </ul>
       </section>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <nav class="footer-navigation">
-          <div class="footer-links">
-            <a href="#about">About</a> |
-            <a href="#research">Research</a> |
-            <a href="#activities">Activities</a> |
-            <a href="#people">People</a> |
-            <a href="#alumni">Alumni</a>
-            <!-- <a href="#contact">Contact</a> -->
-          </div>
-          <p>© Regents of the University of California. All rights reserved. Content updated September 23, 2026.</p>
-        </nav>
-      </footer>
-
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-      <script>
-        function includeHTML() {
-          var z, i, elmnt, file, xhttp;
-          z = document.getElementsByTagName("*");
-          for (i = 0; i < z.length; i++) {
-            elmnt = z[i];
-            file = elmnt.getAttribute("w3-include-html");
-            if (file) {
-              xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                  if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-                  if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                  elmnt.removeAttribute("w3-include-html");
-                  includeHTML();
-                }
-              }
-              xhttp.open("GET", file, true);
-              xhttp.send();
-              return;
-            }
-          }
-        }
-
-        includeHTML();
-      </script>
-
     </div>
   </div>
-</body>
-
-</html>

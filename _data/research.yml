@@ -1,0 +1,654 @@
+# Research narrative: eras, ideas, and projects. Rendered on /research/ and
+# summarized on the homepage. Attribution evidence for the "people" lines is
+# kept privately, outside this public repository; update it with any wording change.
+#
+# In "people" and "narrative" HTML, write %BASE% before internal links so the
+# Berkeley build (baseurl /~jegonzal) works, e.g. %BASE%/#person-lianmin-zheng.
+# "contributors" feeds schema.org structured data (names as they appear on papers).
+
+eras:
+  - id: learning-at-scale
+    years: "2008–2014"
+    title: "Learning at Scale"
+    idea: "Machine-learning algorithms have structure that systems can exploit."
+    summary: >-
+      Exposing the sparse, iterative structure of ML algorithms to distributed
+      systems through the graph abstraction.
+    questions:
+      - "How can the computational structure of machine-learning algorithms be exposed to distributed systems?"
+      - "Can graph computation live inside general-purpose data systems rather than beside them?"
+    narrative: >-
+      <p>Many machine-learning algorithms, from belief propagation to matrix
+      factorization, are made of small computations over sparse dependencies,
+      repeated until they converge. General-purpose data systems of the time did
+      not see that structure, so they either ran these algorithms inefficiently
+      or forced researchers to write custom parallel code. My doctoral work at
+      Carnegie Mellon asked whether the <em>graph</em> could serve as the
+      abstraction between the two: machine-learning researchers describe
+      computation on vertices and edges, and the system handles scheduling,
+      consistency and distribution.</p>
+      <p>GraphLab, PowerGraph and GraphX are three steps in that one line of
+      inquiry. GraphLab introduced the abstraction. PowerGraph re-factored it so
+      that computation could be split across machines for the power-law graphs
+      found in real data. GraphX, built as a postdoc in Berkeley's AMPLab, showed
+      that graph computation could be expressed inside a general dataflow system,
+      unifying tables and graphs in Apache Spark.</p>
+    home_line: "GraphLab and PowerGraph, from doctoral work at CMU · GraphX, now part of Apache Spark"
+    projects:
+      - id: graphlab
+        name: "GraphLab"
+        tagline: "A graph-parallel abstraction for machine learning"
+        description: >-
+          GraphLab let researchers express iterative ML algorithms as programs on
+          the vertices of a sparse graph, with the system managing asynchronous
+          scheduling and consistency. Distributed GraphLab (VLDB 2012) extended it
+          to the cloud.
+        people: >-
+          My doctoral work at Carnegie Mellon, with Yucheng Low, Aapo Kyrola,
+          Danny Bickson and my PhD advisor Carlos Guestrin. The work led to the
+          company Turi (formerly GraphLab), which Apple acquired in 2016.
+        recognition: "VLDB 2023 Test of Time Award (Distributed GraphLab)"
+        contributors: ["Yucheng Low", "Joseph E. Gonzalez", "Aapo Kyrola", "Danny Bickson", "Carlos Guestrin", "Joseph M. Hellerstein"]
+        paper: { title: "GraphLab: A New Parallel Framework for Machine Learning", url: "https://arxiv.org/abs/1006.4990", venue: "UAI", year: 2010 }
+        links:
+          - { label: "Paper (UAI 2010)", url: "https://arxiv.org/abs/1006.4990" }
+          - { label: "Distributed GraphLab (VLDB 2012)", url: "https://arxiv.org/abs/1204.6078" }
+          - { label: "Test of Time talk", url: "https://dl.acm.org/doi/10.14778/3611479.3611538" }
+      - id: powergraph
+        name: "PowerGraph"
+        tagline: "Distributed graph computation on natural graphs"
+        description: >-
+          Real-world graphs have a few very high-degree vertices that overwhelm
+          vertex-centric systems. PowerGraph decomposed vertex programs into
+          gather, apply and scatter phases and partitioned graphs by cutting
+          vertices instead of edges, spreading high-degree vertices across machines.
+        people: >-
+          With Yucheng Low, Haijie Gu, Danny Bickson and Carlos Guestrin.
+        contributors: ["Joseph E. Gonzalez", "Yucheng Low", "Haijie Gu", "Danny Bickson", "Carlos Guestrin"]
+        paper: { title: "PowerGraph: Distributed Graph-Parallel Computation on Natural Graphs", url: "https://www.usenix.org/system/files/conference/osdi12/osdi12-final-167.pdf", venue: "OSDI", year: 2012 }
+        links:
+          - { label: "Paper (OSDI 2012)", url: "https://www.usenix.org/system/files/conference/osdi12/osdi12-final-167.pdf" }
+      - id: graphx
+        name: "GraphX"
+        tagline: "Graph processing in a distributed dataflow framework"
+        description: >-
+          GraphX showed that graph-parallel computation can be expressed with
+          ordinary dataflow operators and optimized like database joins, so graphs
+          and tables can share one system. It became the graph library of
+          Apache Spark.
+        people: >-
+          Developed in Berkeley's AMPLab with Reynold Xin, Ankur Dave and
+          <a href="%BASE%/#person-daniel-crankshaw">Daniel Crankshaw</a>, who
+          became one of my first PhD students.
+        contributors: ["Joseph E. Gonzalez", "Reynold S. Xin", "Ankur Dave", "Daniel Crankshaw", "Michael J. Franklin", "Ion Stoica"]
+        paper: { title: "GraphX: Graph Processing in a Distributed Dataflow Framework", url: "https://www.usenix.org/conference/osdi14/technical-sessions/presentation/gonzalez", venue: "OSDI", year: 2014 }
+        links:
+          - { label: "Paper (OSDI 2014)", url: "https://www.usenix.org/conference/osdi14/technical-sessions/presentation/gonzalez" }
+          - { label: "Apache Spark GraphX", url: "https://spark.apache.org/graphx/" }
+
+  - id: ml-infrastructure
+    years: "2015–2021"
+    title: "ML Infrastructure"
+    idea: "Training a model is only the beginning; the rest of the ML lifecycle is a systems problem."
+    summary: >-
+      Serving predictions, composing models and searching over configurations,
+      from Clipper to Ray Serve and Ray Tune.
+    questions:
+      - "How do we serve predictions from many models with low, predictable latency?"
+      - "How do we compose models into pipelines and provision them under latency targets?"
+      - "How do we make model selection and hyperparameter tuning scale?"
+    narrative: >-
+      <p>After I joined the Berkeley faculty, and as part of the RISELab, the
+      focus shifted from training to everything that happens around it. ML
+      workloads were becoming dynamic and heterogeneous: models had to answer
+      live queries within milliseconds, run as pipelines of several models, and
+      be selected from large searches over architectures and hyperparameters.
+      Our view was that these steps needed their own systems abstractions.</p>
+      <p>The clearest example is <strong>prediction serving</strong>, a line of
+      work that runs directly into today's LLM inference systems (see the
+      lineage below). Velox and then Clipper, led by my student Daniel
+      Crankshaw, put a general-purpose serving layer between applications and ML
+      frameworks. InferLine extended it to model pipelines. Ray Serve continued
+      these ideas inside the Ray ecosystem. In parallel, Ray Tune, led by my
+      student Richard Liaw, made hyperparameter search a distributed-systems
+      problem. I co-led work on Ray Serve and Ray Tune with students and collaborators,
+      developing ML abstractions for serving and tuning within the Ray ecosystem.</p>
+      <p>Students in this period also worked on parallel dataframes (Modin),
+      stateful serverless computing (Cloudburst), dynamic neural networks and
+      learned resource management. Their theses are listed under
+      <a href="%BASE%/#alumni">Alumni</a>.</p>
+    home_line: "Clipper (Daniel Crankshaw) · Ray Serve (Simon Mo) · Ray Tune (Richard Liaw)"
+    projects:
+      - id: clipper
+        name: "Clipper"
+        tagline: "Low-latency online prediction serving"
+        description: >-
+          Clipper put a serving layer between applications and ML frameworks.
+          Caching, adaptive batching and online model selection made
+          predictions fast and accurate regardless of which framework trained
+          the model. It followed Velox (CIDR 2015), and InferLine (SoCC 2020)
+          extended it to provisioning pipelines of models under latency
+          objectives.
+        people: >-
+          Led by <a href="%BASE%/#person-daniel-crankshaw">Daniel Crankshaw</a>
+          (my student; thesis on low-latency prediction serving) with
+          <a href="%BASE%/#person-xin-wang">Xin Wang</a> and collaborators.
+          InferLine added <a href="%BASE%/#person-eyal-sela">Eyal Sela</a>,
+          Corey Zumar, <a href="%BASE%/#person-simon-mo">Simon Mo</a> and
+          <a href="%BASE%/#person-alexey-tumanov">Alexey Tumanov</a>.
+        contributors: ["Daniel Crankshaw", "Xin Wang", "Guilio Zhou", "Michael J. Franklin", "Joseph E. Gonzalez", "Ion Stoica"]
+        paper: { title: "Clipper: A Low-Latency Online Prediction Serving System", url: "https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/crankshaw", venue: "NSDI", year: 2017 }
+        links:
+          - { label: "Clipper (NSDI 2017)", url: "https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/crankshaw" }
+          - { label: "InferLine (SoCC 2020)", url: "https://arxiv.org/abs/1812.01776" }
+      - id: ray-serve
+        name: "Ray Serve"
+        tagline: "Scalable model serving in the Ray ecosystem"
+        description: >-
+          Ray Serve carried the prediction-serving ideas of Clipper into Ray:
+          scalable, framework-agnostic deployment of models and multi-model
+          pipelines, written in Python on a general distributed runtime.
+        people: >-
+          Ray Serve began as a rewrite of Clipper by
+          <a href="%BASE%/#person-simon-mo">Simon Mo</a>, who continued its
+          development within Ray after Daniel Crankshaw graduated.
+        contributors: ["Simon Mo", "Joseph E. Gonzalez"]
+        links:
+          - { label: "Documentation", url: "https://docs.ray.io/en/latest/serve/index.html" }
+          - { label: "Code", url: "https://github.com/ray-project/ray/tree/master/python/ray/serve" }
+      - id: ray-tune
+        name: "Ray Tune"
+        tagline: "Distributed hyperparameter tuning and model selection"
+        description: >-
+          Tune gave researchers a scalable interface for running and
+          coordinating many training trials, with pluggable search and
+          early-stopping algorithms. Follow-on work (RubberBand, EuroSys 2021)
+          studied cost-efficient tuning on elastic cloud resources.
+        people: >-
+          Led by <a href="%BASE%/#person-richard-liaw">Richard Liaw</a>, then my
+          student, with Eric Liang, Robert Nishihara and Philipp Moritz.
+          RubberBand was led by Ujval Misra with Richard and
+          <a href="%BASE%/#person-lisa-dunlap">Lisa Dunlap</a>.
+        contributors: ["Richard Liaw", "Eric Liang", "Robert Nishihara", "Philipp Moritz", "Joseph E. Gonzalez", "Ion Stoica"]
+        paper: { title: "Tune: A Research Platform for Distributed Model Selection and Training", url: "https://arxiv.org/abs/1807.05118", venue: "ICML AutoML Workshop", year: 2018 }
+        links:
+          - { label: "Paper (2018)", url: "https://arxiv.org/abs/1807.05118" }
+          - { label: "RubberBand (EuroSys 2021)", url: "https://doi.org/10.1145/3447786.3456245" }
+          - { label: "Documentation", url: "https://docs.ray.io/en/latest/tune/index.html" }
+
+  - id: foundation-models
+    years: "2021–2024"
+    title: "Foundation Models"
+    idea: "Large models made inference efficiency and evaluation central research problems."
+    summary: >-
+      Serving, programming, evaluating and connecting LLMs to tools: Alpa,
+      vLLM, SGLang, Chatbot Arena and Gorilla.
+    questions:
+      - "How do we train and serve models too large for one accelerator?"
+      - "How do we serve LLMs efficiently?"
+      - "How do we program and orchestrate LLM inference?"
+      - "How do we evaluate models using real human preferences?"
+      - "How do models reliably interact with tools and APIs?"
+    narrative: >-
+      <p>Foundation models raised the systems questions of the previous era at a
+      much larger scale, and added new ones. Alpa, led by my student Lianmin
+      Zheng, automated the parallelization of models too large for a single
+      accelerator, and AlpaServe applied model parallelism to serving. Once
+      LLMs were widely used, inference and evaluation became the central
+      problems. The people who built one of these systems often went on to
+      build the next.</p>
+      <p>Two inference engines from this period became major infrastructure
+      for the field. vLLM uses operating-system-style paging to manage GPU
+      memory. SGLang treats LLM applications as programs and co-designs a
+      language with a runtime. Chatbot Arena made evaluation an open, live
+      measurement of human preference. Gorilla asked how models can reliably
+      call the APIs and tools they will need to act in the world, a question
+      that leads directly to agents.</p>
+    home_line: "Alpa (Lianmin Zheng) · vLLM · SGLang (Lianmin Zheng, Ying Sheng) · Chatbot Arena and LLM-as-a-Judge · Gorilla (Shishir Patil, Tianjun Zhang)"
+    projects:
+      - id: alpa
+        name: "Alpa"
+        tagline: "Automated parallelism for large models"
+        description: >-
+          Alpa automatically combined inter-operator (pipeline) and
+          intra-operator (tensor) parallelism, compiling large models onto
+          accelerator clusters without hand-written parallelization plans.
+          AlpaServe (OSDI 2023) showed how model parallelism can also improve
+          serving through statistical multiplexing.
+        people: >-
+          Led by my student <a href="%BASE%/#person-lianmin-zheng">Lianmin
+          Zheng</a> with Zhuohan Li, Hao Zhang and collaborators. Zhuohan Li led
+          AlpaServe.
+        contributors: ["Lianmin Zheng", "Zhuohan Li", "Hao Zhang", "Yonghao Zhuang", "Zhifeng Chen", "Yanping Huang", "Yida Wang", "Yuanzhong Xu", "Danyang Zhuo", "Eric P. Xing", "Joseph E. Gonzalez", "Ion Stoica"]
+        paper: { title: "Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning", url: "https://www.usenix.org/conference/osdi22/presentation/zheng-lianmin", venue: "OSDI", year: 2022 }
+        links:
+          - { label: "Alpa (OSDI 2022)", url: "https://www.usenix.org/conference/osdi22/presentation/zheng-lianmin" }
+          - { label: "AlpaServe (OSDI 2023)", url: "https://www.usenix.org/conference/osdi23/presentation/li-zhouhan" }
+          - { label: "Code", url: "https://github.com/alpa-projects/alpa" }
+      - id: vllm
+        name: "vLLM"
+        tagline: "Efficient LLM serving with PagedAttention"
+        featured: true
+        description: >-
+          PagedAttention borrows virtual memory and paging from operating
+          systems to store the attention key-value cache in non-contiguous
+          blocks, nearly eliminating memory fragmentation and allowing far
+          larger batches. vLLM grew into one of the most widely used
+          open-source LLM inference engines.
+        people: >-
+          Created by Woosuk Kwon and Zhuohan Li with collaborators in the Sky
+          Computing Lab, including my student
+          <a href="%BASE%/#person-lianmin-zheng">Lianmin Zheng</a>.
+          <a href="%BASE%/#person-simon-mo">Simon Mo</a>, whom I advised,
+          contributed to the open-source project and later co-founded Inferact,
+          the company built around vLLM, where he is CEO.
+        contributors: ["Woosuk Kwon", "Zhuohan Li", "Siyuan Zhuang", "Ying Sheng", "Lianmin Zheng", "Cody Hao Yu", "Joseph E. Gonzalez", "Hao Zhang", "Ion Stoica", "Simon Mo"]
+        paper: { title: "Efficient Memory Management for Large Language Model Serving with PagedAttention", url: "https://arxiv.org/abs/2309.06180", venue: "SOSP", year: 2023 }
+        links:
+          - { label: "Paper (SOSP 2023)", url: "https://arxiv.org/abs/2309.06180" }
+          - { label: "Code", url: "https://github.com/vllm-project/vllm" }
+          - { label: "Project", url: "https://docs.vllm.ai/" }
+      - id: sglang
+        name: "SGLang"
+        tagline: "Fast and programmable LLM inference"
+        featured: true
+        description: >-
+          SGLang treats LLM applications as structured programs. A frontend
+          language expresses multiple generation calls, control flow and
+          constrained output. It is co-designed with a runtime whose
+          RadixAttention reuses the key-value cache across calls and whose
+          compressed finite-state machines speed up structured decoding. SGLang
+          has become a major, widely adopted open-source inference engine used
+          to serve models in production.
+        people: >-
+          Created by <a href="%BASE%/#person-lianmin-zheng">Lianmin Zheng</a>,
+          my PhD student, together with Ying Sheng, with collaborators including
+          <a href="%BASE%/#person-shiyi-cao">Shiyi Cao</a>, a current student in
+          the group.
+        contributors: ["Lianmin Zheng", "Liangsheng Yin", "Zhiqiang Xie", "Chuyue Sun", "Jeff Huang", "Cody Hao Yu", "Shiyi Cao", "Christos Kozyrakis", "Ion Stoica", "Joseph E. Gonzalez", "Clark Barrett", "Ying Sheng"]
+        paper: { title: "SGLang: Efficient Execution of Structured Language Model Programs", url: "https://arxiv.org/abs/2312.07104", venue: "NeurIPS", year: 2024 }
+        links:
+          - { label: "Paper (NeurIPS 2024)", url: "https://arxiv.org/abs/2312.07104" }
+          - { label: "Code", url: "https://github.com/sgl-project/sglang" }
+          - { label: "Project", url: "https://sgl-project.github.io/" }
+      - id: chatbot-arena
+        name: "Chatbot Arena"
+        tagline: "Evaluating LLMs by human preference"
+        description: >-
+          Anonymous, crowdsourced side-by-side comparisons of models on real
+          user prompts, aggregated into statistically grounded ratings: an open,
+          continually updated benchmark. Companion work introduced MT-Bench and
+          LLM-as-a-Judge, using strong models to evaluate other models, and released LMSYS-Chat-1M, a dataset of
+          real-world conversations.
+        people: >-
+          I started Chatbot Arena within LMSYS and ran its early experiments
+          together with students and collaborators, including
+          <a href="%BASE%/#person-lianmin-zheng">Lianmin Zheng</a>, Wei-Lin
+          Chiang and Ying Sheng. My student
+          <a href="%BASE%/#person-dacheng-li">Dacheng Li</a> also contributed.
+        contributors: ["Wei-Lin Chiang", "Lianmin Zheng", "Ying Sheng", "Anastasios Nikolas Angelopoulos", "Tianle Li", "Dacheng Li", "Hao Zhang", "Banghua Zhu", "Michael Jordan", "Joseph E. Gonzalez", "Ion Stoica"]
+        paper: { title: "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference", url: "https://arxiv.org/abs/2403.04132", venue: "ICML", year: 2024 }
+        links:
+          - { label: "Chatbot Arena (ICML 2024)", url: "https://arxiv.org/abs/2403.04132" }
+          - { label: "LLM-as-a-Judge & MT-Bench (NeurIPS 2023)", url: "https://arxiv.org/abs/2306.05685" }
+          - { label: "LMSYS-Chat-1M (ICLR 2024)", url: "https://arxiv.org/abs/2309.11998" }
+      - id: gorilla
+        name: "Gorilla"
+        tagline: "Connecting LLMs to massive collections of APIs"
+        description: >-
+          Gorilla trained LLMs, with retrieval over documentation, to write
+          correct API calls, reducing hallucinated calls. The Berkeley Function
+          Calling Leaderboard (BFCL) became a widely used benchmark for tool use,
+          and RAFT studied how to adapt models to retrieval over specific
+          domains.
+        people: >-
+          Led by my students <a href="%BASE%/#person-shishir-patil">Shishir
+          Patil</a> and <a href="%BASE%/#person-tianjun-zhang">Tianjun
+          Zhang</a>, with former student <a href="%BASE%/#person-xin-wang">Xin
+          Wang</a>. BFCL is now led by
+          <a href="%BASE%/#person-huanzhi-mao">Huanzhi Mao</a>, a current
+          student.
+        contributors: ["Shishir G. Patil", "Tianjun Zhang", "Xin Wang", "Joseph E. Gonzalez"]
+        paper: { title: "Gorilla: Large Language Model Connected with Massive APIs", url: "https://arxiv.org/abs/2305.15334", venue: "NeurIPS", year: 2024 }
+        links:
+          - { label: "Paper (NeurIPS 2024)", url: "https://arxiv.org/abs/2305.15334" }
+          - { label: "BFCL (ICML 2025)", url: "https://gorilla.cs.berkeley.edu/leaderboard.html" }
+          - { label: "RAFT (COLM 2024)", url: "https://arxiv.org/abs/2403.10131" }
+          - { label: "Project", url: "https://gorilla.cs.berkeley.edu/" }
+
+  - id: current-directions
+    years: "2023–present"
+    title: "Agents, Post-Training and New Architectures"
+    idea: "If many hard problems in agents are solved, systems, human oversight and learning itself will have to change."
+    summary: >-
+      Systems for thousands of capable agents, humans steering them, learning
+      from teachers, and new architectures: MemGPT, SkyRL, LEANN and current work.
+    questions:
+      - "How must systems, and their interfaces and abstractions, change when the users are thousands of highly capable agents?"
+      - "How can people steer vast teams of agents that are faster and more sophisticated than those leading them?"
+      - "How will people with competing goals negotiate and reach consensus when each has capable agents?"
+      - "Can models learn from teachers, not only from data, and what does it mean to learn how to teach?"
+    groups:
+      - id: agents
+        title: "AI agents"
+        intro: "Systems for agents that keep memory, call tools, run for many steps and interact with each other."
+      - id: post-training
+        title: "Post-training and learning from teachers"
+        intro: "How models keep improving after pre-training: reinforcement learning, steering by smaller models, continual learning and transferring knowledge between models."
+      - id: architectures
+        title: "Neural architectures and efficiency"
+        intro: "New model architectures, attention mechanisms and kernels for efficient, scalable models."
+    narrative: >-
+      <p>Today's bet is that many of the hard problems in AI agents will be
+      solved, and that highly capable agents will arrive in very large numbers.
+      That raises questions beyond building any single agent:</p>
+      <ul>
+      <li><strong>Systems for thousands of capable agents.</strong> Systems have
+      been designed around human users and conventional programs. How should
+      interfaces and abstractions change for this new, more capable class of
+      user, and how will systems handle thousands of agents at once?</li>
+      <li><strong>Humans steering teams of agents.</strong> How can people direct
+      vast teams of agents that are faster and more sophisticated than the
+      people leading them? We may have to let go of detailed understanding,
+      and perhaps some basic design principles, in favor of higher-level
+      abstractions that have yet to be developed.</li>
+      <li><strong>Negotiation and consensus.</strong> When everyone has capable
+      agents, how will people with competing goals negotiate and find
+      consensus?</li>
+      <li><strong>Learning from teachers.</strong> Beyond learning from data,
+      how can models exchange knowledge and capabilities? What does it mean to
+      <em>learn how to teach</em>, and how efficient can knowledge transfer
+      become?</li>
+      </ul>
+      <p>Current projects are early steps on these questions: data systems
+      redesigned for agents as their primary users, serving engines for
+      multi-turn agents, studies of how agents cooperate and compete, and small
+      advisor models that learn to steer larger ones. The group also continues
+      to work on post-training and on new neural architectures. That work
+      returns to its oldest question: how to co-design models with the
+      systems that run them.</p>
+    home_line: "Agent-first systems · humans steering agent teams · learning from teachers · MemGPT (Charles Packer, Sarah Wooders, Kevin Lin) · SkyRL · LEANN · new architectures (MRNN, sparse attention)"
+    projects:
+      - id: memgpt
+        group: agents
+        name: "MemGPT"
+        tagline: "LLMs as operating systems: persistent memory for agents"
+        description: >-
+          MemGPT's virtual context management pages information between a
+          model's limited context window and external storage, much as an
+          operating system manages memory. This lets agents maintain persistent
+          memory across long conversations and documents. Follow-on work on
+          sleep-time compute lets agents reason about their context between
+          interactions.
+        people: >-
+          Created by my students
+          <a href="%BASE%/#person-charles-packer">Charles Packer</a>,
+          <a href="%BASE%/#person-sarah-wooders">Sarah Wooders</a> and
+          <a href="%BASE%/#person-kevin-lin">Kevin Lin</a> with collaborators.
+          Charles and Sarah co-founded Letta to continue the work, and Kevin
+          joined them. Kevin led the sleep-time compute study.
+        contributors: ["Charles Packer", "Sarah Wooders", "Kevin Lin", "Vivian Fang", "Shishir G. Patil", "Ion Stoica", "Joseph E. Gonzalez"]
+        paper: { title: "MemGPT: Towards LLMs as Operating Systems", url: "https://arxiv.org/abs/2310.08560", venue: "arXiv", year: 2023 }
+        links:
+          - { label: "Paper (2023)", url: "https://arxiv.org/abs/2310.08560" }
+          - { label: "Sleep-time compute (2025)", url: "https://arxiv.org/abs/2504.13171" }
+          - { label: "Code (Letta)", url: "https://github.com/letta-ai/letta" }
+      - id: skyrl
+        group: post-training
+        name: "SkyRL"
+        tagline: "Reinforcement learning for long-horizon agents"
+        description: >-
+          An open framework for training LLM agents with reinforcement learning
+          on multi-turn, tool-using tasks such as software engineering.
+          SkyRL-Agent focuses on efficient training for multi-turn, long-horizon
+          agents.
+        people: >-
+          Initially co-developed by students in the group and collaborators in
+          the Sky Computing Lab. SkyRL-Agent was led by
+          <a href="%BASE%/#person-shiyi-cao">Shiyi Cao</a> and
+          <a href="%BASE%/#person-dacheng-li">Dacheng Li</a>.
+        contributors: ["Shiyi Cao", "Dacheng Li", "Fangzhou Zhao", "Shuo Yuan", "Sumanth R. Hegde", "Connor Chen", "Charlie Ruan", "Tyler Griggs", "Shu Liu", "Eric Tang", "Richard Liaw", "Philipp Moritz", "Matei Zaharia", "Joseph E. Gonzalez", "Ion Stoica"]
+        paper: { title: "SkyRL-Agent: Efficient RL Training for Multi-turn LLM Agent", url: "https://arxiv.org/abs/2511.16108", venue: "arXiv", year: 2025 }
+        links:
+          - { label: "SkyRL-Agent (2025)", url: "https://arxiv.org/abs/2511.16108" }
+          - { label: "Code", url: "https://github.com/NovaSky-AI/SkyRL" }
+      - id: agent-serving
+        group: agents
+        name: "Serving agents"
+        tagline: "Scheduling and caching for multi-turn, tool-using agents"
+        description: >-
+          Agents interleave model calls with tool calls, which breaks the
+          assumptions of request-level LLM serving. Autellix schedules agent
+          programs as a whole. Continuum keeps a multi-turn agent's key-value
+          cache alive across tool calls. vCache offers verified semantic prompt
+          caching.
+        people: >-
+          Continuum was led by <a href="%BASE%/#person-hanchen-li">Hanchen
+          Li</a>. Autellix was led by Michael Luo with
+          <a href="%BASE%/#person-tianjun-zhang">Tianjun Zhang</a>,
+          <a href="%BASE%/#person-justin-wong">Justin Wong</a>,
+          <a href="%BASE%/#person-yichuan-wang">Yichuan Wang</a> and
+          collaborators. vCache was led by Luis Gaspar Schroeder with postdoc
+          <a href="%BASE%/#person-aditya-desai">Aditya Desai</a>.
+        contributors: ["Hanchen Li", "Michael Luo", "Tianjun Zhang", "Justin Wong", "Yichuan Wang", "Luis Gaspar Schroeder", "Aditya Desai", "Joseph E. Gonzalez"]
+        paper: { title: "Autellix: An Efficient Serving Engine for LLM Agents as General Programs", url: "https://arxiv.org/abs/2502.13965", venue: "NSDI", year: 2026 }
+        links:
+          - { label: "Autellix (NSDI 2026)", url: "https://arxiv.org/abs/2502.13965" }
+          - { label: "Continuum (2025)", url: "https://arxiv.org/abs/2511.02230" }
+          - { label: "vCache (ICLR 2026)", url: "https://arxiv.org/abs/2502.03771" }
+      - id: agent-learning
+        group: post-training
+        name: "Advisor Models and continual learning"
+        tagline: "Steering, adapting and continually improving models"
+        description: >-
+          Advisor Models trains small models that steer black-box LLMs toward
+          specific users and tasks. Continual Learning Bench measures whether
+          agents actually improve from experience over time.
+        people: >-
+          Advisor Models was led by <a href="%BASE%/#person-parth-asawa">Parth
+          Asawa</a> with <a href="%BASE%/#person-alan-zhu">Alan Zhu</a> and
+          <a href="%BASE%/#person-abby-oneill">Abby O'Neill</a>. Parth also
+          leads Continual Learning Bench.
+        contributors: ["Parth Asawa", "Alan Zhu", "Abigail O'Neill", "Matei Zaharia", "Alexandros G. Dimakis", "Joseph E. Gonzalez"]
+        paper: { title: "How to Train Your Advisor: Steering Black-Box LLMs with Advisor Models", url: "https://arxiv.org/abs/2510.02453", venue: "ICML", year: 2026 }
+        links:
+          - { label: "Advisor Models (ICML 2026)", url: "https://arxiv.org/abs/2510.02453" }
+          - { label: "Continual Learning Bench", url: "https://continual-learning-bench.com/" }
+      - id: agent-evaluation
+        group: agents
+        name: "Evaluating agents"
+        tagline: "Measuring agents in the wild and diagnosing failures"
+        description: >-
+          Search Arena extends human-preference evaluation to search-augmented
+          LLMs. MAST is a taxonomy of why multi-agent LLM systems fail.
+          Characterizing Agents in Production studies how agents are actually
+          built and deployed.
+        people: >-
+          Search Arena was led by <a href="%BASE%/#person-mihran-miroyan">Mihran
+          Miroyan</a> with <a href="%BASE%/#person-patrick-wu">Patrick Wu</a>.
+          MAST and the production study were led by collaborators, with
+          contributions from students including
+          <a href="%BASE%/#person-huanzhi-mao">Huanzhi Mao</a> and
+          <a href="%BASE%/#person-shu-liu">Shu Liu</a>.
+        contributors: ["Mihran Miroyan", "Tsung-Han Wu", "Mert Cemri", "Melissa Z. Pan", "Huanzhi Mao", "Shu Liu", "Joseph E. Gonzalez"]
+        paper: { title: "Search Arena: Analyzing Search-Augmented LLMs", url: "https://arxiv.org/abs/2506.05334", venue: "ICLR", year: 2026 }
+        links:
+          - { label: "Search Arena (ICLR 2026)", url: "https://arxiv.org/abs/2506.05334" }
+          - { label: "MAST (NeurIPS 2025)", url: "https://arxiv.org/abs/2503.13657" }
+          - { label: "Agents in production (ICML 2026)", url: "https://arxiv.org/abs/2512.04123" }
+      - id: multi-agent
+        group: agents
+        name: "Multi-agent systems"
+        tagline: "Cooperation, competition and AI–AI interaction"
+        description: >-
+          Cooperate to Compete studies strategic coordination among LLM agents in
+          a multi-agent conquest game, part of the group's broader work on how
+          AI systems interact with one another.
+        people: >-
+          Led by <a href="%BASE%/#person-abby-oneill">Abby O'Neill</a> with
+          <a href="%BASE%/#person-alan-zhu">Alan Zhu</a> and
+          <a href="%BASE%/#person-mihran-miroyan">Mihran Miroyan</a>.
+        contributors: ["Abigail O'Neill", "Alan Zhu", "Mihran Miroyan", "Narges Norouzi", "Joseph E. Gonzalez"]
+        paper: { title: "Cooperate to Compete: Strategic Coordination in Multi-Agent Conquest", url: "https://arxiv.org/abs/2604.25088", venue: "arXiv", year: 2026 }
+        links:
+          - { label: "Paper (2026)", url: "https://arxiv.org/abs/2604.25088" }
+      - id: agent-data-systems
+        group: agents
+        name: "Data systems for agents"
+        tagline: "Retrieval, memory and data systems designed for agents"
+        description: >-
+          If agents become the primary users of data systems, those systems
+          should be redesigned around them. LEANN is a storage-efficient vector
+          index for retrieval on personal devices.
+        people: >-
+          The agent-first data systems vision was led by
+          <a href="%BASE%/#person-shu-liu">Shu Liu</a> with
+          <a href="%BASE%/#person-alan-zhu">Alan Zhu</a> and collaborators.
+          LEANN was led by <a href="%BASE%/#person-yichuan-wang">Yichuan
+          Wang</a>.
+        contributors: ["Shu Liu", "Alan Zhu", "Yichuan Wang", "Joseph E. Gonzalez"]
+        paper: { title: "Supporting Our AI Overlords: Redesigning Data Systems to Be Agent-First", url: "https://arxiv.org/abs/2509.00997", venue: "CIDR", year: 2026 }
+        links:
+          - { label: "Agent-first data systems (CIDR 2026)", url: "https://arxiv.org/abs/2509.00997" }
+          - { label: "LEANN (2025)", url: "https://arxiv.org/abs/2506.08276" }
+          - { label: "LEANN code", url: "https://github.com/StarTrail-org/LEANN" }
+
+      - id: generative-diversity
+        group: post-training
+        name: "Diversity after post-training"
+        tagline: "Keeping generation diverse and creative"
+        description: >-
+          Post-training tends to narrow the range of outputs a model will
+          produce. SimpleStrat diversifies generation by stratifying the space of
+          possible answers and sampling across strata. It is part of a broader
+          study of how post-training affects generative diversity.
+        people: >-
+          Led by <a href="%BASE%/#person-justin-wong">Justin Wong</a>, whose
+          thesis studied how to mitigate the effects of post-training on
+          generative diversity.
+        contributors: ["Justin Wong", "Joseph E. Gonzalez"]
+        paper: { title: "SimpleStrat: Diversifying Language Model Generation with Stratification", url: "https://arxiv.org/abs/2410.09038", venue: "NeurIPS", year: 2025 }
+        links:
+          - { label: "SimpleStrat (NeurIPS 2025)", url: "https://arxiv.org/abs/2410.09038" }
+      - id: mrnn
+        group: architectures
+        name: "MRNN"
+        tagline: "Non-linear RNNs with matrix-valued states"
+        description: >-
+          A recurrent architecture that keeps a non-linear recurrence but
+          makes the hidden state a matrix rather than a vector, aimed at scalable
+          language modeling as an alternative to attention-only designs.
+        people: >-
+          Led by <a href="%BASE%/#person-mayank-mishra">Mayank Mishra</a> with
+          collaborators.
+        contributors: ["Mayank Mishra", "Shawn Tan", "Ion Stoica", "Joseph E. Gonzalez", "Tri Dao"]
+        paper: { title: "MRNN: Non-Linear RNNs with Matrix-Valued States for Scalable Language Modeling", url: "https://arxiv.org/abs/2603.14360", venue: "arXiv", year: 2026 }
+        links:
+          - { label: "Paper (2026)", url: "https://arxiv.org/abs/2603.14360" }
+          - { label: "Code (lm-engine)", url: "https://github.com/open-lm-engine/lm-engine" }
+      - id: sparse-attention
+        group: architectures
+        name: "Sparse and verified attention"
+        tagline: "Attending to less, with guarantees"
+        description: >-
+          HashAttention exploits semantic sparsity to find the few tokens that
+          matter for each query. vAttention adds statistical guarantees to sparse attention by
+          sampling. SLA combines sparse and linear attention in diffusion
+          transformers and underlies TurboDiffusion, which accelerates video
+          generation by 100–200×.
+        people: >-
+          HashAttention and vAttention were led by postdoc
+          <a href="%BASE%/#person-aditya-desai">Aditya Desai</a>. SLA and
+          TurboDiffusion were led by Jintao Zhang and collaborators at Tsinghua,
+          including former postdoc
+          <a href="%BASE%/#person-jianfei-chen">Jianfei Chen</a>.
+        contributors: ["Aditya Desai", "Shuo Yang", "Alejandro Cuadron", "Jintao Zhang", "Jianfei Chen", "Joseph E. Gonzalez"]
+        paper: { title: "vAttention: Verified Sparse Attention via Sampling", url: "https://arxiv.org/abs/2510.05688", venue: "ICLR", year: 2026 }
+        links:
+          - { label: "vAttention (ICLR 2026)", url: "https://arxiv.org/abs/2510.05688" }
+          - { label: "HashAttention (ICML 2025)", url: "https://arxiv.org/abs/2412.14468" }
+          - { label: "SLA (ICLR 2026)", url: "https://arxiv.org/abs/2509.24006" }
+          - { label: "TurboDiffusion", url: "https://github.com/thu-ml/TurboDiffusion" }
+      - id: k-search
+        group: architectures
+        name: "K-Search"
+        tagline: "LLM-generated GPU kernels"
+        description: >-
+          K-Search uses LLMs to generate high-performance GPU kernels, guiding
+          the search with an intrinsic world model that co-evolves with the
+          candidate kernels.
+        people: >-
+          Led by <a href="%BASE%/#person-shiyi-cao">Shiyi Cao</a> with
+          collaborators.
+        contributors: ["Shiyi Cao", "Ziming Mao", "Joseph E. Gonzalez", "Ion Stoica"]
+        paper: { title: "K-Search: LLM Kernel Generation via Co-Evolving Intrinsic World Model", url: "https://arxiv.org/abs/2602.19128", venue: "arXiv", year: 2026 }
+        links:
+          - { label: "Paper (2026)", url: "https://arxiv.org/abs/2602.19128" }
+
+# The question behind the agenda, and the bets it produced. Rendered at the
+# top of /research/ (Joey's account, September 2026).
+guiding_question: "If we solve today's hot problems, what new problems will those solutions create?"
+bets:
+  - year: "2008"
+    context: "Building better models."
+    bet: "Someone will build great models. The next challenge will be scaling learning to massive datasets and parallel hardware."
+    result: "ML systems: GraphLab, PowerGraph and GraphX."
+    anchor: "learning-at-scale"
+  - year: "2015"
+    context: "Scaling up training."
+    bet: "Someone will train a large model on vast data. The next challenge will be serving it and adapting it to new contexts."
+    result: "Inference systems: Clipper and Ray Serve, and later vLLM and SGLang."
+    anchor: "ml-infrastructure"
+  - year: "Today"
+    context: "Building capable AI agents."
+    bet: "Someone will build them, by the thousands. Systems, human oversight and learning itself will have to change."
+    result: "Agent-first systems, humans steering agent teams, negotiation through agents, and learning from teachers."
+    anchor: "current-directions"
+
+# The prediction-serving lineage, rendered as a compact flow on /research/.
+serving_lineage:
+  - { name: "Velox", year: "2015", note: "Model serving in the Berkeley data stack", anchor: "clipper" }
+  - { name: "Clipper", year: "2017", note: "General-purpose, low-latency prediction serving", anchor: "clipper" }
+  - { name: "InferLine", year: "2020", note: "Serving pipelines of models under latency targets", anchor: "clipper" }
+  - { name: "Ray Serve", year: "Ray ecosystem", note: "Clipper's ideas rewritten on Ray", anchor: "ray-serve" }
+  - { name: "AlpaServe", year: "2023", note: "Model parallelism for serving large models", anchor: "alpa" }
+  - { name: "vLLM · SGLang", year: "2023–24", note: "Memory management and programmable LLM inference", anchor: "vllm" }
+
+# Longitudinal trajectories: how questions evolved through people in the group.
+trajectories:
+  - person: "Daniel Crankshaw"
+    anchor: "daniel-crankshaw"
+    path: ["GraphX", "Velox", "Clipper", "InferLine"]
+    text: >-
+      From graph processing to the first generation of prediction-serving
+      systems. His thesis, <em>The Design and Implementation of Low-Latency
+      Prediction Serving Systems</em>, laid the foundation for the serving line
+      of work.
+  - person: "Simon Mo"
+    anchor: "simon-mo"
+    path: ["InferLine", "Ray Serve", "vLLM", "Inferact"]
+    text: >-
+      Carried prediction serving from Clipper into Ray Serve and then into
+      open-source LLM inference with vLLM. His thesis is <em>Building Open
+      Source Inference Serving Systems</em>.
+  - person: "Lianmin Zheng"
+    anchor: "lianmin-zheng"
+    path: ["Alpa", "vLLM / Chatbot Arena", "SGLang"]
+    text: >-
+      From automatic parallelism for large models, to LLM serving and
+      human-preference evaluation, to creating SGLang. His thesis is
+      <em>Scalable and Efficient Systems for Large Deep Learning Models</em>.
+  - person: "Shishir Patil"
+    anchor: "shishir-patil"
+    path: ["Gorilla", "RAFT", "BFCL"]
+    text: >-
+      From connecting LLMs to APIs to establishing how tool use is evaluated.
+      His thesis is <em>Teaching Large Language Models to Use Tools at
+      Scale</em>.
+  - person: "Charles Packer"
+    anchor: "charles-packer"
+    path: ["MemGPT", "Letta"]
+    text: >-
+      From treating LLMs as operating systems to building persistent,
+      stateful agents. His thesis is <em>Building Agentic Systems in an Era of
+      Large Language Models</em>.

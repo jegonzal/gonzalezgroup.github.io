@@ -1,7 +1,7 @@
 url: "https://joeygonzalez.com"
 baseurl: ""
 title: "Joseph E. Gonzalez (Joey) | Gonzalez Group at UC Berkeley"
-description: "Joseph E. (Joey) Gonzalez and his UC Berkeley research group advance AI systems, LLM agents, efficient training and inference, and data systems."
+description: "Joseph E. Gonzalez (UC Berkeley) works on machine learning and computer systems, from GraphLab and Ray Serve to vLLM, SGLang, Chatbot Arena, Gorilla and MemGPT to AI agents, post-training and new architectures, with his students and collaborators."
 # Optional: paste the token from Google Search Console's HTML verification method.
 google_site_verification: ""
 exclude:

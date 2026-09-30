@@ -1,6 +1,8 @@
 # Roster: CV advising section and existing lab membership; reviewed 2026-09-04.
 # Years are advising/postdoc dates, not necessarily full degree enrollment dates.
-# See _maintenance/people-sources.md for verification notes.
+# Verification notes are kept privately, outside this public repository.
+# thesis/next come from the CV advising section (2026); `next` records selected
+# subsequent roles as listed there. `projects` are ids in _data/research.yml.
 [
   {
     "title": "Current PhD Students",
@@ -28,7 +30,12 @@
         "image": "shiyi.jpg",
         "email": "shiyicao314 [at] berkeley.edu",
         "twitter": "https://twitter.com/shiyi_c98",
-        "years": "2023–present"
+        "years": "2023–present",
+        "projects": [
+          "sglang",
+          "skyrl",
+          "k-search"
+        ]
       },
       {
         "name": "Guangyu Feng",
@@ -45,14 +52,21 @@
         "image": "dacheng.jpg",
         "email": "dacheng177 [at] berkeley.edu",
         "twitter": "https://twitter.com/DachengLi177",
-        "years": "2023–present"
+        "years": "2023–present",
+        "projects": [
+          "chatbot-arena",
+          "skyrl"
+        ]
       },
       {
         "name": "Hanchen Li",
         "website": "https://hanchenli.github.io/",
         "image": "hanchen.png",
         "years": "2025–present",
-        "research_interest": "Agent-first data and serving systems, including KV-cache-aware scheduling for multi-turn LLM agents"
+        "research_interest": "Agent-first data and serving systems, including KV-cache-aware scheduling for multi-turn LLM agents",
+        "projects": [
+          "agent-serving"
+        ]
       },
       {
         "name": "Colin Wang",
@@ -70,7 +84,11 @@
         "image": "yichuan.jpg",
         "email": "yichuan_wang [at] berkeley.edu",
         "twitter": "https://twitter.com/YichuanM",
-        "years": "2024–present"
+        "years": "2024–present",
+        "projects": [
+          "agent-serving",
+          "agent-data-systems"
+        ]
       },
       {
         "name": "Tsung-Han (Patrick) Wu",
@@ -79,7 +97,11 @@
         "image": "patrick.jpg",
         "email": "tsunghan_wu [at] berkeley.edu",
         "twitter": "https://twitter.com/tsunghan_wu",
-        "years": "2023–present"
+        "years": "2023–present",
+        "id": "patrick-wu",
+        "projects": [
+          "agent-evaluation"
+        ]
       },
       {
         "name": "Parth Asawa",
@@ -88,7 +110,10 @@
         "image": "parth.jpg",
         "email": "pgasawa [at] berkeley.edu",
         "twitter": "https://x.com/pgasawa",
-        "years": "2024–present"
+        "years": "2024–present",
+        "projects": [
+          "agent-learning"
+        ]
       },
       {
         "name": "Huanzhi Mao",
@@ -97,7 +122,11 @@
         "image": "huanzhi.jpeg",
         "email": "huanzhimao [at] berkeley.edu",
         "twitter": "https://x.com/HuanzhiMao",
-        "years": "2025–present"
+        "years": "2025–present",
+        "projects": [
+          "gorilla",
+          "agent-evaluation"
+        ]
       },
       {
         "name": "Mihran Miroyan",
@@ -105,21 +134,33 @@
         "research_interest": "Evaluation and benchmarking of search-augmented large language models",
         "image": "mihran.jpg",
         "email": "miroyan.mihran [at] berkeley.edu",
-        "years": "2024–present"
+        "years": "2024–present",
+        "projects": [
+          "agent-evaluation",
+          "multi-agent"
+        ]
       },
       {
         "name": "Mayank Mishra",
         "website": "https://www.mayank.site/",
         "image": "mayank.jpg",
         "years": "2025–present",
-        "research_interest": "Efficient LLM pretraining and novel model architectures for scalable language modeling"
+        "research_interest": "Efficient LLM pretraining and novel model architectures for scalable language modeling",
+        "projects": [
+          "mrnn"
+        ]
       },
       {
         "name": "Abby O'Neill",
         "website": "https://abbykoneill.github.io/",
         "image": "abby.jpeg",
         "years": "2025–present",
-        "research_interest": "AI–AI interactions and cooperative multi-agent system design"
+        "research_interest": "AI–AI interactions and cooperative multi-agent system design",
+        "id": "abby-oneill",
+        "projects": [
+          "agent-learning",
+          "multi-agent"
+        ]
       },
       {
         "name": "Alan Zhu",
@@ -128,7 +169,12 @@
         "image": "alan.jpg",
         "email": "aczhu [at] berkeley.edu",
         "twitter": "https://x.com/aczhu1326",
-        "years": "2024–present"
+        "years": "2024–present",
+        "projects": [
+          "agent-learning",
+          "multi-agent",
+          "agent-data-systems"
+        ]
       },
       {
         "name": "Shu (Lynn) Liu",
@@ -136,7 +182,12 @@
         "research_interest": "ML Data Systems",
         "image": "shu.jpg",
         "email": "lshu [at] berkeley.edu",
-        "twitter": "https://x.com/LynnLiu41887950"
+        "twitter": "https://x.com/LynnLiu41887950",
+        "id": "shu-liu",
+        "projects": [
+          "agent-data-systems",
+          "agent-evaluation"
+        ]
       }
     ]
   },
@@ -147,7 +198,10 @@
       {
         "name": "Eyal Sela",
         "website": "https://dblp.org/pid/185/9249.html",
-        "research_interest": "Algorithmic methods for efficient deep learning inference"
+        "research_interest": "Algorithmic methods for efficient deep learning inference",
+        "projects": [
+          "clipper"
+        ]
       },
       {
         "name": "Yu Gai",
@@ -157,12 +211,24 @@
       {
         "name": "Francois Belletti",
         "website": "https://francoisbelletti.squarespace.com/",
-        "years": "2015–2018"
+        "years": "2015–2018",
+        "thesis": "Alternate Representations for Scalable Analysis and Control of Heterogeneous Time Series"
       },
       {
         "name": "Daniel Crankshaw",
         "website": "https://dancrankshaw.com/",
-        "years": "2015–2019"
+        "years": "2015–2019",
+        "thesis": "The Design and Implementation of Low-Latency Prediction Serving Systems",
+        "next": "Google (Staff Software Engineer)",
+        "projects": [
+          "graphx",
+          "clipper"
+        ],
+        "id": "daniel-crankshaw",
+        "advising_description": "Former PhD student advised by Joseph E. Gonzalez.",
+        "schema_names": [
+          "Daniel Crankshaw"
+        ]
       },
       {
         "name": "Lisa Dunlap",
@@ -171,23 +237,31 @@
         "image": "lisa.jpg",
         "email": "lisabdunlap [at] berkeley.edu",
         "twitter": "https://twitter.com/lisabdunlap",
-        "years": "2021–2026"
+        "years": "2021–2026",
+        "thesis": "So What's the Vibe? Data-Driven Diagnosis of Model Behavior",
+        "next": "Anthropic"
       },
       {
         "name": "Vlad Feinberg",
         "website": "https://vladfeinberg.com/about",
-        "years": "2017–2018"
+        "years": "2017–2018",
+        "next": "Google DeepMind"
       },
       {
         "name": "Paras Jain",
         "website": "https://www.parasjain.com/",
-        "years": "2018–2023"
+        "years": "2018–2023",
+        "thesis": "Towards Robust and Scalable Large Language Models",
+        "next": "Genmo (CEO & co-founder)"
       },
       {
         "name": "Richard Liaw",
         "website": "https://github.com/richardliaw",
         "years": "2017–2020",
-        "research_interest": "The design of systems for hyperparameter search"
+        "research_interest": "The design of systems for hyperparameter search",
+        "projects": [
+          "ray-tune"
+        ]
       },
       {
         "name": "Charles Lin",
@@ -198,62 +272,110 @@
       {
         "name": "Kevin Lin",
         "website": "https://kevinlin.io/",
-        "years": "2019–2024"
+        "years": "2019–2024",
+        "thesis": "Structured Contexts for Large Language Models",
+        "next": "Letta",
+        "projects": [
+          "memgpt"
+        ]
       },
       {
         "name": "Charles Packer",
         "website": "https://charlespacker.com/",
-        "years": "2019–2024"
+        "years": "2019–2024",
+        "thesis": "Building Agentic Systems in an Era of Large Language Models",
+        "next": "Letta (CEO & co-founder)",
+        "projects": [
+          "memgpt"
+        ],
+        "id": "charles-packer",
+        "advising_description": "Former PhD student advised by Joseph E. Gonzalez.",
+        "schema_names": [
+          "Charles Packer"
+        ]
       },
       {
         "name": "Shishir Patil",
         "website": "https://shishirpatil.github.io/",
-        "years": "2019–2024"
+        "years": "2019–2024",
+        "thesis": "Teaching Large Language Models to Use Tools at Scale",
+        "next": "Meta",
+        "projects": [
+          "gorilla"
+        ],
+        "id": "shishir-patil",
+        "advising_description": "Former PhD student advised by Joseph E. Gonzalez.",
+        "schema_names": [
+          "Shishir Patil",
+          "Shishir G. Patil"
+        ]
       },
       {
         "name": "Nathan Pemberton",
         "website": "https://bar.eecs.berkeley.edu/people/pemberton_nathan.html",
-        "years": "2020–2022"
+        "years": "2020–2022",
+        "thesis": "The Serverless Datacenter: Hardware and Software Techniques for Resource Disaggregation",
+        "next": "Amazon (Applied Scientist)"
       },
       {
         "name": "Devin Petersohn",
         "website": "https://www.linkedin.com/in/devinpetersohn/",
-        "years": "2015–2021"
+        "years": "2015–2021",
+        "thesis": "Dataframe Systems: Theory, Architecture, and Implementation",
+        "next": "Snowflake"
       },
       {
         "name": "Suzanne Petryk",
         "website": "https://suziepetryk.com/",
-        "years": "2019–2024"
+        "years": "2019–2024",
+        "thesis": "Reliable Multimodal Models",
+        "next": "Apple"
       },
       {
         "name": "Daniel Rothchild",
         "website": "https://www.linkedin.com/in/daniel-rothchild",
-        "years": "2018–2023"
+        "years": "2018–2023",
+        "thesis": "Accelerating Electronic Structure Calculations with Machine Learning",
+        "next": "Genentech"
       },
       {
         "name": "Peter Schafhalter",
         "website": "https://pschafhalter.com/",
-        "years": "2019–2025"
+        "years": "2019–2025",
+        "thesis": "Towards Cloud-Assisted Autonomous Driving",
+        "next": "Microsoft AI"
       },
       {
         "name": "Vikram Sreekanti",
         "website": "https://www.vikrams.io/",
-        "years": "2016–2020"
+        "years": "2016–2020",
+        "thesis": "The Design of Stateful Serverless Infrastructure",
+        "next": "Herald.ai (CEO)"
       },
       {
         "name": "Brijen Thananjeyan",
         "website": "https://bthananjeyan.github.io/",
-        "years": "2018–2022"
+        "years": "2018–2022",
+        "thesis": "Safe Reinforcement Learning Using Learned Safe Sets",
+        "next": "Google DeepMind"
       },
       {
         "name": "Alvin Wan",
         "website": "https://alvinwan.com/",
-        "years": "2018–2022"
+        "years": "2018–2022",
+        "thesis": "Efficiently Designing Efficient Deep Neural Networks",
+        "next": "OpenAI"
       },
       {
         "name": "Xin Wang",
         "website": "https://xinw.ai/",
-        "years": "2016–2020"
+        "years": "2016–2020",
+        "thesis": "The Design of Dynamic Neural Networks for Efficient Learning and Inference",
+        "next": "OpenAI",
+        "projects": [
+          "clipper",
+          "gorilla"
+        ]
       },
       {
         "name": "Justin Wong",
@@ -262,12 +384,23 @@
         "image": "justin.jpg",
         "email": "wong.justin [at] berkeley.edu",
         "twitter": "https://twitter.com/justinywong_",
-        "years": "2020–2026"
+        "years": "2020–2026",
+        "thesis": "Mitigating Post-Training Effects on Generative Diversity in Language Models",
+        "next": "Amazon",
+        "projects": [
+          "agent-serving",
+          "generative-diversity"
+        ]
       },
       {
         "name": "Sarah Wooders",
         "website": "https://swooders.com/",
-        "years": "2020–2024"
+        "years": "2020–2024",
+        "thesis": "Ensuring Data Freshness Across Clouds for Model Serving",
+        "next": "Letta (CTO & co-founder)",
+        "projects": [
+          "memgpt"
+        ]
       },
       {
         "name": "Xiangxi (Simon) Mo",
@@ -276,22 +409,56 @@
         "image": "simon.jpg",
         "email": "xmo [at] berkeley.edu",
         "twitter": "https://twitter.com/simon_mo_",
-        "years": "2023–2026"
+        "years": "2023–2026",
+        "id": "simon-mo",
+        "thesis": "Building Open Source Inference Serving Systems",
+        "next": "Inferact (CEO & co-founder)",
+        "projects": [
+          "clipper",
+          "ray-serve",
+          "vllm"
+        ],
+        "advising_description": "Former PhD student advised by Joseph E. Gonzalez.",
+        "schema_names": [
+          "Xiangxi (Simon) Mo",
+          "Simon Mo"
+        ]
       },
       {
         "name": "Neeraja Yadwadkar",
         "website": "https://sites.utexas.edu/neeraja/",
-        "years": "2015–2018"
+        "years": "2015–2018",
+        "thesis": "Machine Learning for Automatic Resource Management in the Datacenter and the Cloud",
+        "next": "UT Austin (Assistant Professor)"
       },
       {
         "name": "Tianjun Zhang",
         "website": "https://tianjunz.github.io/",
-        "years": "2018–2024"
+        "years": "2018–2024",
+        "thesis": "System Architecture for Agentic Large Language Models",
+        "next": "Meta",
+        "projects": [
+          "gorilla",
+          "agent-serving"
+        ]
       },
       {
         "name": "Lianmin Zheng",
         "website": "https://lmzheng.net/",
-        "years": "2019–2024"
+        "years": "2019–2024",
+        "thesis": "Scalable and Efficient Systems for Large Deep Learning Models",
+        "next": "UCLA (Assistant Professor); xAI",
+        "projects": [
+          "alpa",
+          "vllm",
+          "chatbot-arena",
+          "sglang"
+        ],
+        "id": "lianmin-zheng",
+        "advising_description": "Former PhD student advised by Joseph E. Gonzalez.",
+        "schema_names": [
+          "Lianmin Zheng"
+        ]
       }
     ]
   },
@@ -302,22 +469,33 @@
       {
         "name": "Jianfei Chen",
         "website": "https://ml.cs.tsinghua.edu.cn/~jianfei/",
-        "years": "2019–2021"
+        "years": "2019–2021",
+        "next": "Tsinghua University",
+        "projects": [
+          "sparse-attention"
+        ]
       },
       {
         "name": "Aditya Desai",
         "website": "https://apd10.github.io/",
-        "years": "2024–2026"
+        "years": "2024–2026",
+        "next": "IIT Bombay (Assistant Professor)",
+        "projects": [
+          "agent-serving",
+          "sparse-attention"
+        ]
       },
       {
         "name": "Ionel Gog",
         "website": "https://www.ionelgog.org/",
-        "years": "2018–2021"
+        "years": "2018–2021",
+        "next": "Google"
       },
       {
         "name": "Kirthevasan Kandasamy",
         "website": "https://pages.cs.wisc.edu/~kandasamy/",
-        "years": "2019–2021"
+        "years": "2019–2021",
+        "next": "UW–Madison"
       },
       {
         "name": "Yifan Qiao",
@@ -325,12 +503,17 @@
         "research_interest": "ML systems and runtime/OS",
         "image": "yifan.jpg",
         "email": "yifanqiao [at] berkeley.edu",
-        "years": "2024–2025"
+        "years": "2024–2025",
+        "next": "Inferact (Staff Engineer)"
       },
       {
         "name": "Alexey Tumanov",
         "website": "https://faculty.cc.gatech.edu/~atumanov/",
-        "years": "2016–2019"
+        "years": "2016–2019",
+        "next": "Georgia Tech",
+        "projects": [
+          "clipper"
+        ]
       },
       {
         "name": "Matthew Wright",
@@ -340,7 +523,8 @@
       {
         "name": "Yaoqing Yang",
         "website": "https://sites.google.com/site/yangyaoqingcmu/",
-        "years": "2019–2022"
+        "years": "2019–2022",
+        "next": "Dartmouth"
       }
     ]
   }

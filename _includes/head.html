@@ -1,0 +1,32 @@
+{% assign page_title = page.title | default: site.title %}
+{% assign page_description = page.description | default: site.description %}
+{% assign page_url = page.url | replace: 'index.html', '' | prepend: site.url %}
+  <meta charset="utf-8">
+  <title>{{ page_title | escape }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page_description | escape }}">
+  <meta name="author" content="Joseph E. Gonzalez">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{ page_url }}">
+  <meta property="og:type" content="{% if page.og_type %}{{ page.og_type }}{% else %}website{% endif %}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Joseph E. Gonzalez · UC Berkeley">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:image" content="{{ site.url }}/profile_images/joey.jpg">
+  <meta property="og:image:alt" content="Joseph E. (Joey) Gonzalez">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+  <meta name="twitter:image" content="{{ site.url }}/profile_images/joey.jpg">
+  <meta name="twitter:image:alt" content="Joseph E. (Joey) Gonzalez">
+  {% if site.google_site_verification != empty and site.google_site_verification %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">
+  {% endif %}
+  {% include structured-data.html %}
+
+  <link href="{{ '/assets/base.css' | relative_url }}" media="screen" rel="stylesheet" type="text/css" />
+  <link href="{{ '/assets/extra.css' | relative_url }}" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="{{ '/assets/public/favicon.ico' | relative_url }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

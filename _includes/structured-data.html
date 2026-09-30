@@ -1,3 +1,4 @@
+{% assign page_url = page.url | replace: 'index.html', '' | prepend: site.url %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -6,34 +7,42 @@
       "@type": "WebSite",
       "@id": "{{ site.url }}/#website",
       "url": "{{ site.url }}/",
-      "name": "Gonzalez Group at UC Berkeley",
-      "alternateName": "Joey Gonzalez",
-      "publisher": { "@id": "{{ site.url }}/#group" }
+      "name": "Joseph E. Gonzalez · Gonzalez Group at UC Berkeley",
+      "alternateName": ["Joey Gonzalez", "Gonzalez Group"],
+      "publisher": { "@id": "{{ site.url }}/#joey" }
     },
     {
-      "@type": "WebPage",
-      "@id": "{{ site.url }}/#webpage",
-      "url": "{{ site.url }}/",
-      "name": {{ site.title | jsonify }},
-      "description": {{ site.description | jsonify }},
+      "@type": {% if page.schema == 'bio' %}"ProfilePage"{% else %}"WebPage"{% endif %},
+      "@id": "{{ page_url }}#webpage",
+      "url": "{{ page_url }}",
+      "name": {{ page.title | default: site.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
       "inLanguage": "en",
       "isPartOf": { "@id": "{{ site.url }}/#website" },
-      "about": [{ "@id": "{{ site.url }}/#joey" }, { "@id": "{{ site.url }}/#group" }]
+      {% if page.schema == 'bio' %}"mainEntity": { "@id": "{{ site.url }}/#joey" },{% endif %}
+      "about": [{ "@id": "{{ site.url }}/#joey" }{% if page.schema == 'research' %}, { "@id": "{{ site.url }}/research/#projects" }{% endif %}]
     },
     {
       "@type": "Person",
       "@id": "{{ site.url }}/#joey",
       "name": "Joseph E. Gonzalez",
-      "alternateName": "Joey Gonzalez",
+      "alternateName": ["Joey Gonzalez", "Joseph Gonzalez"],
       "url": "{{ site.url }}/",
       "image": "{{ site.url }}/profile_images/joey.jpg",
+      "description": "Professor of EECS at UC Berkeley working at the intersection of machine learning and computer systems.",
       "jobTitle": "Associate Professor",
       "worksFor": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley", "url": "https://www.berkeley.edu/" },
-      "affiliation": [
-        { "@type": "Organization", "name": "Berkeley Sky Computing Lab", "url": "https://sky.cs.berkeley.edu/" },
-        { "@type": "Organization", "name": "Berkeley Artificial Intelligence Research (BAIR)", "url": "https://bair.berkeley.edu/" },
-        { "@type": "Organization", "name": "LMSYS", "url": "https://www.lmsys.org/" }
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
+        { "@type": "CollegeOrUniversity", "name": "California Institute of Technology" }
       ],
+      "memberOf": [
+        { "@type": "Organization", "name": "Berkeley Sky Computing Lab", "url": "https://sky.cs.berkeley.edu/" },
+        { "@type": "Organization", "name": "LMSYS", "url": "https://lmsys.org/" },
+        { "@type": "Organization", "name": "UC Berkeley RISELab", "url": "https://rise.cs.berkeley.edu/" },
+        { "@type": "Organization", "name": "Berkeley Artificial Intelligence Research (BAIR)", "url": "https://bair.berkeley.edu/" }
+      ],
+      "knowsAbout": ["Machine learning systems", "Computer systems", "Large language model inference", "LLM evaluation", "AI agents", "Post-training", "Neural network architectures", "Distributed machine learning", "Graph processing", "Model serving"],
       "sameAs": ["https://scholar.google.com/citations?hl=en&user=B96GkdgAAAAJ"]
     },
     {
@@ -41,8 +50,48 @@
       "@id": "{{ site.url }}/#group",
       "name": "Gonzalez Group",
       "url": "{{ site.url }}/",
+      "founder": { "@id": "{{ site.url }}/#joey" },
       "parentOrganization": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley", "url": "https://www.berkeley.edu/" }
-    }
+    }{% for division in site.data.people %}{% for person in division.people %}{% if person.advising_description %},
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person-{{ person.id }}",
+      "name": {{ person.name | jsonify }},
+      "alternateName": {{ person.schema_names | jsonify }},
+      "url": "{{ site.url }}/#person-{{ person.id }}",
+      "sameAs": [{{ person.website | jsonify }}],
+      "description": {{ person.advising_description | jsonify }}
+    }{% endif %}{% endfor %}{% endfor %}{% if page.schema == 'research' %},
+    {
+      "@type": "ItemList",
+      "@id": "{{ site.url }}/research/#projects",
+      "name": "Research projects of Joseph E. Gonzalez and his students and collaborators",
+      "itemListElement": [
+        {% assign position = 0 %}
+        {% for era in site.data.research.eras %}{% for p in era.projects %}{% assign position = position | plus: 1 %}
+        {
+          "@type": "ListItem",
+          "position": {{ position }},
+          "item": {
+            "@type": "CreativeWork",
+            "@id": "{{ site.url }}/research/#{{ p.id }}",
+            "name": {{ p.name | jsonify }},
+            "headline": {{ p.tagline | jsonify }},
+            "description": {{ p.description | normalize_whitespace | jsonify }},
+            "url": "{{ site.url }}/research/#{{ p.id }}",
+            "genre": {{ era.title | jsonify }},
+            "contributor": [{% for c in p.contributors %}{ "@type": "Person", "name": {{ c | jsonify }}{% if c == 'Joseph E. Gonzalez' %}, "@id": "{{ site.url }}/#joey"{% else %}{% for division in site.data.people %}{% for person in division.people %}{% if person.schema_names contains c %}, "@id": "{{ site.url }}/#person-{{ person.id }}"{% endif %}{% endfor %}{% endfor %}{% endif %} }{% unless forloop.last %}, {% endunless %}{% endfor %}]{% if p.paper %},
+            "citation": {
+              "@type": "ScholarlyArticle",
+              "headline": {{ p.paper.title | jsonify }},
+              "url": {{ p.paper.url | jsonify }},
+              "datePublished": "{{ p.paper.year }}"
+            }{% endif %}
+          }
+        }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+        {% endfor %}{% endfor %}
+      ]
+    }{% endif %}
   ]
 }
 </script>

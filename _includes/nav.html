@@ -1,0 +1,14 @@
+  <nav class="navbar" aria-label="Main">
+    <div class="navbar-container">
+      <a href="{{ '/' | relative_url }}" class="logo">Gonzalez Group</a>
+      <ul class="navbar-menu">
+        <li><a href="{{ '/#about' | relative_url }}">About</a></li>
+        <li><a href="{{ '/research/' | relative_url }}"{% if page.url == '/research/' %} aria-current="page"{% endif %}>Research</a></li>
+        <li><a href="{{ '/#people' | relative_url }}">People</a></li>
+        <li><a href="{{ '/#alumni' | relative_url }}">Alumni</a></li>
+        <li><a href="{{ '/#publications' | relative_url }}">Publications</a></li>
+        <li><a href="{{ '/bio/' | relative_url }}"{% if page.url == '/bio/' %} aria-current="page"{% endif %}>Bio</a></li>
+        <li><a href="{{ '/#activities' | relative_url }}">Activities</a></li>
+      </ul>
+    </div>
+  </nav>

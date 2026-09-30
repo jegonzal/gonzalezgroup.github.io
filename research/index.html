@@ -1,0 +1,139 @@
+---
+layout: default
+title: "Research Through the Years · Joseph E. Gonzalez, UC Berkeley"
+description: "The research of Joseph E. Gonzalez and his UC Berkeley group, from GraphLab, PowerGraph and GraphX to Ray Serve, Ray Tune, vLLM, SGLang, Chatbot Arena, Gorilla, MemGPT and AI agents, and the students and collaborators who built them."
+permalink: /research/
+schema: research
+---
+  {% assign research = site.data.research %}
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Research Through the Years</h1>
+      <p>Fifteen years of research by Joseph E. Gonzalez and his students at UC Berkeley on the systems that make new forms of machine learning possible.</p>
+    </div>
+  </section>
+
+  <div class="wrapper research-page">
+    <section class="profile-content">
+      <p class="section-lede">My research asks how new systems abstractions can enable new forms of machine learning and AI. The questions have changed as machine learning has changed, but each era grew out of the one before it, often through the same people. This page tells that story in order: the idea behind each era, the projects that tested it, and the students and collaborators who built them.</p>
+
+      <p class="section-more"><a href="#learning-at-scale">The research eras</a> · <a href="#serving-lineage">The serving lineage</a> · <a href="#trajectories">Student research trajectories</a> · <a href="#current-directions">Current directions</a></p>
+
+      <section class="guiding-question" id="guiding-question" aria-labelledby="guiding-question-heading">
+        <h2 id="guiding-question-heading" class="division-title">The Question Behind the Research</h2>
+        <blockquote class="question-quote"><p>{{ research.guiding_question }}</p></blockquote>
+        <p>I have used this question to choose research directions throughout my career. The bet is never that a hot problem stays unsolved. It is that someone solves it, and the solution creates the next problem.</p>
+        <ol class="bet-strip">
+          {% for b in research.bets %}
+          <li class="era-card">
+            <a class="era-link" href="#{{ b.anchor }}">
+              <span class="era-years">{{ b.year }}</span>
+              <span class="bet-context"><strong>The hot problem:</strong> {{ b.context }}</span>
+              <span class="bet-text"><strong>The bet:</strong> {{ b.bet }}</span>
+              <span class="era-projects"><strong>{% if b.year == 'Today' %}Now working on:{% else %}What followed:{% endif %}</strong> {{ b.result }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <ol class="trajectory-line" aria-label="Research trajectory">
+        <li>Large-scale graph learning</li>
+        <li>Distributed ML systems</li>
+        <li>ML serving and tuning</li>
+        <li>Systems for foundation models</li>
+        <li>LLM inference and evaluation</li>
+        <li>Tool-using and persistent agents</li>
+        <li>Post-training and new neural architectures</li>
+      </ol>
+
+      <nav aria-label="Research eras">
+        <ol class="era-strip era-strip-compact">
+          {% for era in research.eras %}
+          <li class="era-card">
+            <a class="era-link" href="#{{ era.id }}">
+              <span class="era-years">{{ era.years }}</span>
+              <span class="era-title">{{ era.title }}</span>
+              <span class="era-projects">{{ era.summary }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ol>
+      </nav>
+    </section>
+
+    {% for era in research.eras %}
+    <section class="profile-content era-section" id="{{ era.id }}" aria-labelledby="{{ era.id }}-heading">
+      <p class="era-years">{{ era.years }}</p>
+      <h2 id="{{ era.id }}-heading" class="division-title">{{ era.title }}</h2>
+      <p class="era-thesis">{{ era.idea }}</p>
+
+      <div class="era-body">
+        <div class="era-narrative">
+          {{ era.narrative | replace: '%BASE%', site.baseurl }}
+        </div>
+        <aside class="era-questions" aria-label="Guiding questions">
+          <h3>Guiding questions</h3>
+          <ul>
+            {% for q in era.questions %}<li>{{ q }}</li>{% endfor %}
+          </ul>
+        </aside>
+      </div>
+
+      {% if era.id == 'ml-infrastructure' %}
+      <figure class="lineage" id="serving-lineage" aria-labelledby="serving-lineage-caption">
+        <figcaption id="serving-lineage-caption"><strong>A lineage of serving systems.</strong> A continuing line of research from prediction serving to today's LLM inference engines, connected through ideas, students and collaborators.</figcaption>
+        <ol class="lineage-flow">
+          {% for node in research.serving_lineage %}
+          <li><a href="#{{ node.anchor }}"><span class="lineage-name">{{ node.name }}</span><span class="lineage-year">{{ node.year }}</span><span class="lineage-note">{{ node.note }}</span></a></li>
+          {% endfor %}
+        </ol>
+      </figure>
+      {% endif %}
+
+      {% if era.groups %}
+      {% for group in era.groups %}
+      <div class="project-group" id="{{ group.id }}">
+        <h3 class="project-group-title">{{ group.title }}</h3>
+        <p class="project-group-intro">{{ group.intro }}</p>
+        <div class="project-grid">
+          {% for project in era.projects %}{% if project.group == group.id %}{% include project-card.html project=project level=4 %}{% endif %}{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      {% assign featured = era.projects | where_exp: 'p', 'p.featured == true' %}
+      {% if featured.size > 0 %}
+      <div class="project-grid project-pair">
+        {% for project in featured %}{% include project-card.html project=project %}{% endfor %}
+      </div>
+      {% endif %}
+      <div class="project-grid">
+        {% for project in era.projects %}{% unless project.featured %}{% include project-card.html project=project %}{% endunless %}{% endfor %}
+      </div>
+      {% endif %}
+    </section>
+    {% endfor %}
+
+    <section class="profile-content era-section" id="trajectories" aria-labelledby="trajectories-heading">
+      <h2 id="trajectories-heading" class="division-title">Questions That Traveled With People</h2>
+      <p class="section-lede">Research questions often move through the group with the students who pursue them. These are a few of the paths former students followed at Berkeley and beyond. The work in each case was theirs, done with many collaborators.</p>
+      <div class="project-grid">
+        {% for t in research.trajectories %}
+        <article class="publication-card trajectory-card">
+          <h3 class="publication-title"><a href="{{ '/#person-' | append: t.anchor | relative_url }}">{{ t.person }}</a></h3>
+          <ol class="trajectory-path" aria-label="{{ t.person }}'s connected research contributions">
+            {% for step in t.path %}<li>{{ step }}</li>{% endfor %}
+          </ol>
+          <p>{{ t.text }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="profile-content era-section" id="community" aria-labelledby="community-heading">
+      <h2 id="community-heading" class="division-title">A Research Community</h2>
+      <p>These projects share more than a line of ideas; they share people. Most were led by PhD students I advised, working with collaborators across Berkeley's AMPLab, RISELab, Sky Computing Lab and LMSYS, and at other institutions. Former students have gone on to faculty positions, AI research labs and companies they founded, and current students are carrying the work into AI agents.</p>
+      <p>See the <a href="{{ '/#people' | relative_url }}">current students</a> and <a href="{{ '/#alumni' | relative_url }}">alumni</a>, including thesis titles and projects, the <a href="{{ '/#publications' | relative_url }}">latest publications</a>, and <a href="{{ '/bio/' | relative_url }}">short biographies</a>.</p>
+    </section>
+  </div>

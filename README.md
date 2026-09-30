@@ -38,13 +38,12 @@ Here are the steps to add or modify a person:
 2. Insert/update yourself to the YAML list.
 3. Ensure your headshot is placed in `profile_images/`, that the filename is clean (ideally `firstname.<ext>` or `firstlast.<ext>`), and that you have minimzed the file size.
 
-The People section precedes Research and Activities. Current students use portrait
+The research overview precedes the People section and Activities. Current students use portrait
 cards (or an initial when no photo is available). Alumni use compact lists split
 into former doctoral students and former postdocs. Set `alumni: true` on alumni
 divisions and use `years` for advising dates; these are not necessarily degree dates.
 Names link directly to personal websites or verified professional profiles.
-See `_maintenance/people-sources.md` for the September 2026 roster review and
-the few profile/status uncertainties to confirm on future updates.
+Roster review and sourcing notes are kept privately, outside this public repository.
 
 Adding a Project
 -----------
@@ -54,8 +53,8 @@ Each project needs `name`, `url`, and an `image` filename in `logo_pictures/`.
 Use `wordmark: true` instead of an image for official text-only branding.
 For new screened additions, record `repository`, `stars`, and `checked` (date).
 These star counts are maintenance metadata, not displayed as live counts.
-See `_maintenance/project-screening.md` for logo sources, paper associations,
-and candidates excluded from the September 2026 refresh.
+Screening notes (logo sources, paper associations, excluded candidates) are kept
+privately, outside this public repository.
 
 Updating Publications
 -----------
@@ -69,6 +68,7 @@ Updating the bio and activities
 -----------
 
 - Edit the About, Recent Preprints, and Recent Activities sections of `index.html`.
+- The footer date lives in `_includes/footer.html`.
 - The September 2026 refresh uses `../Berkeley/cv/bio.tex`,
   `joseph_gonzalez_cv.tex`, and `publications.bib` (paths relative to the parent
   `websites` directory). Conference labels follow that bibliography;
@@ -83,6 +83,25 @@ Before publishing, run `bundle exec jekyll build` and review the local site with
 `bundle exec jekyll serve`. GitHub Pages publishes the root of `master`;
 pushing or merging changes there updates the live site. Keep `CNAME` set to
 `joeygonzalez.com`.
+
+Research narrative, bios, and attribution
+-----------
+
+- `/research/` (`research/index.html`) and the homepage "Research Through the Years"
+  strip render from `_data/research.yml` (eras, guiding questions, project cards,
+  the serving lineage, and student trajectories). Project cards use
+  `_includes/project-card.html`; card anchors (`/research/#sglang`) are stable URLs.
+- In `people` and `narrative` HTML inside `research.yml`, prefix internal links
+  with `%BASE%` (e.g. `%BASE%/#person-lianmin-zheng`) so the Berkeley build works.
+- People anchors are `#person-<id or slugified name>`. Alumni `thesis`, `next`, and
+  `projects` fields in `_data/people.yml` come from the CV advising section.
+- `/bio/` holds short, medium and long biographies.
+- Verified `advising_description` and `schema_names` fields on selected alumni supply public advising text and stable Person identities in structured data. Do not infer advising from group membership.
+- Attribution evidence for project and people wording is kept privately, outside
+  this public repository; update it with any wording change.
+- All pages share `_layouts/default.html` with `_includes/head.html`, `nav.html`,
+  `footer.html`, and page-aware `structured-data.html` (Person on every page,
+  project ItemList on `/research/`, ProfilePage on `/bio/`).
 
 Deploy to the Berkeley server
 -----------
@@ -121,7 +140,7 @@ Search indexing and sharing
 
 - `_config.yml` controls the production URL, search title, description, and optional Google Search Console verification token. Restart the preview server after editing this file.
 - The homepage includes a canonical URL, social-sharing metadata, and factual Person/Organization/WebSite structured data in `_includes/structured-data.html`.
-- `robots.txt` allows crawling and points to `sitemap.xml`, which lists the homepage and public CV. Add future public pages to the sitemap; do not add section anchors or preview pages. No artificial last-modified date is generated on builds.
+- `robots.txt` allows crawling and points to `sitemap.xml`, which lists the homepage, `/research/`, `/bio/`, and public CV. Add future public pages to the sitemap; do not add section anchors or preview pages. No artificial last-modified date is generated on builds.
 - Internal publication previews and generator inputs are excluded from the published site.
 - After publishing, verify the domain in Google Search Console (DNS verification, or the optional HTML token above), submit `https://joeygonzalez.com/sitemap.xml`, and inspect/request indexing for the homepage. Check HTTPS enforcement in GitHub Pages and redirects from HTTP, www, and the github.io hostname.
 - Validate the deployed markup in Schema.org Validator and Google Rich Results Test. Structured data describes the page; it does not guarantee rich results or indexing. Monitor indexing and Core Web Vitals in Search Console.

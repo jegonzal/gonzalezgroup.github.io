@@ -1,0 +1,13 @@
+{% assign p = include.project %}{% assign h = include.level | default: 3 %}
+<article class="publication-card project-card" id="{{ p.id }}" aria-labelledby="{{ p.id }}-name">
+  <h{{ h }} class="publication-title" id="{{ p.id }}-name">{{ p.name }}</h{{ h }}>
+  <p class="project-tagline">{{ p.tagline }}</p>
+  <p class="project-description">{{ p.description }}</p>
+  <p class="project-people"><span class="person-label">People:</span> {{ p.people | replace: '%BASE%', site.baseurl }}</p>
+  {% if p.recognition %}<p class="project-recognition">{{ p.recognition }}</p>{% endif %}
+  {% if p.links %}
+  <ul class="project-links">
+    {% for link in p.links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+  </ul>
+  {% endif %}
+</article>
