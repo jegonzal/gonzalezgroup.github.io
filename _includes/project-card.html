@@ -1,5 +1,6 @@
 {% assign p = include.project %}{% assign h = include.level | default: 3 %}
 <article class="publication-card project-card" id="{{ p.id }}" aria-labelledby="{{ p.id }}-name">
+  {% if p.figure %}<figure class="project-figure"><a class="project-figure-link" href="{{ '/images/projects/' | append: p.figure.src | relative_url }}" target="_blank" rel="noopener" title="Open full-size figure"><img src="{{ '/images/projects/' | append: p.figure.src | relative_url }}" alt="{{ p.figure.alt | escape }}" loading="lazy" decoding="async"></a>{% if p.figure.caption %}<figcaption>{{ p.figure.caption }}</figcaption>{% endif %}</figure>{% endif %}
   <h{{ h }} class="publication-title" id="{{ p.id }}-name">{{ p.name }}</h{{ h }}>
   <p class="project-tagline">{{ p.tagline }}</p>
   <p class="project-description">{{ p.description }}</p>

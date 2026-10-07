@@ -36,7 +36,8 @@ layout: default
         <h2 id="research-heading" class="division-title">Research Through the Years</h2>
         <p class="section-lede">A single line of inquiry: each era asks what systems a new kind of machine learning needs, and each builds on the ideas and people of the one before.</p>
         <ol class="era-strip">
-          {% for era in site.data.research.eras %}
+          {% assign eras_newest_first = site.data.research.eras | reverse %}
+          {% for era in eras_newest_first %}
           <li class="era-card">
             <a class="era-link" href="{{ '/research/#' | append: era.id | relative_url }}">
               <span class="era-years">{{ era.years }}</span>

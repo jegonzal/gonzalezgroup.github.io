@@ -13,71 +13,39 @@ schema: research
     </div>
   </section>
 
+  <nav class="research-subnav" aria-label="Research page sections">
+    <ol>
+      {% assign eras_newest_first = research.eras | reverse %}
+      {% for era in eras_newest_first %}<li><a href="#{{ era.id }}">{{ era.short | default: era.title }}<span>{{ era.years }}</span></a></li>
+      {% endfor %}<li><a href="#trajectories">People</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+    </ol>
+  </nav>
+
   <div class="wrapper research-page">
     <section class="profile-content">
-      <p class="section-lede">My research asks how new systems abstractions can enable new forms of machine learning and AI. The questions have changed as machine learning has changed, but each era grew out of the one before it, often through the same people. This page tells that story in order: the idea behind each era, the projects that tested it, and the students and collaborators who built them.</p>
-
-      <p class="section-more"><a href="#learning-at-scale">The research eras</a> · <a href="#serving-lineage">The serving lineage</a> · <a href="#trajectories">Student research trajectories</a> · <a href="#current-directions">Current directions</a></p>
-
-      <section class="guiding-question" id="guiding-question" aria-labelledby="guiding-question-heading">
-        <h2 id="guiding-question-heading" class="division-title">The Question Behind the Research</h2>
-        <blockquote class="question-quote"><p>{{ research.guiding_question }}</p></blockquote>
-        <p>I have used this question to choose research directions throughout my career. The bet is never that a hot problem stays unsolved. It is that someone solves it, and the solution creates the next problem.</p>
-        <ol class="bet-strip">
-          {% for b in research.bets %}
-          <li class="era-card">
-            <a class="era-link" href="#{{ b.anchor }}">
-              <span class="era-years">{{ b.year }}</span>
-              <span class="bet-context"><strong>The hot problem:</strong> {{ b.context }}</span>
-              <span class="bet-text"><strong>The bet:</strong> {{ b.bet }}</span>
-              <span class="era-projects"><strong>{% if b.year == 'Today' %}Now working on:{% else %}What followed:{% endif %}</strong> {{ b.result }}</span>
-            </a>
-          </li>
-          {% endfor %}
-        </ol>
-      </section>
-
-      <ol class="trajectory-line" aria-label="Research trajectory">
-        <li>Large-scale graph learning</li>
-        <li>Distributed ML systems</li>
-        <li>ML serving and tuning</li>
-        <li>Systems for foundation models</li>
-        <li>LLM inference and evaluation</li>
-        <li>Tool-using and persistent agents</li>
-        <li>Post-training and new neural architectures</li>
-      </ol>
-
-      <nav aria-label="Research eras">
-        <ol class="era-strip era-strip-compact">
-          {% for era in research.eras %}
-          <li class="era-card">
-            <a class="era-link" href="#{{ era.id }}">
-              <span class="era-years">{{ era.years }}</span>
-              <span class="era-title">{{ era.title }}</span>
-              <span class="era-projects">{{ era.summary }}</span>
-            </a>
-          </li>
-          {% endfor %}
-        </ol>
-      </nav>
+      <div class="research-intro">
+        <p class="section-lede">My research asks how new systems abstractions can enable new forms of machine learning and AI. The questions have changed as machine learning has changed, but each era grew out of the one before it, often through the same people. This page starts with current work and moves back in time: the idea behind each era, the projects that tested it, and the students and collaborators who built them.</p>
+        <blockquote class="question-quote"><p>{{ research.guiding_question }}</p><a href="#guiding-question">The question behind the research →</a></blockquote>
+      </div>
     </section>
 
-    {% for era in research.eras %}
-    <section class="profile-content era-section" id="{{ era.id }}" aria-labelledby="{{ era.id }}-heading">
-      <p class="era-years">{{ era.years }}</p>
+    {% for era in eras_newest_first %}
+    <section class="profile-content era-section{% if forloop.last %} is-earlier{% endif %}" id="{{ era.id }}" aria-labelledby="{{ era.id }}-heading">
+      <p class="era-label">{% if forloop.first %}<span class="era-status">Current research</span>{% elsif forloop.last %}<span class="era-status is-earlier">Earlier work</span>{% endif %}<span class="era-years">{{ era.years }}</span></p>
       <h2 id="{{ era.id }}-heading" class="division-title">{{ era.title }}</h2>
       <p class="era-thesis">{{ era.idea }}</p>
 
-      <div class="era-body">
+      <div class="era-body{% if forloop.first %} era-body-single{% endif %}">
         <div class="era-narrative">
           {{ era.narrative | replace: '%BASE%', site.baseurl }}
         </div>
-        <aside class="era-questions" aria-label="Guiding questions">
+        {% unless forloop.first %}<aside class="era-questions" aria-label="Guiding questions">
           <h3>Guiding questions</h3>
           <ul>
             {% for q in era.questions %}<li>{{ q }}</li>{% endfor %}
           </ul>
-        </aside>
+        </aside>{% endunless %}
       </div>
 
       {% if era.id == 'ml-infrastructure' %}
@@ -129,6 +97,51 @@ schema: research
         </article>
         {% endfor %}
       </div>
+    </section>
+
+    <section class="profile-content era-section timeline-section" id="timeline" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading" class="division-title">The Research Timeline</h2>
+      <section class="guiding-question" id="guiding-question" aria-labelledby="guiding-question-heading">
+        <h3 id="guiding-question-heading" class="subsection-title">The Question Behind the Research</h3>
+        <blockquote class="question-quote"><p>{{ research.guiding_question }}</p></blockquote>
+        <p>I have used this question to choose research directions throughout my career. The bet is never that a hot problem stays unsolved. It is that someone solves it, and the solution creates the next problem.</p>
+        <ol class="bet-strip">
+          {% assign bets_newest_first = research.bets | reverse %}{% for b in bets_newest_first %}
+          <li class="era-card">
+            <a class="era-link" href="#{{ b.anchor }}">
+              <span class="era-years">{{ b.year }}</span>
+              <span class="bet-context"><strong>The hot problem:</strong> {{ b.context }}</span>
+              <span class="bet-text"><strong>The bet:</strong> {{ b.bet }}</span>
+              <span class="era-projects"><strong>{% if b.year == 'Today' %}Now working on:{% else %}What followed:{% endif %}</strong> {{ b.result }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <ol class="trajectory-line" aria-label="Research trajectory, newest first">
+        <li>Post-training and new neural architectures</li>
+        <li>Tool-using and persistent agents</li>
+        <li>LLM inference and evaluation</li>
+        <li>Systems for foundation models</li>
+        <li>ML serving and tuning</li>
+        <li>Distributed ML systems</li>
+        <li>Large-scale graph learning</li>
+      </ol>
+
+      <nav aria-label="Research eras">
+        <ol class="era-strip era-strip-compact">
+          {% for era in eras_newest_first %}
+          <li class="era-card">
+            <a class="era-link" href="#{{ era.id }}">
+              <span class="era-years">{{ era.years }}</span>
+              <span class="era-title">{{ era.title }}</span>
+              <span class="era-projects">{{ era.summary }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ol>
+      </nav>
     </section>
 
     <section class="profile-content era-section" id="community" aria-labelledby="community-heading">

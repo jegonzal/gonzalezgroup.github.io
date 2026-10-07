@@ -1,0 +1,240 @@
+/* UC Berkeley brand layer. Loaded after base.css and extra.css.
+   Palette and type from brand.berkeley.edu: Berkeley Blue #002676 and
+   California Gold #FDB515 (primary); Blue Dark/Medium/Light, Gold Light and
+   Gray Light (secondary); Inter, Source Serif 4 and Barlow Condensed.
+   Gold is used for accents and on blue only, never as text on white. */
+
+:root {
+  --berkeley-blue: #002676;
+  --california-gold: #FDB515;
+  --blue-dark: #010133;
+  --blue-medium: #004AAE;
+  --blue-light: #9FD1FF;
+  --gold-dark: #FC9313;
+  --gold-light: #FFE88D;
+  --heritage-gold: #C09748;
+  --gray-light: #F2F2F2;
+  --gray-medium: #808080;
+  --ink: #1b1d26;
+  --ink-soft: #3d4352;
+  --ink-muted: #5b6273;
+  --rule: #dfe3ec;
+  --tint-blue: #f3f6fb;
+  --tint-gold: #fff9e6;
+  --serif: "Source Serif 4", "Times New Roman", Times, serif;
+  --sans: "Inter", Arial, system-ui, sans-serif;
+  --condensed: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+}
+
+body { font-family: var(--sans); color: var(--ink); background: #ffffff; }
+p { color: var(--ink-soft); }
+h1, h2, h3, h4, h5, h6 { color: var(--ink); }
+a { color: var(--blue-medium); }
+a:hover { color: var(--berkeley-blue); text-decoration: underline; text-decoration-color: var(--california-gold); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--california-gold); outline-offset: 2px; }
+
+/* ---------- Navigation ---------- */
+.navbar {
+  background: var(--berkeley-blue);
+  border-top: 4px solid var(--california-gold);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.85rem 2rem;
+}
+.navbar .logo {
+  color: #ffffff; font-family: var(--serif); font-weight: 600; font-size: 1.35rem;
+  letter-spacing: 0.005em;
+}
+.navbar .logo:hover { color: #ffffff; text-decoration: none; }
+.navbar .logo-sub {
+  display: block; font-family: var(--condensed); font-weight: 500; font-size: 0.8rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--california-gold); line-height: 1.1;
+}
+.navbar-menu { gap: 1.6rem; }
+.navbar-menu a {
+  color: #ffffff; font-weight: 500; font-size: 0.95rem; padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.navbar-menu a:hover { color: #ffffff; text-decoration: none; border-bottom-color: var(--california-gold); }
+.navbar-menu a[aria-current="page"] { border-bottom-color: var(--california-gold); }
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(1200px 400px at 85% -20%, rgba(0, 74, 174, 0.55), transparent 60%),
+    linear-gradient(160deg, var(--berkeley-blue) 0%, var(--blue-dark) 100%);
+  padding: 3.25rem 1.5rem 3rem;
+  border-bottom: 4px solid var(--california-gold);
+}
+.hero-content { text-align: left; max-width: 1200px; }
+.hero-content h1 {
+  font-family: var(--serif); font-weight: 600; color: #ffffff;
+  font-size: clamp(2.25rem, 5vw, 3.4rem); letter-spacing: -0.01em; margin-bottom: 0.6rem;
+}
+.hero-content p { color: #dbe6ff; font-size: 1.2rem; max-width: 46rem; margin: 0; }
+.hero-eyebrow {
+  display: block; font-family: var(--condensed); font-weight: 600; font-size: 1rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--california-gold); margin-bottom: 0.5rem;
+}
+
+/* ---------- Section headings ---------- */
+.division-title, .bio-heading {
+  font-family: var(--serif); font-weight: 600; color: var(--berkeley-blue);
+  font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -0.005em;
+}
+h2.division-title::after {
+  content: ""; display: block; width: 3rem; height: 4px; margin-top: 0.5rem;
+  background: var(--california-gold); border-radius: 2px;
+}
+h3.division-title { font-size: 1.5rem; }
+.subsection-title, .project-group-title { font-family: var(--serif); color: var(--berkeley-blue); font-weight: 600; }
+.section-lede { color: var(--ink-muted); }
+.carousel-label, .era-questions h3, .person-label, .bio-length {
+  font-family: var(--condensed); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.carousel-label { font-size: 1rem; color: var(--ink-muted); }
+.person-label { color: var(--berkeley-blue); font-weight: 600; font-size: 0.85em; }
+
+/* Eyebrow labels (years) */
+.era-years, .lineage-year {
+  font-family: var(--condensed); font-weight: 600; letter-spacing: 0.1em;
+  color: var(--blue-medium); text-transform: uppercase;
+}
+.era-years { font-size: 0.95rem; }
+
+/* ---------- About ---------- */
+.profile-description .about-image {
+  border-radius: 8px; border-bottom: 4px solid var(--california-gold);
+  box-shadow: 0 8px 24px rgba(1, 1, 51, 0.15);
+}
+.about-copy strong { color: var(--ink); }
+.about-meta { border-top: 1px solid var(--rule); padding-top: 1rem; }
+#office { border-top: 0; padding-top: 0; }
+
+/* ---------- Cards ---------- */
+.publication-card, .menu-category-list li, .era-link {
+  border: 1px solid var(--rule); box-shadow: none; border-radius: 10px;
+}
+.publication-card:hover, .menu-category-list li:hover, .era-link:hover {
+  box-shadow: 0 10px 24px rgba(0, 38, 118, 0.10); border-color: #c9d3e6;
+}
+.era-link { border-top: 4px solid var(--berkeley-blue); }
+.era-link:hover { border-top-color: var(--california-gold); }
+.era-title { font-family: var(--serif); color: var(--berkeley-blue); }
+.era-card + .era-card::before { color: var(--heritage-gold); }
+.publication-title a { color: var(--berkeley-blue); }
+.publication-venue, .project-tagline { color: var(--blue-medium); }
+.menu-item-name a { color: var(--berkeley-blue); }
+.menu-category-list img { border: 3px solid #ffffff; box-shadow: 0 0 0 2px var(--california-gold); }
+.person-initial { background: var(--tint-blue); color: var(--berkeley-blue); font-family: var(--serif); }
+.project-recognition { color: #00553A; }
+
+/* People section on a soft band so it reads as a distinct part of the page. */
+#people { background: var(--tint-blue); padding: 1.5rem 0 2rem; margin: 1.5rem 0; }
+
+.view-more-publications a {
+  background: var(--berkeley-blue); border-radius: 999px; padding: 0.7rem 1.6rem;
+}
+.view-more-publications a:hover { background: var(--blue-dark); color: #ffffff; text-decoration: none; }
+
+/* Quotes and callouts */
+.question-quote { border-left: 4px solid var(--california-gold); background: var(--tint-gold); }
+.question-quote p { font-family: var(--serif); color: var(--blue-dark); }
+.era-thesis { font-family: var(--serif); border-left: 4px solid var(--california-gold); color: var(--blue-dark); }
+.era-questions { background: var(--tint-blue); border: 1px solid var(--rule); }
+.era-questions h3 { color: var(--berkeley-blue); font-size: 1rem; }
+
+.trajectory-line li, .trajectory-path li { background: var(--tint-blue); color: var(--berkeley-blue); }
+.trajectory-line li + li::before, .trajectory-path li + li::before { color: var(--heritage-gold); }
+
+/* Serving lineage */
+.lineage-flow a { background: #ffffff; border: 1px solid var(--rule); }
+.lineage-flow a:hover { border-color: var(--berkeley-blue); }
+.lineage-flow li + li::before { color: var(--heritage-gold); }
+.lineage-flow li:last-child a { background: var(--berkeley-blue); border-color: var(--berkeley-blue); }
+.lineage-flow li:last-child .lineage-name { color: #ffffff; }
+.lineage-flow li:last-child .lineage-year { color: var(--california-gold); }
+.lineage-flow li:last-child .lineage-note { color: #dbe6ff; }
+.lineage-name { color: var(--berkeley-blue); }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--blue-dark); border-top: 4px solid var(--california-gold); margin-top: 4rem; }
+.footer-links a { color: #ffffff; }
+.footer-links { color: var(--blue-light); }
+.footer-links a:hover { color: var(--california-gold); text-decoration: none; }
+.footer p { color: #b9c3dd; }
+
+/* ---------- Research page ---------- */
+.research-subnav {
+  position: sticky; top: 79px; z-index: 900; background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); padding: 0 2rem;
+}
+.research-subnav ol {
+  list-style: none; margin: 0 auto; padding: 0.6rem 0; max-width: 1200px;
+  display: flex; gap: 0.5rem 1.4rem; flex-wrap: wrap;
+}
+.research-subnav a {
+  font-family: var(--condensed); font-weight: 600; font-size: 1rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--berkeley-blue);
+}
+.research-subnav a span { color: var(--ink-muted); font-weight: 500; margin-left: 0.3rem; }
+.research-intro { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 2rem; align-items: center; margin-top: 1.5rem; }
+.research-intro .section-lede { margin: 0; }
+.research-intro .question-quote { margin: 0; }
+.research-intro .question-quote p { font-size: 1.15rem; }
+.research-intro .question-quote a { display: inline-block; margin-top: 0.5rem; font-size: 0.9rem; font-family: var(--sans); font-style: normal; }
+
+.era-section { padding-top: 2.5rem; margin-top: 1rem; border-top: 1px solid var(--rule); }
+.era-section:first-of-type { border-top: 0; }
+.era-label { display: inline-block; font-family: var(--condensed); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.era-label .era-years { display: inline; }
+.era-label .era-status { color: #ffffff; background: var(--berkeley-blue); padding: 0.1rem 0.5rem; border-radius: 4px; margin-right: 0.6rem; }
+.era-label .era-status.is-earlier { background: var(--gray-light); color: var(--ink-muted); }
+.era-narrative { max-width: 46rem; }
+.era-body-single { grid-template-columns: 1fr; }
+.era-narrative p, .era-narrative li { font-size: 1.05rem; line-height: 1.75; }
+.era-section.is-earlier { background: var(--gray-light); border-radius: 12px; padding-bottom: 2rem; margin-top: 3rem; }
+.era-section.is-earlier .publication-card, .era-section.is-earlier .era-questions { background: #ffffff; }
+.timeline-section { background: var(--tint-blue); border-radius: 12px; padding-bottom: 2rem; margin-top: 3rem; }
+.timeline-section .era-link, .timeline-section .question-quote, .timeline-section .trajectory-line li { background: #ffffff; }
+.research-page .era-section, .research-page .project-card, .research-page .project-group { scroll-margin-top: 8.5rem; }
+
+/* Project cards with a figure from the paper */
+.project-card { padding: 0; overflow: hidden; }
+.project-card > *:not(.project-figure) { margin-left: 1.4rem; margin-right: 1.4rem; }
+.project-card > .publication-title { margin-top: 1.25rem; font-family: var(--serif); color: var(--berkeley-blue); }
+.project-card > .project-links { margin-bottom: 1.25rem; }
+.project-card > .project-links a { font-weight: 500; }
+.project-pair .project-card { border-top: 4px solid var(--california-gold); }
+.project-figure {
+  margin: 0; background: #ffffff; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center; height: 210px; padding: 0.9rem 1rem; box-sizing: border-box;
+}
+.project-figure img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.project-pair .project-figure { height: 280px; }
+.project-figure-link { display: contents; }
+.project-figure-link:hover img { opacity: 0.92; }
+.project-figure figcaption { position: absolute; left: -9999px; }
+
+@media (max-width: 900px) {
+  .research-intro { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .navbar { padding: 0.6rem 1rem; }
+  .navbar-menu { gap: 0.25rem 1rem; background: transparent; }
+  .navbar-menu a { font-size: 0.9rem; }
+  .hero { padding: 2.25rem 1rem 2rem; }
+  .hero-content { text-align: left; }
+  .research-subnav { position: static; }
+  .research-subnav { padding: 0 1rem; }
+  .research-subnav ol { gap: 1.1rem; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .research-subnav ol::-webkit-scrollbar { display: none; }
+  .project-figure, .project-pair .project-figure { height: 190px; }
+}
+
+/* base.css resets <strong>; restore it for dates and labels. */
+.activities-list strong, .about-meta strong { font-weight: 600; color: var(--berkeley-blue); }
+
+/* Strips run newest first, so drop the old left-to-right "led to" arrows. */
+.era-strip .era-card::before, .bet-strip .era-card::before,
+.trajectory-line li + li::before { content: none !important; display: none !important; }
+.trajectory-line li + li { margin-left: 0.5rem; }

@@ -10,6 +10,7 @@ eras:
   - id: learning-at-scale
     years: "2008–2014"
     title: "Learning at Scale"
+    short: "Learning at Scale"
     idea: "Machine-learning algorithms have structure that systems can exploit."
     summary: >-
       Exposing the sparse, iterative structure of ML algorithms to distributed
@@ -36,6 +37,7 @@ eras:
     home_line: "GraphLab and PowerGraph, from doctoral work at CMU · GraphX, now part of Apache Spark"
     projects:
       - id: graphlab
+        figure: { src: "graphlab.png", alt: "GraphLab framework: a scheduler dispatches vertex update tasks to CPUs, which run them on a data dependency graph alongside a shared data table." }
         name: "GraphLab"
         tagline: "A graph-parallel abstraction for machine learning"
         description: >-
@@ -55,6 +57,7 @@ eras:
           - { label: "Distributed GraphLab (VLDB 2012)", url: "https://arxiv.org/abs/1204.6078" }
           - { label: "Test of Time talk", url: "https://dl.acm.org/doi/10.14778/3611479.3611538" }
       - id: powergraph
+        figure: { src: "powergraph.png", alt: "Partitioning a small graph three ways: an edge-cut that duplicates ghost vertices compared with PowerGraph's vertex-cut that splits vertices into mirrors." }
         name: "PowerGraph"
         tagline: "Distributed graph computation on natural graphs"
         description: >-
@@ -69,6 +72,7 @@ eras:
         links:
           - { label: "Paper (OSDI 2012)", url: "https://www.usenix.org/system/files/conference/osdi12/osdi12-final-167.pdf" }
       - id: graphx
+        figure: { src: "graphx.png", alt: "Layer diagram: graph algorithms like PageRank and SVD++ sit on a GAS/Pregel API, on a thin GraphX layer (2,500 lines), on top of Spark (30,000 lines)." }
         name: "GraphX"
         tagline: "Graph processing in a distributed dataflow framework"
         description: >-
@@ -89,6 +93,7 @@ eras:
   - id: ml-infrastructure
     years: "2015–2021"
     title: "ML Infrastructure"
+    short: "ML Infrastructure"
     idea: "Training a model is only the beginning; the rest of the ML lifecycle is a systems problem."
     summary: >-
       Serving predictions, composing models and searching over configurations,
@@ -120,6 +125,7 @@ eras:
     home_line: "Clipper (Daniel Crankshaw) · Ray Serve (Simon Mo) · Ray Tune (Richard Liaw)"
     projects:
       - id: clipper
+        figure: { src: "clipper.png", alt: "Clipper architecture: applications reach Clipper over a REST API; a model selection layer and a model abstraction layer with caching and adaptive batching sit above model containers for Spark, TensorFlow and scikit-learn." }
         name: "Clipper"
         tagline: "Low-latency online prediction serving"
         description: >-
@@ -142,6 +148,7 @@ eras:
           - { label: "Clipper (NSDI 2017)", url: "https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/crankshaw" }
           - { label: "InferLine (SoCC 2020)", url: "https://arxiv.org/abs/1812.01776" }
       - id: ray-serve
+        figure: { src: "ray-serve.png", alt: "Ray Serve architecture: a head node runs the controller with the autoscaler, HTTP and gRPC proxies, and replicas with request queues; more nodes run replicas and optional proxies." }
         name: "Ray Serve"
         tagline: "Scalable model serving in the Ray ecosystem"
         description: >-
@@ -157,6 +164,7 @@ eras:
           - { label: "Documentation", url: "https://docs.ray.io/en/latest/serve/index.html" }
           - { label: "Code", url: "https://github.com/ray-project/ray/tree/master/python/ray/serve" }
       - id: ray-tune
+        figure: { src: "ray-tune.png", alt: "Ray Tune's narrow-waist design: function-based and class-based training APIs sit above the Tune API, which plugs into schedulers such as HyperBand, grid search, Bayesian optimization and population-based training." }
         name: "Ray Tune"
         tagline: "Distributed hyperparameter tuning and model selection"
         description: >-
@@ -179,6 +187,7 @@ eras:
   - id: foundation-models
     years: "2021–2024"
     title: "Foundation Models"
+    short: "Foundation Models"
     idea: "Large models made inference efficiency and evaluation central research problems."
     summary: >-
       Serving, programming, evaluating and connecting LLMs to tools: Alpa,
@@ -207,6 +216,7 @@ eras:
     home_line: "Alpa (Lianmin Zheng) · vLLM · SGLang (Lianmin Zheng, Ying Sheng) · Chatbot Arena and LLM-as-a-Judge · Gorilla (Shishir Patil, Tianjun Zhang)"
     projects:
       - id: alpa
+        figure: { src: "alpa.png", alt: "Alpa compiler and runtime: an inter-op pass splits a computational graph into stages, an intra-op pass shards each stage, and the stages run on separate device meshes." }
         name: "Alpa"
         tagline: "Automated parallelism for large models"
         description: >-
@@ -226,6 +236,7 @@ eras:
           - { label: "AlpaServe (OSDI 2023)", url: "https://www.usenix.org/conference/osdi23/presentation/li-zhouhan" }
           - { label: "Code", url: "https://github.com/alpa-projects/alpa" }
       - id: vllm
+        figure: { src: "vllm.png", alt: "vLLM's PagedAttention: a request's logical KV-cache blocks map through a block table to non-contiguous physical blocks in GPU memory." }
         name: "vLLM"
         tagline: "Efficient LLM serving with PagedAttention"
         featured: true
@@ -249,6 +260,7 @@ eras:
           - { label: "Code", url: "https://github.com/vllm-project/vllm" }
           - { label: "Project", url: "https://docs.vllm.ai/" }
       - id: sglang
+        figure: { src: "sglang.png", alt: "RadixAttention: a radix tree of cached prompt prefixes grows, shares and evicts nodes across chat, few-shot and self-consistency requests." }
         name: "SGLang"
         tagline: "Fast and programmable LLM inference"
         featured: true
@@ -272,6 +284,7 @@ eras:
           - { label: "Code", url: "https://github.com/sgl-project/sglang" }
           - { label: "Project", url: "https://sgl-project.github.io/" }
       - id: chatbot-arena
+        figure: { src: "chatbot-arena.png", alt: "Chatbot Arena interface: two anonymous models answer the same prompt side by side, with buttons to vote A is better, B is better, tie, or both are bad." }
         name: "Chatbot Arena"
         tagline: "Evaluating LLMs by human preference"
         description: >-
@@ -293,6 +306,7 @@ eras:
           - { label: "LLM-as-a-Judge & MT-Bench (NeurIPS 2023)", url: "https://arxiv.org/abs/2306.05685" }
           - { label: "LMSYS-Chat-1M (ICLR 2024)", url: "https://arxiv.org/abs/2309.11998" }
       - id: gorilla
+        figure: { src: "gorilla.png", alt: "Gorilla pipeline: API docs from Torch Hub, TensorFlow Hub and HuggingFace become instruction-API pairs that train Gorilla, which at inference uses a retriever to emit correct API calls." }
         name: "Gorilla"
         tagline: "Connecting LLMs to massive collections of APIs"
         description: >-
@@ -319,6 +333,7 @@ eras:
   - id: current-directions
     years: "2023–present"
     title: "Agents, Post-Training and New Architectures"
+    short: "Current Work"
     idea: "If many hard problems in agents are solved, systems, human oversight and learning itself will have to change."
     summary: >-
       Systems for thousands of capable agents, humans steering them, learning
@@ -370,6 +385,7 @@ eras:
     home_line: "Agent-first systems · humans steering agent teams · learning from teachers · MemGPT (Charles Packer, Sarah Wooders, Kevin Lin) · SkyRL · LEANN · new architectures (MRNN, sparse attention)"
     projects:
       - id: memgpt
+        figure: { src: "memgpt.png", alt: "MemGPT memory hierarchy: the LLM's finite context holds system instructions, working context and a FIFO queue, with a function executor and queue manager moving data to and from archival and recall storage." }
         group: agents
         name: "MemGPT"
         tagline: "LLMs as operating systems: persistent memory for agents"
@@ -394,6 +410,7 @@ eras:
           - { label: "Sleep-time compute (2025)", url: "https://arxiv.org/abs/2504.13171" }
           - { label: "Code (Letta)", url: "https://github.com/letta-ai/letta" }
       - id: skyrl
+        figure: { src: "skyrl.png", alt: "SkyRL-Agent architecture: trajectories go through runtime initialization, an agent loop calling tools in a remote execution runtime, and reward calculation, with transitions recorded for RL training." }
         group: post-training
         name: "SkyRL"
         tagline: "Reinforcement learning for long-horizon agents"
@@ -413,6 +430,7 @@ eras:
           - { label: "SkyRL-Agent (2025)", url: "https://arxiv.org/abs/2511.16108" }
           - { label: "Code", url: "https://github.com/NovaSky-AI/SkyRL" }
       - id: agent-serving
+        figure: { src: "agent-serving.png", alt: "Autellix architecture: agentic programs register in a process table that feeds a load balancer and per-engine priority schedulers over the KV cache and model executor." }
         group: agents
         name: "Serving agents"
         tagline: "Scheduling and caching for multi-turn, tool-using agents"
@@ -437,6 +455,7 @@ eras:
           - { label: "Continuum (2025)", url: "https://arxiv.org/abs/2511.02230" }
           - { label: "vCache (ICLR 2026)", url: "https://arxiv.org/abs/2502.03771" }
       - id: agent-learning
+        figure: { src: "agent-learning.png", alt: "Advisor Models: a trainable advisor model writes advice for a frozen black-box model, and the outcome reward trains the advisor with reinforcement learning." }
         group: post-training
         name: "Advisor Models and continual learning"
         tagline: "Steering, adapting and continually improving models"
@@ -455,6 +474,7 @@ eras:
           - { label: "Advisor Models (ICML 2026)", url: "https://arxiv.org/abs/2510.02453" }
           - { label: "Continual Learning Bench", url: "https://continual-learning-bench.com/" }
       - id: agent-evaluation
+        figure: { src: "agent-evaluation.png", alt: "Search Arena query categories, from factual lookup and information synthesis to recommendation, explanation and guidance, each with an example user prompt." }
         group: agents
         name: "Evaluating agents"
         tagline: "Measuring agents in the wild and diagnosing failures"
@@ -477,6 +497,7 @@ eras:
           - { label: "MAST (NeurIPS 2025)", url: "https://arxiv.org/abs/2503.13657" }
           - { label: "Agents in production (ICML 2026)", url: "https://arxiv.org/abs/2512.04123" }
       - id: multi-agent
+        figure: { src: "multi-agent.png", alt: "C2C game: a territory map from Red's view with AI-controlled Blue, Yellow and Green players, above a negotiation chat where Red and Blue agree to a non-aggression pact." }
         group: agents
         name: "Multi-agent systems"
         tagline: "Cooperation, competition and AI–AI interaction"
@@ -493,6 +514,7 @@ eras:
         links:
           - { label: "Paper (2026)", url: "https://arxiv.org/abs/2604.25088" }
       - id: agent-data-systems
+        figure: { src: "agent-data-systems.png", alt: "Agent-first data system: user agents send batches of probes to a system with a probe parser, sleeper agents, a satisficing probe optimizer, a shared transaction manager and an agentic memory store." }
         group: agents
         name: "Data systems for agents"
         tagline: "Retrieval, memory and data systems designed for agents"
@@ -514,6 +536,8 @@ eras:
           - { label: "LEANN code", url: "https://github.com/StarTrail-org/LEANN" }
 
       - id: generative-diversity
+
+        figure: { src: "generative-diversity.png", alt: "Answers to \"Name a US state\" on maps: low and high temperature sampling cluster on California and New York, while SimpleStrat's stratified sampling spreads answers across regions." }
         group: post-training
         name: "Diversity after post-training"
         tagline: "Keeping generation diverse and creative"
@@ -531,6 +555,7 @@ eras:
         links:
           - { label: "SimpleStrat (NeurIPS 2025)", url: "https://arxiv.org/abs/2410.09038" }
       - id: mrnn
+        figure: { src: "mrnn.png", alt: "M\u00b2RNN block: a Transformer-style layer where attention is replaced by an M\u00b2RNN layer built from linear projections, causal convolutions, gates and a matrix-to-matrix recurrence." }
         group: architectures
         name: "MRNN"
         tagline: "Non-linear RNNs with matrix-valued states"
@@ -547,6 +572,7 @@ eras:
           - { label: "Paper (2026)", url: "https://arxiv.org/abs/2603.14360" }
           - { label: "Code (lm-engine)", url: "https://github.com/open-lm-engine/lm-engine" }
       - id: sparse-attention
+        figure: { src: "sparse-attention.png", alt: "vAttention: attention combines sink, local and top-k tokens with random samples whose count is set by a user-specified error tolerance and confidence, with index computation on the GPU and KV reads from GPU or CPU memory." }
         group: architectures
         name: "Sparse and verified attention"
         tagline: "Attending to less, with guarantees"
@@ -570,6 +596,7 @@ eras:
           - { label: "SLA (ICLR 2026)", url: "https://arxiv.org/abs/2509.24006" }
           - { label: "TurboDiffusion", url: "https://github.com/thu-ml/TurboDiffusion" }
       - id: k-search
+        figure: { src: "k-search.png", alt: "K-Search loop: actions are selected from a frontier of proposed kernel optimizations in a search tree, refined by sampling and evaluating code, and an LLM world model inserts, updates or prunes frontier nodes." }
         group: architectures
         name: "K-Search"
         tagline: "LLM-generated GPU kernels"
