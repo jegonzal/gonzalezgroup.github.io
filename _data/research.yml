@@ -204,15 +204,12 @@ eras:
       Zheng, automated the parallelization of models too large for a single
       accelerator, and AlpaServe applied model parallelism to serving. Once
       LLMs were widely used, inference and evaluation became the central
-      problems. The people who built one of these systems often went on to
-      build the next.</p>
+      problems.</p>
       <p>Two inference engines from this period became major infrastructure
       for the field. vLLM uses operating-system-style paging to manage GPU
       memory. SGLang treats LLM applications as programs and co-designs a
       language with a runtime. Chatbot Arena made evaluation an open, live
-      measurement of human preference. Gorilla asked how models can reliably
-      call the APIs and tools they will need to act in the world, a question
-      that leads directly to agents.</p>
+      measurement of human preference. Gorilla asked how models can reliably call APIs and tools.</p>
     home_line: "Alpa (Lianmin Zheng) · vLLM · SGLang (Lianmin Zheng, Ying Sheng) · Chatbot Arena and LLM-as-a-Judge · Gorilla (Shishir Patil, Tianjun Zhang)"
     projects:
       - id: alpa
@@ -379,9 +376,7 @@ eras:
       redesigned for agents as their primary users, serving engines for
       multi-turn agents, studies of how agents cooperate and compete, and small
       advisor models that learn to steer larger ones. The group also continues
-      to work on post-training and on new neural architectures. That work
-      returns to its oldest question: how to co-design models with the
-      systems that run them.</p>
+      to work on post-training and on new neural architectures.</p>
     home_line: "Agent-first systems · humans steering agent teams · learning from teachers · MemGPT (Charles Packer, Sarah Wooders, Kevin Lin) · SkyRL · LEANN · new architectures (MRNN, sparse attention)"
     projects:
       - id: memgpt
