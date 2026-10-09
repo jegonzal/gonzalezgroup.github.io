@@ -25,7 +25,7 @@ schema: research
   <div class="wrapper research-page">
     <section class="profile-content">
       <div class="research-intro">
-        <p class="section-lede">My research asks how new systems abstractions can enable new forms of machine learning and AI. This page starts with current work and moves back in time: the idea behind each era, the projects that tested it, and the students and collaborators who built them.</p>
+        <p class="section-lede">I study how new systems abstractions can enable new forms of machine learning and AI. This page starts with current work and moves back in time: the idea behind each era, the main projects, and the students and collaborators who built them.</p>
         <blockquote class="question-quote"><p>{{ research.guiding_question }}</p><a href="#guiding-question">The question behind the research →</a></blockquote>
       </div>
     </section>
@@ -50,7 +50,7 @@ schema: research
 
       {% if era.id == 'ml-infrastructure' %}
       <figure class="lineage" id="serving-lineage" aria-labelledby="serving-lineage-caption">
-        <figcaption id="serving-lineage-caption"><strong>A lineage of serving systems.</strong> A continuing line of research from prediction serving to today's LLM inference engines, connected through ideas, students and collaborators.</figcaption>
+        <figcaption id="serving-lineage-caption"><strong>A lineage of serving systems.</strong> Prediction-serving systems from the group and its collaborators, from Velox to today's LLM inference engines.</figcaption>
         <ol class="lineage-flow">
           {% for node in research.serving_lineage %}
           <li><a href="#{{ node.anchor }}"><span class="lineage-name">{{ node.name }}</span><span class="lineage-year">{{ node.year }}</span><span class="lineage-note">{{ node.note }}</span></a></li>
@@ -84,8 +84,8 @@ schema: research
     {% endfor %}
 
     <section class="profile-content era-section" id="trajectories" aria-labelledby="trajectories-heading">
-      <h2 id="trajectories-heading" class="division-title">Questions That Traveled With People</h2>
-      <p class="section-lede">Research questions often move through the group with the students who pursue them. These are a few of the paths former students followed at Berkeley and beyond. The work in each case was theirs, done with many collaborators.</p>
+      <h2 id="trajectories-heading" class="division-title">Former Students' Research Paths</h2>
+      <p class="section-lede">Several former students worked on related questions over many years, at Berkeley and afterward. The work in each case was theirs, done with many collaborators.</p>
       <div class="project-grid">
         {% for t in research.trajectories %}
         <article class="publication-card trajectory-card">
@@ -104,7 +104,7 @@ schema: research
       <section class="guiding-question" id="guiding-question" aria-labelledby="guiding-question-heading">
         <h3 id="guiding-question-heading" class="subsection-title">The Question Behind the Research</h3>
         <blockquote class="question-quote"><p>{{ research.guiding_question }}</p></blockquote>
-        <p>I have used this question to choose research directions throughout my career. The bet is never that a hot problem stays unsolved. It is that someone solves it, and the solution creates the next problem.</p>
+        <p>I have used this question to choose research directions throughout my career. In each case I assumed that someone would solve the hot problem of the day, and I asked what new problems their solution would create.</p>
         <ol class="bet-strip">
           {% assign bets_newest_first = research.bets | reverse %}{% for b in bets_newest_first %}
           <li class="era-card">

@@ -23,13 +23,12 @@ eras:
       factorization, are made of small computations over sparse dependencies,
       repeated until they converge. General-purpose data systems of the time did
       not see that structure, so they either ran these algorithms inefficiently
-      or forced researchers to write custom parallel code. My doctoral work at
-      Carnegie Mellon asked whether the <em>graph</em> could serve as the
+      or forced researchers to write custom parallel code. As a PhD student at
+      Carnegie Mellon, I explored whether the <em>graph</em> could serve as the
       abstraction between the two: machine-learning researchers describe
       computation on vertices and edges, and the system handles scheduling,
       consistency and distribution.</p>
-      <p>GraphLab, PowerGraph and GraphX are three steps in that one line of
-      inquiry. GraphLab introduced the abstraction. PowerGraph re-factored it so
+      <p>GraphLab introduced the abstraction. PowerGraph re-factored it so
       that computation could be split across machines for the power-law graphs
       found in real data. GraphX, built as a postdoc in Berkeley's AMPLab, showed
       that graph computation could be expressed inside a general dataflow system,
@@ -94,7 +93,7 @@ eras:
     years: "2015–2021"
     title: "ML Infrastructure"
     short: "ML Infrastructure"
-    idea: "Training a model is only the beginning; the rest of the ML lifecycle is a systems problem."
+    idea: "Once a model is trained, it still has to be served, composed with other models and tuned, and each of these steps is a systems problem."
     summary: >-
       Serving predictions, composing models and searching over configurations,
       from Clipper to Ray Serve and Ray Tune.
@@ -109,9 +108,8 @@ eras:
       live queries within milliseconds, run as pipelines of several models, and
       be selected from large searches over architectures and hyperparameters.
       Our view was that these steps needed their own systems abstractions.</p>
-      <p>The clearest example is <strong>prediction serving</strong>, a line of
-      work that runs directly into today's LLM inference systems (see the
-      lineage below). Velox and then Clipper, led by my student Daniel
+      <p>The clearest example is <strong>prediction serving</strong>, which later
+      informed our work on LLM inference systems (see the lineage below). Velox and then Clipper, led by my student Daniel
       Crankshaw, put a general-purpose serving layer between applications and ML
       frameworks. InferLine extended it to model pipelines. Ray Serve continued
       these ideas inside the Ray ecosystem. In parallel, Ray Tune, led by my
@@ -209,7 +207,7 @@ eras:
       for the field. vLLM uses operating-system-style paging to manage GPU
       memory. SGLang treats LLM applications as programs and co-designs a
       language with a runtime. Chatbot Arena made evaluation an open, live
-      measurement of human preference. Gorilla asked how models can reliably call APIs and tools.</p>
+      measurement of human preference. Gorilla studied how to teach models to call APIs and tools reliably.</p>
     home_line: "Alpa (Lianmin Zheng) · vLLM · SGLang (Lianmin Zheng, Ying Sheng) · Chatbot Arena and LLM-as-a-Judge · Gorilla (Shishir Patil, Tianjun Zhang)"
     projects:
       - id: alpa
@@ -286,8 +284,8 @@ eras:
         tagline: "Evaluating LLMs by human preference"
         description: >-
           Anonymous, crowdsourced side-by-side comparisons of models on real
-          user prompts, aggregated into statistically grounded ratings: an open,
-          continually updated benchmark. Companion work introduced MT-Bench and
+          user prompts, aggregated into statistically grounded ratings to create an
+          open, continually updated benchmark. Companion work introduced MT-Bench and
           LLM-as-a-Judge, using strong models to evaluate other models, and released LMSYS-Chat-1M, a dataset of
           real-world conversations.
         people: >-
@@ -331,7 +329,7 @@ eras:
     years: "2023–present"
     title: "Agents, Post-Training and New Architectures"
     short: "Current Work"
-    idea: "If many hard problems in agents are solved, systems, human oversight and learning itself will have to change."
+    idea: "If many hard problems in agents are solved, we will need to change how systems are built, how people oversee agents, and how models learn."
     summary: >-
       Systems for thousands of capable agents, humans steering them, learning
       from teachers, and new architectures: MemGPT, SkyRL, LEANN and current work.
@@ -623,7 +621,7 @@ bets:
     anchor: "ml-infrastructure"
   - year: "Today"
     context: "Building capable AI agents."
-    bet: "Someone will build them, by the thousands. Systems, human oversight and learning itself will have to change."
+    bet: "Someone will build highly capable agents, and people will use thousands of them. We will need to change how systems are built, how people oversee agents, and how models learn."
     result: "Agent-first systems, humans steering agent teams, negotiation through agents, and learning from teachers."
     anchor: "current-directions"
 
@@ -642,35 +640,38 @@ trajectories:
     anchor: "daniel-crankshaw"
     path: ["GraphX", "Velox", "Clipper", "InferLine"]
     text: >-
-      From graph processing to the first generation of prediction-serving
-      systems. His thesis, <em>The Design and Implementation of Low-Latency
-      Prediction Serving Systems</em>, laid the foundation for the serving line
-      of work.
+      Worked on GraphX and then built the first generation of
+      prediction-serving systems, Velox and Clipper, which InferLine later
+      extended to model pipelines. His thesis, <em>The Design and Implementation of Low-Latency
+      Prediction Serving Systems</em>, laid the foundation for the group's work on
+      serving.
   - person: "Simon Mo"
     anchor: "simon-mo"
     path: ["InferLine", "Ray Serve", "vLLM", "Inferact"]
     text: >-
-      Carried prediction serving from Clipper into Ray Serve and then into
-      open-source LLM inference with vLLM. His thesis is <em>Building Open
+      Rewrote Clipper as Ray Serve and then contributed to open-source LLM
+      inference with vLLM. His thesis is <em>Building Open
       Source Inference Serving Systems</em>.
   - person: "Lianmin Zheng"
     anchor: "lianmin-zheng"
     path: ["Alpa", "vLLM / Chatbot Arena", "SGLang"]
     text: >-
-      From automatic parallelism for large models, to LLM serving and
-      human-preference evaluation, to creating SGLang. His thesis is
+      Worked on automatic parallelism for large models (Alpa), LLM serving
+      and human-preference evaluation, and then created SGLang with Ying
+      Sheng. His thesis is
       <em>Scalable and Efficient Systems for Large Deep Learning Models</em>.
   - person: "Shishir Patil"
     anchor: "shishir-patil"
     path: ["Gorilla", "RAFT", "BFCL"]
     text: >-
-      From connecting LLMs to APIs to establishing how tool use is evaluated.
+      Worked on connecting LLMs to APIs (Gorilla) and then on how to
+      evaluate tool use (BFCL).
       His thesis is <em>Teaching Large Language Models to Use Tools at
       Scale</em>.
   - person: "Charles Packer"
     anchor: "charles-packer"
     path: ["MemGPT", "Letta"]
     text: >-
-      From treating LLMs as operating systems to building persistent,
-      stateful agents. His thesis is <em>Building Agentic Systems in an Era of
+      Worked on treating LLMs as operating systems (MemGPT) and then on
+      building persistent, stateful agents at Letta. His thesis is <em>Building Agentic Systems in an Era of
       Large Language Models</em>.
