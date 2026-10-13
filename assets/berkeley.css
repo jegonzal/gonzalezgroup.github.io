@@ -2,35 +2,20 @@
    Palette and type from brand.berkeley.edu: Berkeley Blue #002676 and
    California Gold #FDB515 (primary); Blue Dark/Medium/Light, Gold Light and
    Gray Light (secondary); Inter, Source Serif 4 and Barlow Condensed.
-   Gold is used for accents and on blue only, never as text on white. */
+   Gold is used for accents and on blue only, never as text on white.
+   Color tokens (brand constants and light/dark theme values) live in theme.css. */
 
 :root {
-  --berkeley-blue: #002676;
-  --california-gold: #FDB515;
-  --blue-dark: #010133;
-  --blue-medium: #004AAE;
-  --blue-light: #9FD1FF;
-  --gold-dark: #FC9313;
-  --gold-light: #FFE88D;
-  --heritage-gold: #C09748;
-  --gray-light: #F2F2F2;
-  --gray-medium: #808080;
-  --ink: #1b1d26;
-  --ink-soft: #3d4352;
-  --ink-muted: #5b6273;
-  --rule: #dfe3ec;
-  --tint-blue: #f3f6fb;
-  --tint-gold: #fff9e6;
   --serif: "Source Serif 4", "Times New Roman", Times, serif;
   --sans: "Inter", Arial, system-ui, sans-serif;
   --condensed: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
 }
 
-body { font-family: var(--sans); color: var(--ink); background: #ffffff; }
+body { font-family: var(--sans); color: var(--ink); background: var(--page-bg); }
 p { color: var(--ink-soft); }
 h1, h2, h3, h4, h5, h6 { color: var(--ink); }
-a { color: var(--blue-medium); }
-a:hover { color: var(--berkeley-blue); text-decoration: underline; text-decoration-color: var(--california-gold); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a { color: var(--link); }
+a:hover { color: var(--link-hover); text-decoration: underline; text-decoration-color: var(--california-gold); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 :focus-visible { outline: 3px solid var(--california-gold); outline-offset: 2px; }
 
 /* ---------- Navigation ---------- */
@@ -78,7 +63,7 @@ a:hover { color: var(--berkeley-blue); text-decoration: underline; text-decorati
 
 /* ---------- Section headings ---------- */
 .division-title, .bio-heading {
-  font-family: var(--serif); font-weight: 600; color: var(--berkeley-blue);
+  font-family: var(--serif); font-weight: 600; color: var(--accent-text);
   font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -0.005em;
 }
 h2.division-title::after {
@@ -86,18 +71,18 @@ h2.division-title::after {
   background: var(--california-gold); border-radius: 2px;
 }
 h3.division-title { font-size: 1.5rem; }
-.subsection-title, .project-group-title { font-family: var(--serif); color: var(--berkeley-blue); font-weight: 600; }
+.subsection-title, .project-group-title { font-family: var(--serif); color: var(--accent-text); font-weight: 600; }
 .section-lede { color: var(--ink-muted); }
 .carousel-label, .era-questions h3, .person-label, .bio-length {
   font-family: var(--condensed); letter-spacing: 0.08em; text-transform: uppercase;
 }
 .carousel-label { font-size: 1rem; color: var(--ink-muted); }
-.person-label { color: var(--berkeley-blue); font-weight: 600; font-size: 0.85em; }
+.person-label { color: var(--accent-text); font-weight: 600; font-size: 0.85em; }
 
 /* Eyebrow labels (years) */
 .era-years, .lineage-year {
   font-family: var(--condensed); font-weight: 600; letter-spacing: 0.1em;
-  color: var(--blue-medium); text-transform: uppercase;
+  color: var(--link); text-transform: uppercase;
 }
 .era-years { font-size: 0.95rem; }
 
@@ -115,46 +100,46 @@ h3.division-title { font-size: 1.5rem; }
   border: 1px solid var(--rule); box-shadow: none; border-radius: 10px;
 }
 .publication-card:hover, .menu-category-list li:hover, .era-link:hover {
-  box-shadow: 0 10px 24px rgba(0, 38, 118, 0.10); border-color: #c9d3e6;
+  box-shadow: 0 10px 24px rgba(0, 38, 118, 0.10); border-color: var(--border-hover);
 }
-.era-link { border-top: 4px solid var(--berkeley-blue); }
+.era-link { border-top: 4px solid var(--accent-rule); }
 .era-link:hover { border-top-color: var(--california-gold); }
-.era-title { font-family: var(--serif); color: var(--berkeley-blue); }
+.era-title { font-family: var(--serif); color: var(--accent-text); }
 .era-card + .era-card::before { color: var(--heritage-gold); }
-.publication-title a { color: var(--berkeley-blue); }
-.publication-venue, .project-tagline { color: var(--blue-medium); }
-.menu-item-name a { color: var(--berkeley-blue); }
-.menu-category-list img { border: 3px solid #ffffff; box-shadow: 0 0 0 2px var(--california-gold); }
-.person-initial { background: var(--tint-blue); color: var(--berkeley-blue); font-family: var(--serif); }
-.project-recognition { color: #00553A; }
+.publication-title a { color: var(--accent-text); }
+.publication-venue, .project-tagline { color: var(--link); }
+.menu-item-name a { color: var(--accent-text); }
+.menu-category-list img { border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--california-gold); }
+.person-initial { background: var(--tint-blue); color: var(--accent-text); font-family: var(--serif); }
+.project-recognition { color: var(--recognition); }
 
 /* People section on a soft band so it reads as a distinct part of the page. */
 #people { background: var(--tint-blue); padding: 1.5rem 0 2rem; margin: 1.5rem 0; }
 
 .view-more-publications a {
-  background: var(--berkeley-blue); border-radius: 999px; padding: 0.7rem 1.6rem;
+  background: var(--button-bg); border-radius: 999px; padding: 0.7rem 1.6rem;
 }
-.view-more-publications a:hover { background: var(--blue-dark); color: #ffffff; text-decoration: none; }
+.view-more-publications a:hover { background: var(--button-bg-hover); color: #ffffff; text-decoration: none; }
 
 /* Quotes and callouts */
 .question-quote { border-left: 4px solid var(--california-gold); background: var(--tint-gold); }
-.question-quote p { font-family: var(--serif); color: var(--blue-dark); }
-.era-thesis { font-family: var(--serif); border-left: 4px solid var(--california-gold); color: var(--blue-dark); }
+.question-quote p { font-family: var(--serif); color: var(--quote-text); }
+.era-thesis { font-family: var(--serif); border-left: 4px solid var(--california-gold); color: var(--quote-text); }
 .era-questions { background: var(--tint-blue); border: 1px solid var(--rule); }
-.era-questions h3 { color: var(--berkeley-blue); font-size: 1rem; }
+.era-questions h3 { color: var(--accent-text); font-size: 1rem; }
 
-.trajectory-line li, .trajectory-path li { background: var(--tint-blue); color: var(--berkeley-blue); }
+.trajectory-line li, .trajectory-path li { background: var(--tint-blue); color: var(--accent-text); }
 .trajectory-line li + li::before, .trajectory-path li + li::before { color: var(--heritage-gold); }
 
 /* Serving lineage */
-.lineage-flow a { background: #ffffff; border: 1px solid var(--rule); }
-.lineage-flow a:hover { border-color: var(--berkeley-blue); }
+.lineage-flow a { background: var(--surface); border: 1px solid var(--rule); }
+.lineage-flow a:hover { border-color: var(--accent-rule); }
 .lineage-flow li + li::before { color: var(--heritage-gold); }
 .lineage-flow li:last-child a { background: var(--berkeley-blue); border-color: var(--berkeley-blue); }
 .lineage-flow li:last-child .lineage-name { color: #ffffff; }
 .lineage-flow li:last-child .lineage-year { color: var(--california-gold); }
 .lineage-flow li:last-child .lineage-note { color: #dbe6ff; }
-.lineage-name { color: var(--berkeley-blue); }
+.lineage-name { color: var(--accent-text); }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--blue-dark); border-top: 4px solid var(--california-gold); margin-top: 4rem; }
@@ -165,7 +150,7 @@ h3.division-title { font-size: 1.5rem; }
 
 /* ---------- Research page ---------- */
 .research-subnav {
-  position: sticky; top: 79px; z-index: 900; background: rgba(255, 255, 255, 0.96);
+  position: sticky; top: 79px; z-index: 900; background: var(--subnav-bg);
   backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); padding: 0 2rem;
 }
 .research-subnav ol {
@@ -174,7 +159,7 @@ h3.division-title { font-size: 1.5rem; }
 }
 .research-subnav a {
   font-family: var(--condensed); font-weight: 600; font-size: 1rem; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--berkeley-blue);
+  text-transform: uppercase; color: var(--accent-text);
 }
 .research-subnav a span { color: var(--ink-muted); font-weight: 500; margin-left: 0.3rem; }
 .research-intro { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 2rem; align-items: center; margin-top: 1.5rem; }
@@ -188,25 +173,25 @@ h3.division-title { font-size: 1.5rem; }
 .era-label { display: inline-block; font-family: var(--condensed); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
 .era-label .era-years { display: inline; }
 .era-label .era-status { color: #ffffff; background: var(--berkeley-blue); padding: 0.1rem 0.5rem; border-radius: 4px; margin-right: 0.6rem; }
-.era-label .era-status.is-earlier { background: var(--gray-light); color: var(--ink-muted); }
+.era-label .era-status.is-earlier { background: var(--chip-muted-bg); color: var(--ink-muted); }
 .era-narrative { max-width: 46rem; }
 .era-body-single { grid-template-columns: 1fr; }
 .era-narrative p, .era-narrative li { font-size: 1.05rem; line-height: 1.75; }
-.era-section.is-earlier { background: var(--gray-light); border-radius: 12px; padding-bottom: 2rem; margin-top: 3rem; }
-.era-section.is-earlier .publication-card, .era-section.is-earlier .era-questions { background: #ffffff; }
+.era-section.is-earlier { background: var(--surface-muted); border-radius: 12px; padding-bottom: 2rem; margin-top: 3rem; }
+.era-section.is-earlier .publication-card, .era-section.is-earlier .era-questions { background: var(--surface); }
 .timeline-section { background: var(--tint-blue); border-radius: 12px; padding-bottom: 2rem; margin-top: 3rem; }
-.timeline-section .era-link, .timeline-section .question-quote, .timeline-section .trajectory-line li { background: #ffffff; }
+.timeline-section .era-link, .timeline-section .question-quote, .timeline-section .trajectory-line li { background: var(--surface); }
 .research-page .era-section, .research-page .project-card, .research-page .project-group { scroll-margin-top: 8.5rem; }
 
 /* Project cards with a figure from the paper */
 .project-card { padding: 0; overflow: hidden; }
 .project-card > *:not(.project-figure) { margin-left: 1.4rem; margin-right: 1.4rem; }
-.project-card > .publication-title { margin-top: 1.25rem; font-family: var(--serif); color: var(--berkeley-blue); }
+.project-card > .publication-title { margin-top: 1.25rem; font-family: var(--serif); color: var(--accent-text); }
 .project-card > .project-links { margin-bottom: 1.25rem; }
 .project-card > .project-links a { font-weight: 500; }
 .project-pair .project-card { border-top: 4px solid var(--california-gold); }
 .project-figure {
-  margin: 0; background: #ffffff; border-bottom: 1px solid var(--rule);
+  margin: 0; background: var(--figure-bg); border-bottom: 1px solid var(--rule);
   display: flex; align-items: center; justify-content: center; height: 210px; padding: 0.9rem 1rem; box-sizing: border-box;
 }
 .project-figure img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
@@ -232,7 +217,7 @@ h3.division-title { font-size: 1.5rem; }
 }
 
 /* base.css resets <strong>; restore it for dates and labels. */
-.activities-list strong, .about-meta strong { font-weight: 600; color: var(--berkeley-blue); }
+.activities-list strong, .about-meta strong { font-weight: 600; color: var(--accent-text); }
 
 /* Strips run newest first, so drop the old left-to-right "led to" arrows. */
 .era-strip .era-card::before, .bet-strip .era-card::before,

@@ -1,0 +1,183 @@
+/* Color tokens for light and dark themes. Loaded before the other stylesheets.
+
+   The theme follows the operating system (prefers-color-scheme) unless the
+   visitor picks one with the nav toggle, which sets data-theme="light" or
+   data-theme="dark" on <html> (see _includes/theme-init.html).
+
+   Brand constants come from brand.berkeley.edu and do not change between
+   themes. The navigation bar, hero and footer stay Berkeley Blue with
+   California Gold accents in both themes, so their text colors are fixed.
+   Everything else uses the role tokens below. The dark values appear twice
+   (OS preference and explicit choice); keep the two blocks in sync. */
+
+:root {
+  /* Brand constants */
+  --berkeley-blue: #002676;
+  --california-gold: #FDB515;
+  --blue-dark: #010133;
+  --blue-medium: #004AAE;
+  --blue-light: #9FD1FF;
+  --gold-dark: #FC9313;
+  --gold-light: #FFE88D;
+  --heritage-gold: #C09748;
+  --gray-light: #F2F2F2;
+  --gray-medium: #808080;
+
+  /* Surfaces */
+  --page-bg: #ffffff;
+  --surface: #ffffff;
+  --surface-subtle: #f8fafc;
+  --surface-tint: #eef3fa;
+  --surface-muted: var(--gray-light);
+  --tint-blue: #f3f6fb;
+  --tint-gold: #fff9e6;
+  --chip-muted-bg: var(--gray-light);
+  --subnav-bg: rgba(255, 255, 255, 0.96);
+  --figure-bg: #ffffff;
+
+  /* Text */
+  --ink: #1b1d26;
+  --ink-soft: #3d4352;
+  --ink-muted: #5b6273;
+  --text-strong: #1a1a1a;
+  --text-body: #333333;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --accent-text: var(--berkeley-blue);
+  --quote-text: var(--blue-dark);
+  --link: var(--blue-medium);
+  --link-hover: var(--berkeley-blue);
+  --recognition: #00553A;
+  --success: #059669;
+  --venue-legacy: #3e8cb7;
+  --logo-ink: #1a1a1a;
+
+  /* Lines and accents */
+  --rule: #dfe3ec;
+  --border-subtle: #e5eaf2;
+  --border-hover: #c9d3e6;
+  --accent-rule: var(--berkeley-blue);
+  --arrow: #93a3b8;
+  --legacy-accent: #2563eb;
+  --legacy-accent-hover: #1d4ed8;
+  --button-bg: var(--berkeley-blue);
+  --button-bg-hover: var(--blue-dark);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #0f1424;
+    --surface: #171e33;
+    --surface-subtle: #141b2e;
+    --surface-tint: #1c2542;
+    --surface-muted: #131a2c;
+    --tint-blue: #131b31;
+    --tint-gold: #221f1a;
+    --chip-muted-bg: #2a3350;
+    --subnav-bg: rgba(15, 20, 36, 0.94);
+    --figure-bg: #ffffff;
+
+    --ink: #eef1f8;
+    --ink-soft: #d0d6e2;
+    --ink-muted: #a9b1c3;
+    --text-strong: #eef1f8;
+    --text-body: #d0d6e2;
+    --text-secondary: #b3bbcb;
+    --text-tertiary: #9ca5b7;
+    --accent-text: #b5dbff;
+    --quote-text: #eef1f8;
+    --link: #8cc6ff;
+    --link-hover: #d4e9ff;
+    --recognition: #6fd6a8;
+    --success: #6fd6a8;
+    --venue-legacy: #8cc6ff;
+
+    --rule: #2b3552;
+    --border-subtle: #2b3552;
+    --border-hover: #46557f;
+    --accent-rule: #3d7ae0;
+    --arrow: #6b7a93;
+    --legacy-accent: #6ea8ff;
+    --legacy-accent-hover: #9cc3ff;
+    --button-bg: var(--blue-medium);
+    --button-bg-hover: var(--berkeley-blue);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --page-bg: #0f1424;
+  --surface: #171e33;
+  --surface-subtle: #141b2e;
+  --surface-tint: #1c2542;
+  --surface-muted: #131a2c;
+  --tint-blue: #131b31;
+  --tint-gold: #221f1a;
+  --chip-muted-bg: #2a3350;
+  --subnav-bg: rgba(15, 20, 36, 0.94);
+  --figure-bg: #ffffff;
+
+  --ink: #eef1f8;
+  --ink-soft: #d0d6e2;
+  --ink-muted: #a9b1c3;
+  --text-strong: #eef1f8;
+  --text-body: #d0d6e2;
+  --text-secondary: #b3bbcb;
+  --text-tertiary: #9ca5b7;
+  --accent-text: #b5dbff;
+  --quote-text: #eef1f8;
+  --link: #8cc6ff;
+  --link-hover: #d4e9ff;
+  --recognition: #6fd6a8;
+  --success: #6fd6a8;
+  --venue-legacy: #8cc6ff;
+
+  --rule: #2b3552;
+  --border-subtle: #2b3552;
+  --border-hover: #46557f;
+  --accent-rule: #3d7ae0;
+  --arrow: #6b7a93;
+  --legacy-accent: #6ea8ff;
+  --legacy-accent-hover: #9cc3ff;
+  --button-bg: var(--blue-medium);
+  --button-bg-hover: var(--berkeley-blue);
+
+  color-scheme: dark;
+}
+
+/* ---------- Theme toggle (nav) ---------- */
+.theme-toggle-item { display: flex; align-items: center; }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; padding: 0; margin: 0;
+  background: transparent; color: #ffffff; cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--california-gold); background: rgba(255, 255, 255, 0.08); }
+.theme-toggle svg { width: 16px; height: 16px; display: none; }
+:root[data-theme-pref="system"] .theme-toggle .icon-system,
+:root:not([data-theme-pref]) .theme-toggle .icon-system,
+:root[data-theme-pref="light"] .theme-toggle .icon-light,
+:root[data-theme-pref="dark"] .theme-toggle .icon-dark { display: block; }
+
+/* ---------- Dark-theme component adjustments ----------
+   Paper figures and project logos are drawn for white backgrounds. Rather than
+   inverting them, dark mode shows them on a light backing, slightly dimmed. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .project-figure { filter: brightness(0.93); }
+  :root:not([data-theme="light"]) .project-carousel .logos a {
+    background: #f4f6fa; border-radius: 10px; padding: 0.4rem 0.9rem;
+  }
+  :root:not([data-theme="light"]) .profile-description .about-image,
+  :root:not([data-theme="light"]) .menu-category-list img { filter: brightness(0.95); }
+}
+:root[data-theme="dark"] .project-figure { filter: brightness(0.93); }
+:root[data-theme="dark"] .project-carousel .logos a {
+  background: #f4f6fa; border-radius: 10px; padding: 0.4rem 0.9rem;
+}
+:root[data-theme="dark"] .profile-description .about-image,
+:root[data-theme="dark"] .menu-category-list img { filter: brightness(0.95); }

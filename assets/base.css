@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #1a1a1a;
+  background: var(--page-bg);
+  color: var(--text-strong);
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +24,7 @@ body {
 /* Fonts and Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-strong);
   margin-bottom: 1rem;
   line-height: 1.3;
 }
@@ -32,23 +32,23 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-bottom: 1.5rem;
   line-height: 1.7;
-  color: #333333;
+  color: var(--text-body);
 }
 
 a {
-  color: #2563eb;
+  color: var(--legacy-accent);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #1d4ed8;
+  color: var(--legacy-accent-hover);
   text-decoration: underline;
 }
 
 /* Navbar */
 /* .navbar {
-  background: #ffffff;
+  background: var(--surface);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -71,13 +71,13 @@ a:hover {
 }
 
 .navbar-menu a {
-  color: #1a1a1a;
+  color: var(--text-strong);
   font-weight: 500;
 } */
 
 /* Navbar base styles */
 .navbar {
-  background: #ffffff;
+  background: var(--surface);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -102,7 +102,7 @@ a:hover {
 }
 
 .navbar-menu a {
-  color: #1a1a1a;
+  color: var(--text-strong);
   font-weight: 500;
   text-decoration: none;
 }
@@ -120,7 +120,7 @@ a:hover {
   display: block;
   width: 25px;
   height: 3px;
-  background: #1a1a1a;
+  background: var(--text-strong);
   margin: 5px 0;
   transition: 0.3s;
 }
@@ -137,7 +137,7 @@ a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background: #ffffff;
+    background: var(--surface);
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
@@ -160,7 +160,7 @@ a:hover {
 }
 
 .logo {
-  color: #2563eb;
+  color: var(--legacy-accent);
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -168,7 +168,7 @@ a:hover {
 /* Hero Section */
 .hero {
   padding: 1rem 1rem;
-  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  background: linear-gradient(to bottom, var(--surface-subtle), var(--page-bg));
   margin-top: 0;
 }
 
@@ -181,12 +181,12 @@ a:hover {
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #1a1a1a;
+  color: var(--text-strong);
 }
 
 .hero-content p {
   font-size: 1.25rem;
-  color: #4b5563;
+  color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -218,7 +218,7 @@ a:hover {
 
 .profile-description p {
   font-size: 1.25rem;
-  color: #4b5563;
+  color: var(--text-secondary);
   margin: 0;
   line-height: 1.7;
   flex: 1;
@@ -227,7 +227,7 @@ a:hover {
 
 .profile-description p strong {
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-strong);
 }
 
 @media (max-width: 768px) {
@@ -248,7 +248,7 @@ a:hover {
 }
 
 .menu-category-list li {
-  background: #ffffff;
+  background: var(--surface);
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
@@ -271,19 +271,19 @@ a:hover {
 .menu-item-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-strong);
   margin-bottom: 0.5rem;
 }
 
 .menu-item-description {
-  color: #4b5563;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
 /* Footer */
 .footer {
-  background: #f8fafc;
+  background: var(--surface-subtle);
   padding: 3rem 2rem;
   margin-top: 4rem;
 }
@@ -299,12 +299,12 @@ a:hover {
 }
 
 .footer-links a {
-  color: #4b5563;
+  color: var(--text-secondary);
   margin: 0 1rem;
 }
 
 .footer p {
-  color: #6b7280;
+  color: var(--text-tertiary);
   font-size: 0.875rem;
 }
 
@@ -319,7 +319,7 @@ a:hover {
 }
 
 .publication-card {
-  background: #ffffff;
+  background: var(--surface);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -340,7 +340,7 @@ a:hover {
 }
 
 .publication-title a {
-  color: #2563eb;
+  color: var(--legacy-accent);
   text-decoration: none;
 }
 
@@ -350,7 +350,7 @@ a:hover {
 
 .publication-authors {
   font-size: 0.9rem;
-  color: #4b5563;
+  color: var(--text-secondary);
   margin-bottom: 0rem;
   line-height: 1.5;
 }
@@ -364,17 +364,17 @@ a:hover {
 }
 
 .publication-venue {
-  color: #3e8cb7;
+  color: var(--venue-legacy);
   font-style: italic;
 }
 
 .publication-year {
-  color: #6b7280;
+  color: var(--text-tertiary);
 }
 
 .publication-metrics {
   font-size: 0.875rem;
-  color: #059669;
+  color: var(--success);
 }
 
 .view-more-publications {
@@ -385,7 +385,7 @@ a:hover {
 .view-more-publications a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #2563eb;
+  background: var(--legacy-accent);
   color: white;
   border-radius: 6px;
   font-weight: 500;
@@ -393,7 +393,7 @@ a:hover {
 }
 
 .view-more-publications a:hover {
-  background: #1d4ed8;
+  background: var(--legacy-accent-hover);
   text-decoration: none;
 }
 
@@ -404,7 +404,7 @@ a:hover {
 
 /* Infinite Logo Scroll */
 .infinite-scroll-wrapper {
-  background: #ffffff;
+  background: var(--surface);
   padding: 2rem 0;
   position: relative;
   width: 100%;
@@ -467,12 +467,12 @@ a:hover {
 
 .infinite-scroll-wrapper::before {
   left: 0;
-  background: linear-gradient(to right, #ffffff, transparent);
+  background: linear-gradient(to right, var(--page-bg), transparent);
 }
 
 .infinite-scroll-wrapper::after {
   right: 0;
-  background: linear-gradient(to left, #ffffff, transparent);
+  background: linear-gradient(to left, var(--page-bg), transparent);
 }
 
 @media (max-width: 768px) {

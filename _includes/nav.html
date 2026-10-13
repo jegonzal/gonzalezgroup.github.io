@@ -9,6 +9,56 @@
         <li><a href="{{ '/#publications' | relative_url }}">Publications</a></li>
         <li><a href="{{ '/bio/' | relative_url }}"{% if page.url == '/bio/' %} aria-current="page"{% endif %}>Bio</a></li>
         <li><a href="{{ '/#activities' | relative_url }}">Activities</a></li>
+        <li class="theme-toggle-item">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Color theme: match system" title="Color theme: match system">
+            <svg class="icon-system" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+            <svg class="icon-light" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></g></svg>
+            <svg class="icon-dark" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7z" fill="currentColor"/></svg>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
+  <script>
+    (function () {
+      var button = document.getElementById('theme-toggle');
+      if (!button) return;
+      var root = document.documentElement;
+      var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+      var names = { system: 'match system', light: 'light', dark: 'dark' };
+
+      function systemTheme() { return media && media.matches ? 'dark' : 'light'; }
+      function currentPref() { return root.getAttribute('data-theme-pref') || 'system'; }
+      // From "system", switch to the opposite of what is showing so the first
+      // click always changes the page; then the other theme; then back to system.
+      function nextPref(pref) {
+        var opposite = systemTheme() === 'dark' ? 'light' : 'dark';
+        if (pref === 'system') return opposite;
+        if (pref === opposite) return opposite === 'dark' ? 'light' : 'dark';
+        return 'system';
+      }
+      function label() {
+        var pref = currentPref();
+        var text = 'Color theme: ' + names[pref] + '. Switch to ' + names[nextPref(pref)] + '.';
+        button.setAttribute('aria-label', text);
+        button.setAttribute('title', text);
+      }
+      function apply(pref) {
+        root.setAttribute('data-theme-pref', pref);
+        if (pref === 'system') root.removeAttribute('data-theme');
+        else root.setAttribute('data-theme', pref);
+        try {
+          if (pref === 'system') localStorage.removeItem('theme');
+          else localStorage.setItem('theme', pref);
+        } catch (e) {}
+        label();
+      }
+
+      button.addEventListener('click', function () { apply(nextPref(currentPref())); });
+      if (media) {
+        if (media.addEventListener) media.addEventListener('change', label);
+        else if (media.addListener) media.addListener(label);
+      }
+      label();
+    })();
+  </script>

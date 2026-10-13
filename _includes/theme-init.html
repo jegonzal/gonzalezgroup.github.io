@@ -1,0 +1,12 @@
+  <script>
+    (function () {
+      var pref = 'system';
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') pref = stored;
+      } catch (e) {}
+      var root = document.documentElement;
+      root.setAttribute('data-theme-pref', pref);
+      if (pref !== 'system') root.setAttribute('data-theme', pref);
+    })();
+  </script>
