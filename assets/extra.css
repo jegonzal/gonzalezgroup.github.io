@@ -85,7 +85,7 @@
   text-align: center; font-size: 0.875rem; font-weight: 500; color: var(--text-tertiary);
   text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem;
 }
-#research, #publications, #activities, [id^="person-"], .era-section, .project-card { scroll-margin-top: 6rem; }
+#research, #publications, #activities, #news, [id^="person-"], .era-section, .project-card { scroll-margin-top: 6rem; }
 
 .era-strip {
   list-style: none; padding: 0; margin: 1.5rem 0 0;

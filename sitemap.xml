@@ -7,4 +7,5 @@ layout: null
   <url><loc>{{ site.url }}/research/</loc></url>
   <url><loc>{{ site.url }}/bio/</loc></url>
   <url><loc>{{ site.url }}/assets/joseph_gonzalez_cv.pdf</loc></url>
+  <url><loc>{{ site.url }}/talks/2026-10-14-fisher-center-big-ideas-behind-ai.pdf</loc></url>
 </urlset>
