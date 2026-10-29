@@ -104,13 +104,13 @@ schema: research
       <section class="guiding-question" id="guiding-question" aria-labelledby="guiding-question-heading">
         <h3 id="guiding-question-heading" class="subsection-title">The Question Behind the Research</h3>
         <blockquote class="question-quote"><p>{{ research.guiding_question }}</p></blockquote>
-        <p>I have used this question to choose research directions throughout my career. In each case I assumed that someone would solve the hot problem of the day, and I asked what new problems their solution would create.</p>
+        <p>I have used this question to choose research directions throughout my career. In each case I assumed that someone would solve the important problem of the day, and I asked what new problems their solution would create.</p>
         <ol class="bet-strip">
           {% assign bets_newest_first = research.bets | reverse %}{% for b in bets_newest_first %}
           <li class="era-card">
             <a class="era-link" href="#{{ b.anchor }}">
               <span class="era-years">{{ b.year }}</span>
-              <span class="bet-context"><strong>The hot problem:</strong> {{ b.context }}</span>
+              <span class="bet-context"><strong>The important problem:</strong> {{ b.context }}</span>
               <span class="bet-text"><strong>The bet:</strong> {{ b.bet }}</span>
               <span class="era-projects"><strong>{% if b.year == 'Today' %}Now working on:{% else %}What followed:{% endif %}</strong> {{ b.result }}</span>
             </a>

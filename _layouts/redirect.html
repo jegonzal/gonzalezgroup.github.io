@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title | default: site.title | escape }}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.redirect_to }}">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
+</head>
+<body>
+  <p>This page has moved to <a href="{{ page.redirect_to | relative_url }}">{{ site.url }}{{ page.redirect_to }}</a>.</p>
+</body>
+</html>

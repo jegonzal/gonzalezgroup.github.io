@@ -14,12 +14,16 @@
   <meta property="og:title" content="{{ page_title | escape }}">
   <meta property="og:description" content="{{ page_description | escape }}">
   <meta property="og:url" content="{{ page_url }}">
-  <meta property="og:image" content="{{ site.url }}/profile_images/joey.jpg">
+  <meta property="og:image" content="{{ site.url }}/profile_images/joey-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="Joseph E. (Joey) Gonzalez">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@profjoeyg">
   <meta name="twitter:title" content="{{ page_title | escape }}">
   <meta name="twitter:description" content="{{ page_description | escape }}">
-  <meta name="twitter:image" content="{{ site.url }}/profile_images/joey.jpg">
+  <meta name="twitter:image" content="{{ site.url }}/profile_images/joey-og.jpg">
   <meta name="twitter:image:alt" content="Joseph E. (Joey) Gonzalez">
   {% if site.google_site_verification != empty and site.google_site_verification %}
   <meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">
@@ -35,4 +39,5 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link href="{{ '/assets/berkeley.css' | relative_url }}" media="screen" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="{{ '/assets/public/favicon.ico' | relative_url }}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>

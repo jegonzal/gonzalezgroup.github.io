@@ -172,6 +172,12 @@
 .fact-list { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.5rem; }
 .fact-list dt { font-weight: 600; color: var(--text-secondary); }
 .fact-list dd { margin: 0; }
+.teaching-current { padding: 1rem 1.25rem; border-left: 4px solid var(--accent-rule); background: var(--surface-subtle); box-sizing: border-box; }
+.teaching-current p { margin: 0; }
+.teaching-offerings { list-style: none; padding: 0; margin: 0.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem 0; }
+.teaching-offerings li { font-size: 1rem; }
+.teaching-offerings li + li::before { content: "·"; margin: 0 0.6rem; color: var(--text-tertiary); }
+.teaching-note { font-size: 0.85rem; color: var(--text-tertiary); }
 
 @media (max-width: 900px) {
   .era-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }

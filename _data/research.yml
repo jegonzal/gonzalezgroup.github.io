@@ -287,19 +287,24 @@ eras:
           user prompts, aggregated into statistically grounded ratings to create an
           open, continually updated benchmark. Companion work introduced MT-Bench and
           LLM-as-a-Judge, using strong models to evaluate other models, and released LMSYS-Chat-1M, a dataset of
-          real-world conversations.
+          real-world conversations. Search Arena extended the platform to
+          search-augmented LLMs.
         people: >-
           I started Chatbot Arena within LMSYS and ran its early experiments
           together with students and collaborators, including
           <a href="%BASE%/#person-lianmin-zheng">Lianmin Zheng</a>, Wei-Lin
-          Chiang and Ying Sheng. My student
-          <a href="%BASE%/#person-dacheng-li">Dacheng Li</a> also contributed.
+          Chiang and Ying Sheng. My students
+          <a href="%BASE%/#person-dacheng-li">Dacheng Li</a>,
+          <a href="%BASE%/#person-lisa-dunlap">Lisa Dunlap</a>,
+          <a href="%BASE%/#person-patrick-wu">Patrick Wu</a> and
+          <a href="%BASE%/#person-mihran-miroyan">Mihran Miroyan</a> also contributed.
         contributors: ["Wei-Lin Chiang", "Lianmin Zheng", "Ying Sheng", "Anastasios Nikolas Angelopoulos", "Tianle Li", "Dacheng Li", "Hao Zhang", "Banghua Zhu", "Michael Jordan", "Joseph E. Gonzalez", "Ion Stoica"]
         paper: { title: "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference", url: "https://arxiv.org/abs/2403.04132", venue: "ICML", year: 2024 }
         links:
           - { label: "Chatbot Arena (ICML 2024)", url: "https://arxiv.org/abs/2403.04132" }
           - { label: "LLM-as-a-Judge & MT-Bench (NeurIPS 2023)", url: "https://arxiv.org/abs/2306.05685" }
           - { label: "LMSYS-Chat-1M (ICLR 2024)", url: "https://arxiv.org/abs/2309.11998" }
+          - { label: "Search Arena (ICLR 2026)", url: "https://arxiv.org/abs/2506.05334" }
       - id: gorilla
         figure: { src: "gorilla.png", alt: "Gorilla pipeline: API docs from Torch Hub, TensorFlow Hub and HuggingFace become instruction-API pairs that train Gorilla, which at inference uses a retriever to emit correct API calls." }
         name: "Gorilla"
@@ -472,8 +477,8 @@ eras:
         name: "Evaluating agents"
         tagline: "Measuring agents in the wild and diagnosing failures"
         description: >-
-          Search Arena extends human-preference evaluation to search-augmented
-          LLMs. MAST is a taxonomy of why multi-agent LLM systems fail.
+          Search Arena, part of the Chatbot Arena effort, extends human-preference
+          evaluation to search-augmented LLMs. MAST is a taxonomy of why multi-agent LLM systems fail.
           Characterizing Agents in Production studies how agents are actually
           built and deployed.
         people: >-
@@ -607,7 +612,7 @@ eras:
 
 # The question behind the agenda, and the bets it produced. Rendered at the
 # top of /research/ (Joey's account, September 2026).
-guiding_question: "If we solve today's hot problems, what new problems will those solutions create?"
+guiding_question: "If we solve today's important problems, what new problems will those solutions create?"
 bets:
   - year: "2008"
     context: "Building better models."

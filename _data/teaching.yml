@@ -1,0 +1,60 @@
+# Courses taught at UC Berkeley. Order courses by most recent offering and list
+# offerings newest first. "current" marks the offering shown in the callout.
+- id: cs189
+  code: "CS 189/289A"
+  name: "Introduction to Machine Learning"
+  description: "A large upper-division and graduate course covering foundational and modern machine learning, from probability, regression and optimization to neural networks, transformers and generative models. Co-taught with Narges Norouzi."
+  offerings:
+    - { term: "Fall 2026", url: "https://eecs189.org/fa26/", current: true, note: "current" }
+    - { term: "Fall 2025", url: "https://eecs189.org/fa25/" }
+
+- id: data100
+  code: "Data 100"
+  name: "Principles and Techniques of Data Science"
+  description: "An intermediate data science course that I co-created, bridging Data 8 and upper-division courses in computer science and statistics. It covers question formulation, data cleaning, visualization, statistical inference and machine learning on real-world data, and enrolls more than 1,000 students from across campus each semester."
+  offerings:
+    - { term: "Fall 2024", url: "https://ds100.org/fa24/" }
+    - { term: "Spring 2024", url: "https://ds100.org/sp24/" }
+    - { term: "Spring 2021", url: "https://ds100.org/sp21/" }
+    - { term: "Spring 2020", url: "https://ds100.org/sp20/" }
+    - { term: "Spring 2018", url: "https://ds100.org/sp18/" }
+    - { term: "Fall 2017", url: "https://ds100.org/fa17/" }
+    - { term: "Spring 2017", url: "https://ds100.org/sp17/" }
+
+- id: ai-systems
+  code: "CS 294-162"
+  name: "AI Systems Graduate Seminar"
+  description: "A graduate seminar on machine learning and AI systems research that combines paper reading, structured discussion and class projects. The Fall 2023 offering focused on large language models and the systems that support them."
+  offerings:
+    - { term: "Fall 2023", url: "https://learning-systems.notion.site/AI-Systems-LLM-Edition-294-162-Fall-2023-661887583bd340fa851e6a8da8e29abb", note: "LLM Edition" }
+    - { term: "Spring 2022", url: "https://ucbrise.github.io/cs294-ai-sys-sp22/" }
+    - { term: "Fall 2019", url: "https://ucbrise.github.io/cs294-ai-sys-fa19/" }
+    - { term: "Spring 2019", url: "https://ucbrise.github.io/cs294-ai-sys-sp19/", note: "as CS 294-159" }
+
+- id: data8
+  code: "Data 8"
+  name: "Foundations of Data Science"
+  description: "Berkeley's large introductory data science course, which combines computational thinking, inferential thinking and analysis of real-world data."
+  offerings:
+    - { term: "Spring 2023", url: "https://www.data8.org/sp23/" }
+
+- id: thought-leaders
+  code: "CS 198-100"
+  name: "Conversations with Thought Leaders in Technology"
+  description: "An interactive seminar, created during the COVID-19 pandemic and co-hosted with Vik Singh, in which students wrote and voted on questions for live conversations with technology and venture capital leaders about their careers and the lessons they learned."
+  offerings:
+    - { term: "Fall 2020", url: "https://ucbrise.github.io/thought-leaders-fa20/" }
+
+- id: rise-seminar
+  code: "CS 294-20"
+  name: "RISELab Seminar"
+  description: "A research seminar for the newly formed RISELab, reading and discussing papers on learning systems, big data systems and systems security."
+  offerings:
+    - { term: "Fall 2016", url: "https://ucbrise.github.io/cs294-rise-fa16/" }
+
+- id: cs186
+  code: "CS 186"
+  name: "Introduction to Database Systems"
+  description: "A co-taught course of more than 500 students, for which I helped update the material and created new lectures on topics where databases and data science meet."
+  offerings:
+    - { term: "Spring 2016" }

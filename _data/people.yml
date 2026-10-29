@@ -199,6 +199,8 @@
         "name": "Eyal Sela",
         "website": "https://dblp.org/pid/185/9249.html",
         "research_interest": "Algorithmic methods for efficient deep learning inference",
+        "years": "2018–2026",
+        "thesis": "Algorithmic Methods For Efficient Deep Learning Inference on the Edge",
         "projects": [
           "clipper"
         ]

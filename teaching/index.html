@@ -1,0 +1,37 @@
+---
+layout: default
+title: "Teaching · Joseph E. Gonzalez, UC Berkeley"
+description: "Courses taught by Joseph E. Gonzalez at UC Berkeley, including CS 189/289A Introduction to Machine Learning, Data 100 and the AI Systems graduate seminar, with links to each course website."
+permalink: /teaching/
+schema: teaching
+---
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Teaching</h1>
+      <p>Joseph E. (Joey) Gonzalez · Professor of EECS, UC Berkeley</p>
+    </div>
+  </section>
+
+  <div class="wrapper bio-page teaching-page">
+    <section class="profile-content">
+      <p class="section-lede">Courses I have taught at UC Berkeley, most recent first. Each course website has the full materials for that offering.</p>
+
+      {% for course in site.data.teaching %}{% for o in course.offerings %}{% if o.current %}
+      <section class="bio-block teaching-current" id="current" aria-labelledby="current-heading">
+        <h2 id="current-heading" class="bio-heading">Currently teaching <span class="bio-length">{{ o.term }}</span></h2>
+        <p><a href="{{ o.url }}"><strong>{{ course.code }}: {{ course.name }}</strong></a>{% if course.id == 'cs189' %}, co-taught with Narges Norouzi{% endif %}.</p>
+      </section>
+      {% endif %}{% endfor %}{% endfor %}
+
+      {% for course in site.data.teaching %}
+      <article class="bio-block teaching-course" id="{{ course.id }}" aria-labelledby="{{ course.id }}-heading">
+        <h2 id="{{ course.id }}-heading" class="bio-heading">{{ course.code }}: {{ course.name }}</h2>
+        <p>{{ course.description }}</p>
+        <ul class="teaching-offerings" aria-label="{{ course.code }} offerings">
+          {% for o in course.offerings %}<li>{% if o.url %}<a href="{{ o.url }}">{{ o.term }}</a>{% else %}{{ o.term }}{% endif %}{% if o.note %} <span class="teaching-note">{{ o.note }}</span>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </section>
+  </div>

@@ -101,7 +101,7 @@
   },
   {
     "name": "ERDOS",
-    "url": "https://people.eecs.berkeley.edu/~pschafhalter/pub/erdos/pydoc/",
+    "url": "https://erdos.readthedocs.io/",
     "image": "erdos.jpg"
   }
 ]
