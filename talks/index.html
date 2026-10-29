@@ -1,0 +1,37 @@
+---
+layout: default
+title: "Talks · Joseph E. Gonzalez, UC Berkeley"
+description: "Selected talks by Joseph E. Gonzalez at UC Berkeley, most recent first, with slides where available."
+permalink: /talks/
+---
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Talks</h1>
+      <p>Joseph E. (Joey) Gonzalez · Professor in EECS, UC Berkeley</p>
+    </div>
+  </section>
+
+  <div class="wrapper bio-page talks-page">
+    <section class="profile-content">
+      <p class="section-lede">Selected talks, most recent first. Slides are linked where available.</p>
+
+      {% for talk in site.data.talks.featured %}
+      <article class="bio-block talk" id="{{ talk.id }}" aria-labelledby="{{ talk.id }}-heading">
+        <h2 id="{{ talk.id }}-heading" class="bio-heading">{{ talk.title }}</h2>
+        {% if talk.description %}<p>{{ talk.description }}</p>{% endif %}
+        <ul class="talk-presentations">
+          {% for p in talk.presentations %}<li><strong>{{ p.display }}:</strong> {% if p.kind %}{{ p.kind }}, {% endif %}{% if p.event_url %}<a href="{{ p.event_url }}">{{ p.event }}</a>{% else %}{{ p.event }}{% endif %}{% if p.location %}, {{ p.location }}{% endif %}.{% if p.slides %} <a href="{{ p.slides | relative_url }}">Slides (PDF)</a>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+
+      <section class="bio-block" id="selected-talks" aria-labelledby="selected-talks-heading">
+        <h2 id="selected-talks-heading" class="bio-heading">Other selected talks</h2>
+        <ul class="talk-selected">
+          {% for t in site.data.talks.selected %}<li><strong>{{ t.when }}:</strong> {% if t.kind %}{{ t.kind }}, {% endif %}{{ t.event }}{% if t.title %}, “{{ t.title }}{% unless t.title contains "?" %}.{% endunless %}”{% else %}.{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </section>
+  </div>

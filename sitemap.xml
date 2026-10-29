@@ -8,5 +8,9 @@ layout: null
   <url><loc>{{ site.url }}/bio/</loc></url>
   <url><loc>{{ site.url }}/teaching/</loc></url>
   <url><loc>{{ site.url }}/assets/joseph_gonzalez_cv.pdf</loc></url>
+  <url><loc>{{ site.url }}/talks/</loc></url>
   <url><loc>{{ site.url }}/talks/2026-10-14-fisher-center-big-ideas-behind-ai.pdf</loc></url>
+  <url><loc>{{ site.url }}/talks/2026-08-20-apple-hcml-north-star-for-ai-research.pdf</loc></url>
+  <url><loc>{{ site.url }}/talks/2026-05-22-samsung-north-star-for-ai-research.pdf</loc></url>
+  <url><loc>{{ site.url }}/talks/2026-04-23-amazon-north-star-for-ai-research.pdf</loc></url>
 </urlset>

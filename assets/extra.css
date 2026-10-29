@@ -233,3 +233,6 @@
   .project-group, .guiding-question { scroll-margin-top: 9rem; }
 }
 .bet-context strong, .era-projects strong { font-weight: 600; color: var(--text-secondary); }
+.talk-presentations, .talk-selected { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+.talk-presentations li, .talk-selected li { font-size: 1rem; margin: 0.35rem 0; }
+.talk-presentations strong, .talk-selected strong { font-weight: 600; }

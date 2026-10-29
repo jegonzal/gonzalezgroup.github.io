@@ -1,0 +1,65 @@
+# Talks, newest first. "featured" talks are listed with each presentation
+# (newest first) and optional slides; order featured talks by their most
+# recent presentation. "selected" is a compact list of other talks.
+featured:
+  - id: big-ideas-behind-ai
+    title: "The Big Ideas Behind AI"
+    presentations:
+      - date: 2026-10-14
+        display: "October 14, 2026"
+        kind: "Keynote"
+        event: "Policy Advisory Board meeting, Fisher Center for Real Estate + Urban Economics"
+        event_url: "https://fishercenter.berkeley.edu/"
+        location: "UC Berkeley Haas School of Business"
+        slides: "/talks/2026-10-14-fisher-center-big-ideas-behind-ai.pdf"
+
+  - id: north-star
+    title: "A North Star for AI Research in the Era of AGI and Frontier Labs"
+    description: "How academic research can choose directions while frontier labs rapidly advance general-purpose models, guided by the question of what new problems today's solutions will create, with examples from my group's work on systems for AI agents."
+    presentations:
+      - date: 2026-08-20
+        display: "August 20, 2026"
+        kind: "Plenary talk"
+        event: "Workshop on Human-Centered Machine Learning, hosted by Apple"
+        location: "Apple Park, Cupertino"
+        slides: "/talks/2026-08-20-apple-hcml-north-star-for-ai-research.pdf"
+      - date: 2026-05-22
+        display: "May 22, 2026"
+        kind: "Invited talk"
+        event: "Samsung Research America AI Summit"
+        location: "Mountain View"
+        slides: "/talks/2026-05-22-samsung-north-star-for-ai-research.pdf"
+      - date: 2026-04-23
+        display: "April 23, 2026"
+        kind: "Invited faculty talk"
+        event: "Amazon AI PhD Fellowship Summit"
+        location: "Seattle"
+        slides: "/talks/2026-04-23-amazon-north-star-for-ai-research.pdf"
+
+selected:
+  - { when: "May 2026", kind: "Keynote", event: "Data Discovery Symposium, UC Berkeley" }
+  - { when: "September 2025", kind: "Keynote", event: "Samsung AI Forum (online)" }
+  - { when: "2022", event: "Cloud Intelligence and AIOps Workshop", title: "The Evolution of Model Deployment from the Cloud to the Sky" }
+  - { when: "2022", event: "China Database Committee Conference", title: "The Co-Evolution of Data and ML Systems from the Cloud to the Sky" }
+  - { when: "2021", event: "UC Berkeley Office of the CTO Cloud Computing Meetup", title: "To the Cloud and Beyond: A Brief View of Cloud Computing Research at UC Berkeley" }
+  - { when: "2020", kind: "Colloquium", event: "Department of Computer and Information Science, University of Pennsylvania", title: "Advances in Machine Learning Systems Research" }
+  - { when: "2020", kind: "Keynote", event: "14th Annual Machine Learning Symposium, New York Academy of Sciences", title: "Advances in AI-Systems Research" }
+  - { when: "2020", kind: "Keynote", event: "ISSCC Forum on Machine Learning Processors", title: "Hardware Opportunities in the Machine Learning Lifecycle" }
+  - { when: "2020", kind: "Keynote", event: "Workshop on MLOps at MLSys 2020", title: "Advances in Prediction Serving Systems" }
+  - { when: "2018", kind: "Keynote", event: "Data Eng Conference", title: "Managing the Machine Learning Lifecycle" }
+  - { when: "2017", kind: "Keynote", event: "SOSP Workshop", title: "Research at the Intersection of AI and Systems" }
+  - { when: "2017", kind: "Keynote", event: "AAAI Systems Workshop", title: "Rise to the Challenges of AI Systems" }
+  - { when: "2016", kind: "Keynote", event: "ICML Workshop", title: "Prediction Serving: What Happens After Learning?" }
+  - { when: "2015", kind: "Keynote", event: "NIPS Workshop", title: "Intelligent Services: Serving Machine Learning Predictions" }
+  - { when: "2015", event: "ODSC", title: "Intelligent Services: Serving Machine Learning Predictions" }
+  - { when: "2015", event: "CIDR", title: "The Missing Piece in Complex Analytics: Low Latency, Scalable Model Management and Serving with Velox" }
+  - { when: "2014", event: "OSDI", title: "GraphX: Graph Processing in a Distributed Dataflow Framework" }
+  - { when: "2014", event: "Annual Meeting of the International Society for Bayesian Analysis (ISBA)", title: "Concurrency Control for Scalable Bayesian Inference" }
+  - { when: "2014", kind: "Tutorial", event: "International Conference on Machine Learning (ICML)", title: "Emerging Systems for Large-Scale Machine Learning" }
+  - { when: "2014", event: "IPDPS, Session on Graph Algorithms Building Blocks", title: "GraphX: Unifying Table and Graph Analytics" }
+  - { when: "2014", event: "NetApp ATG University Day", title: "Large Scale Graph Analytics: Applications and Systems" }
+  - { when: "2014", kind: "Keynote", event: "Workshop on Big Graph Mining at WWW", title: "From Graphs to Tables: The Design of Scalable Systems for Graph Analytics" }
+  - { when: "2013", event: "SIAM CSE Minisymposium on Frontiers in Large-Scale Graph Analysis", title: "Large-Scale Graph-Structured Machine Learning: GraphLab in the Cloud and GraphChi in Your PC" }
+  - { when: "2012", event: "OSDI", title: "PowerGraph: Distributed Graph-Parallel Computation on Natural Graphs" }
+  - { when: "2011", event: "IDGA Data Center Consolidation Summit", title: "GraphLab: A New Parallel Framework for Machine Learning" }
+  - { when: "2009", event: "UAI", title: "Distributed Parallel Inference on Large Factor Graphs" }
