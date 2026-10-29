@@ -20,7 +20,7 @@ permalink: /talks/
         <h2 id="{{ talk.id }}-heading" class="bio-heading">{{ talk.title }}</h2>
         {% if talk.description %}<p>{{ talk.description }}</p>{% endif %}
         <ul class="talk-presentations">
-          {% for p in talk.presentations %}<li><strong>{{ p.display }}:</strong> {% if p.kind %}{{ p.kind }}, {% endif %}{% if p.event_url %}<a href="{{ p.event_url }}">{{ p.event }}</a>{% else %}{{ p.event }}{% endif %}{% if p.location %}, {{ p.location }}{% endif %}.{% if p.slides %} <a href="{{ p.slides | relative_url }}">Slides (PDF)</a>{% endif %}</li>
+          {% for p in talk.presentations %}<li><strong>{{ p.display }}:</strong> {% if p.kind %}{{ p.kind }}, {% endif %}{% if p.event_url %}<a href="{{ p.event_url }}">{{ p.event }}</a>{% else %}{{ p.event }}{% endif %}{% if p.location %}, {{ p.location }}{% endif %}.{% if p.slides %} <a href="{{ p.slides | relative_url }}" type="application/pdf" aria-label="Slides (PDF): {{ talk.title | escape }}, {{ p.event | escape }}, {{ p.display }}">Slides (PDF)</a>{% endif %}</li>
           {% endfor %}
         </ul>
       </article>
